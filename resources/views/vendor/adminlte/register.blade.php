@@ -58,6 +58,41 @@
                         </span>
                     @endif
                 </div>
+
+                <div class="form-group has-feedback {{ $errors->has('lattes') ? 'has-error' : '' }}">
+                    <input type="text" name="lattes" class="form-control" value="{{ old('lattes') }}"
+                           placeholder="Lattes">
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    @if ($errors->has('lattes'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('lattes') }}</strong>
+                        </span>
+                    @endif
+                </div>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label for="">Formação</label>
+                    <div>
+                        <select id="formation" name="formation" class="form-control">
+                            <option value="1">Option one</option>
+                            <option value="2">Option two</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label for="">Instituição</label>
+                    <div>
+                        <select id="institution" name="institution" class="form-control">
+                            <option value="1">Option one</option>
+                            <option value="2">Option two</option>
+                        </select>
+                    </div>
+                </div>
+
+
                 <button type="submit"
                         class="btn btn-primary btn-block btn-flat"
                 >{{ trans('adminlte::adminlte.register') }}</button>
