@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Institution;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -70,16 +71,17 @@ class UsersController extends Controller
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(UserCreateRequest $request)
+    public function store(Request $request)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
+            $request['password'] = bcrypt($request['password']);
             $user = $this->repository->create($request->all());
 
             $response = [
-                'message' => 'User created.',
+                'message' => 'Usuário cadastrado!',
                 'data'    => $user->toArray(),
             ];
 
@@ -200,5 +202,10 @@ class UsersController extends Controller
         }
 
         return redirect()->back()->with('message', 'User deleted.');
+    }
+
+    public function cadastrarPesquisador(Institution $institutions){
+        $institutions = $institutions->all();
+        return view('vendor.adminlte.register', compact('institutions'));
     }
 }

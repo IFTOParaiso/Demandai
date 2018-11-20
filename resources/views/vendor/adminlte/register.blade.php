@@ -15,7 +15,18 @@
 
         <div class="register-box-body">
             <p class="login-box-msg">{{ trans('adminlte::adminlte.register_message') }}</p>
-            <form action="{{ url(config('adminlte.register_url', 'register')) }}" method="post">
+
+            @if(session('message'))
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p>{{session('message')}}</p>
+                </div>
+            @endif
+
+
+            <form action="{{route('registrar-pesquisador')}}" method="post">
                 {!! csrf_field() !!}
 
                 <div class="form-group has-feedback {{ $errors->has('name') ? 'has-error' : '' }}">
@@ -75,8 +86,9 @@
                     <label for="">Formação</label>
                     <div>
                         <select id="formation" name="formation" class="form-control">
-                            <option value="1">Option one</option>
-                            <option value="2">Option two</option>
+                            <option value="1">Graduado</option>
+                            <option value="2">Mestre</option>
+                            <option value="3">Doutor</option>
                         </select>
                     </div>
                 </div>
@@ -85,12 +97,17 @@
                 <div class="form-group">
                     <label for="">Instituição</label>
                     <div>
-                        <select id="institution" name="institution" class="form-control">
-                            <option value="1">Option one</option>
-                            <option value="2">Option two</option>
+                        <select id="institution_id" name="institution_id" class="form-control">
+                            @forelse($institutions as $institution)
+                                <option value="{{$institution->id}}">{{$institution->name}}</option>
+                            @empty
+                                Não há instituições
+                            @endforelse
                         </select>
                     </div>
                 </div>
+
+                <input type="hidden" id="status" name="status" value="1">
 
 
                 <button type="submit"

@@ -24,7 +24,7 @@ class User extends Authenticatable implements Transformable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','formation','lattes','status','institution_id'
     ];
     protected $hidden = [
         'password', 'remember_token',

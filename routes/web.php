@@ -18,4 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('instutions', 'InstitutionsController@index')->name('instutions');
+
+//=====================ROTAS_PESQUISADOR=====================================
+
+Route::get('pesquisador/cadastrar-pesquisador', 'UsersController@cadastrarPesquisador')->name('cadastrar-pesquisador');
+Route::post('pesquisador/registrar', 'UsersController@store')->name('registrar-pesquisador');
