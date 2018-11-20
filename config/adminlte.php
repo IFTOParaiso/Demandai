@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Demandaí</b>IFTO',
+    'logo' => '<b>Demandaí</b> IFTO',
 
     'logo_mini' => '<b>Dm</b>Aí',
 
@@ -108,15 +108,10 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
-        [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
+        'MENU',
         [
             'text'        => 'Pages',
-            'url'         => 'admin/pages',
+            'url'         => '#',
             'icon'        => 'file',
             'label'       => 4,
             'label_color' => 'success',
