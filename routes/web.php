@@ -12,9 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('vendor.adminlte.login');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//=====================ROTAS_PESQUISADOR=====================================
+
+Route::get('pesquisador/cadastrar-pesquisador', 'UsersController@cadastrarPesquisador')->name('cadastrar-pesquisador');
+Route::post('pesquisador/registrar', 'UsersController@store')->name('registrar-pesquisador');
