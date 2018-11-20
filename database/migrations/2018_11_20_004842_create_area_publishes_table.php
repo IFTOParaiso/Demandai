@@ -16,8 +16,10 @@ class CreateAreaPublishesTable extends Migration
 	public function up()
 	{
 		Schema::create('area_publishes', function(Blueprint $table) {
-            $table->increments('id');
-
+            $table->integer('area_id')->unsigned();
+			$table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
+			$table->integer('publish_id')->unsigned();
+			$table->foreign('publish_id')->references('id')->on('publishes')->onDelete('cascade');
             $table->timestamps();
 		});
 	}

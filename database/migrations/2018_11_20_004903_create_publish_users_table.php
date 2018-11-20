@@ -16,8 +16,11 @@ class CreatePublishUsersTable extends Migration
 	public function up()
 	{
 		Schema::create('publish_users', function(Blueprint $table) {
-            $table->increments('id');
-
+            $table->integer('interest');
+			$table->integer('user_id')->unsigned();
+			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+			$table->integer('publish_id')->unsigned();
+			$table->foreign('publish_id')->references('id')->on('publishes')->onDelete('cascade');
             $table->timestamps();
 		});
 	}

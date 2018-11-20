@@ -17,7 +17,10 @@ class CreatePublishesTable extends Migration
 	{
 		Schema::create('publishes', function(Blueprint $table) {
             $table->increments('id');
-
+			$table->string('title');
+			$table->longText('description');
+			$table->date('date_closure');
+			$table->string('link');
             $table->timestamps();
 		});
 	}
