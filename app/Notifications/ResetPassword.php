@@ -42,7 +42,7 @@ class ResetPassword extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('Alterar Senha - EspecializaTi Academy')
+            ->subject('Alterar Senha - Demandaí')
             ->line('Você está recebendo este e-mail porque recebemos um pedido de redefinição de senha para sua conta.')
             ->action('Resetar Senha', url(config('app.url').route('password.reset', $this->token, false)))
             ->line('Se você não solicitou uma alteração da senha, nenhuma ação adicional é necessária.');

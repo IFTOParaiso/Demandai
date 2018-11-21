@@ -70,42 +70,53 @@
                     @endif
                 </div>
 
-                <div class="form-group has-feedback {{ $errors->has('lattes') ? 'has-error' : '' }}">
-                    <input type="text" name="lattes" class="form-control" value="{{ old('lattes') }}"
-                           placeholder="Lattes">
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                    @if ($errors->has('lattes'))
-                        <span class="help-block">
+                @if($tipo_usuario <> 'propi')
+
+                    <div class="form-group has-feedback {{ $errors->has('lattes') ? 'has-error' : '' }}">
+                        <input type="text" name="lattes" class="form-control" value="{{ old('lattes') }}"
+                               placeholder="Lattes">
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        @if ($errors->has('lattes'))
+                            <span class="help-block">
                             <strong>{{ $errors->first('lattes') }}</strong>
                         </span>
-                    @endif
-                </div>
-
-                <!-- Select Basic -->
-                <div class="form-group">
-                    <label for="">Formação</label>
-                    <div>
-                        <select id="formation" name="formation" class="form-control">
-                            <option value="1">Graduado</option>
-                            <option value="2">Mestre</option>
-                            <option value="3">Doutor</option>
-                        </select>
+                        @endif
                     </div>
-                </div>
 
-                <!-- Select Basic -->
-                <div class="form-group">
-                    <label for="">Instituição</label>
-                    <div>
-                        <select id="institution_id" name="institution_id" class="form-control">
-                            @forelse($institutions as $institution)
-                                <option value="{{$institution->id}}">{{$institution->name}}</option>
-                            @empty
-                                Não há instituições
-                            @endforelse
-                        </select>
+                    <!-- Select Basic -->
+                    <div class="form-group">
+                        <label for="">Formação</label>
+                        <div>
+                            <select id="formation" name="formation" class="form-control">
+                                <option value="1">Graduado</option>
+                                <option value="2">Mestre</option>
+                                <option value="3">Doutor</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
+
+                    <!-- Select Basic -->
+                    <div class="form-group">
+                        <label for="">Instituição</label>
+                        <div>
+                            <select id="institution_id" name="institution_id" class="form-control">
+                                @forelse($institutions as $institution)
+                                    <option value="{{$institution->id}}">{{$institution->name}}</option>
+                                @empty
+                                    Não há instituições
+                                @endforelse
+                            </select>
+                        </div>
+                    </div>
+                @endif
+
+                @if($tipo_usuario == 'propi')
+                    <input type="hidden" id="tipousuario" name="tipousuario[]" value="2">
+                @endif
+
+                @if($tipo_usuario == 'pesquisador')
+                    <input type="hidden" id="tipousuario" name="tipousuario[]" value="3">
+                @endif
 
                 <input type="hidden" id="status" name="status" value="1">
 
@@ -115,7 +126,7 @@
                 >{{ trans('adminlte::adminlte.register') }}</button>
             </form>
             <div class="auth-links">
-                <a href="{{ url(config('adminlte.login_url', 'login')) }}"
+                <a href="{{ url('/') }}"
                    class="text-center">{{ trans('adminlte::adminlte.i_already_have_a_membership') }}</a>
             </div>
         </div>

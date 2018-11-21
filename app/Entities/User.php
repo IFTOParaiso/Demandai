@@ -37,4 +37,8 @@ class User extends Authenticatable implements Transformable
         $this->notify(new \App\Notifications\ResetPassword($token));
     }
 
+    public function tipoUsuario(){
+        return $this->belongsToMany(TypeUser::class, 'user_type_users', 'user_id', 'type_user_id');
+    }
+
 }

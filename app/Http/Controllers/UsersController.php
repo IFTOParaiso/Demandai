@@ -79,6 +79,8 @@ class UsersController extends Controller
 
             $request['password'] = bcrypt($request['password']);
             $user = $this->repository->create($request->all());
+            $dataform = $request['tipousuario'];
+            $user->tipoUsuario()->sync($dataform);
 
             $response = [
                 'message' => 'Usuário cadastrado!',
@@ -204,9 +206,9 @@ class UsersController extends Controller
         return redirect()->back()->with('message', 'User deleted.');
     }
 
-    public function cadastrarPesquisador(Institution $institutions){
+    public function cadastrarUsuario(Institution $institutions, $tipo_usuario){
         $institutions = $institutions->all();
-        return view('vendor.adminlte.register', compact('institutions'));
+        return view('vendor.adminlte.register', compact('institutions','tipo_usuario'));
     }
 
     public function login($tipo_usuario){

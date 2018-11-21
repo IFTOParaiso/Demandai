@@ -19,8 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//=====================ROTAS_PESQUISADOR=====================================
+//=====================ROTAS_PESQUISADOR================================================================================
 
-Route::get('pesquisador/cadastrar-pesquisador', 'UsersController@cadastrarPesquisador')->name('cadastrar-pesquisador');
+Route::get('cadastrar-usuario/{tipo_usuario}', 'UsersController@cadastrarUsuario')->name('cadastrar-usuario');
 Route::post('pesquisador/registrar', 'UsersController@store')->name('registrar-pesquisador');
 Route::get('login/{tipo_usuario}', 'UsersController@login')->name('login-usuario');

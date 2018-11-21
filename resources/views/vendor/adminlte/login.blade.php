@@ -40,13 +40,13 @@
                     @endif
                 </div>
                 <div class="row">
-                    <div class="col-xs-8">
+                    {{--<div class="col-xs-8">
                         <div class="checkbox icheck">
                             <label>
                                 <input type="checkbox" name="remember"> {{ trans('adminlte::adminlte.remember_me') }}
                             </label>
                         </div>
-                    </div>
+                    </div>--}}
                     <!-- /.col -->
                     <div class="col-xs-4">
                         <button type="submit"
@@ -61,7 +61,7 @@
                 >{{ trans('adminlte::adminlte.i_forgot_my_password') }}</a>
                 <br>
                     @if($tipo_usuario == 'pesquisador')
-                    <a href="{{ route('cadastrar-pesquisador') }}"
+                    <a href="{{ route('cadastrar-usuario', 'pesquisador') }}"
                        class="text-center"
                     >{{ trans('adminlte::adminlte.register_a_new_membership') }}</a>
                         @elseif($tipo_usuario == 'propi' || $tipo_usuario == 'administrador')
