@@ -10,7 +10,7 @@
 
 @section('body')
     <div class="text-right">
-        <a href="{{route('login')}}" class="text-center">Acesso Administrador</a>
+        <a href="{{route('login-usuario', 'administrador')}}" class="text-center">Acesso Administrador</a>
     </div>
     <div class="login-box">
         <div class="login-logo">
@@ -21,11 +21,11 @@
 
                 <div class="form-group has-feedback">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                    <a href="{{route('login')}}" class="btn btn-primary btn-block btn-flat">PROPI</a>
+                    <a href="{{route('login-usuario', 'propi')}}" class="btn btn-primary btn-block btn-flat">PROPI</a>
                 </div>
                 <div class="form-group has-feedback">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                    <a href="{{route('login')}}" class="btn btn-primary btn-block btn-flat">PESQUISADOR</a>
+                    <a href="{{route('login-usuario', 'pesquisador')}}" class="btn btn-primary btn-block btn-flat">PESQUISADOR</a>
                 </div>
         </div>
     </div>

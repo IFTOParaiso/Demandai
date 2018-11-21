@@ -60,11 +60,14 @@
                    class="text-center"
                 >{{ trans('adminlte::adminlte.i_forgot_my_password') }}</a>
                 <br>
-                @if (config('adminlte.register_url', 'register'))
+                    @if($tipo_usuario == 'pesquisador')
                     <a href="{{ route('cadastrar-pesquisador') }}"
                        class="text-center"
                     >{{ trans('adminlte::adminlte.register_a_new_membership') }}</a>
+                        @elseif($tipo_usuario == 'propi' || $tipo_usuario == 'administrador')
+
                 @endif
+
             </div>
         </div>
         <!-- /.login-box-body -->

@@ -208,4 +208,8 @@ class UsersController extends Controller
         $institutions = $institutions->all();
         return view('vendor.adminlte.register', compact('institutions'));
     }
+
+    public function login($tipo_usuario){
+        return view('vendor.adminlte.login', compact('tipo_usuario'));
+    }
 }

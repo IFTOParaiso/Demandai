@@ -23,3 +23,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('pesquisador/cadastrar-pesquisador', 'UsersController@cadastrarPesquisador')->name('cadastrar-pesquisador');
 Route::post('pesquisador/registrar', 'UsersController@store')->name('registrar-pesquisador');
+Route::get('login/{tipo_usuario}', 'UsersController@login')->name('login-usuario');
