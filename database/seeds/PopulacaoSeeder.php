@@ -17,13 +17,23 @@ class PopulacaoSeeder extends Seeder
             'name' => 'participante',
             'email' => 'participante@ifto.com',
             'password' => bcrypt('123123123'),
-            'formation' => 'Mestrado',
+            'formation' => '1',
             'lattes' => 'www.google.com',
             'status' => '1',
             'remember_token' => str_random(10),
             'institution_id'=> '1',
 
-            'celular' => '727.819.4134',
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Administrador',
+            'email' => 'admin@ifto.com',
+            'password' => bcrypt('123456'),
+            'formation' => '1',
+            'lattes' => 'www.google.com',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id'=> '1',
 
         ]);
     }
