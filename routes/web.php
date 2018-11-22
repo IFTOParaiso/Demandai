@@ -22,5 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 //=====================ROTAS_PESQUISADOR================================================================================
 
 Route::get('cadastrar-usuario/{tipo_usuario}', 'UsersController@cadastrarUsuario')->name('cadastrar-usuario');
+Route::get('listar-usuario/{tipo_usuario}', 'UsersController@index')->name('listar-usuario');
 Route::post('pesquisador/registrar', 'UsersController@store')->name('registrar-pesquisador');
 Route::get('login/{tipo_usuario}', 'UsersController@login')->name('login-usuario');

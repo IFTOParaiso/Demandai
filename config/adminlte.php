@@ -118,8 +118,8 @@ return [
         ],
         'ACCOUNT SETTINGS',
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
+            'text' => 'Perfil',
+            'url'  => '#',
             'icon' => 'user',
         ],
         [
@@ -127,56 +127,44 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'lock',
         ],
+        'ADMINISTRAÇÃO DE USUÀRIOS',
         [
-            'text'    => 'Multilevel',
-            'icon'    => 'share',
+            'text'    => 'Usuários',
+            'icon'    => 'user',
             'submenu' => [
                 [
-                    'text' => 'Level One',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'Level One',
-                    'url'     => '#',
+                    'text' => 'Cadastrar Usuários',
+                    'icon'    => 'user-plus',
                     'submenu' => [
                         [
-                            'text' => 'Level Two',
-                            'url'  => '#',
+                            'text' => 'Usuário PROPI',
+                            'url'  => 'cadastrar-usuario/propi',
+                            'icon'    => 'user-plus',
                         ],
                         [
-                            'text'    => 'Level Two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                            ],
+                            'text'    => 'Usuário Pesquisador',
+                            'url'     => 'cadastrar-usuario/pesquisador',
+                            'icon'    => 'user-plus',
                         ],
                     ],
                 ],
                 [
-                    'text' => 'Level One',
-                    'url'  => '#',
+                    'text' => 'Listar Usuários',
+                    'icon'    => 'users',
+                    'submenu' => [
+                        [
+                            'text' => 'Usuário PROPI',
+                            'url'  => 'listar-usuario/propi',
+                            'icon'    => 'users',
+                        ],
+                        [
+                            'text'    => 'Usuário Pesquisador',
+                            'url'     => 'listar-usuario/pesquisador',
+                            'icon'    => 'users',
+                        ],
+                    ],
                 ],
             ],
-        ],
-        'LABELS',
-        [
-            'text'       => 'Important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'Information',
-            'icon_color' => 'aqua',
         ],
     ],
 
