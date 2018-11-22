@@ -108,15 +108,28 @@ return [
     */
 
     'menu' => [
-        'MENU',
+        'EDITAIS',
         [
-            'text'        => 'Pages',
+            'text'        => 'Editais',
             'url'         => '#',
             'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
+//            'label'       => 4,
+//            'label_color' => 'success',
+            'submenu' => [
+                [
+                    'text' => 'Cadastrar Editais',
+                    'url'  => '#',
+                    'icon'    => 'file',
+                ],
+                [
+                    'text' => 'Listar Editais',
+                    'url'  => '#',
+                    'icon'    => 'file',
+                ],
+
+            ],
         ],
-        'ACCOUNT SETTINGS',
+        'PERFIL',
         [
             'text' => 'Perfil',
             'url'  => '#',
