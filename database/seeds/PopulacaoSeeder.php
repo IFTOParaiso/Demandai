@@ -85,6 +85,27 @@ class PopulacaoSeeder extends Seeder
 
         ]);
 
+        // USUÁRIO TIPO USUÁRIO (PROPI)
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '1',
+            'type_user_id' => '1',
+
+        ]);
+        // USUÁRIO TIPO USUÁRIO (ADMINISTRADOR)
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '2',
+            'type_user_id' => '2',
+
+        ]);
+        // USUÁRIO TIPO USUÁRIO (PESQUISADOR)
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '3',
+            'type_user_id' => '3',
+
+        ]);
+
+
+
 
     }
 }
