@@ -59,8 +59,8 @@ class PublishesController extends Controller
                 'data' => $publishes,
             ]);
         }
-        dd($publish);
-        //return view('publishes.index', compact('publishes'));
+//        dd($publish);
+        return view('vendor.adminlte.publishes.list-publishes', compact('publishes'));
     }
 
     /**
@@ -202,5 +202,9 @@ class PublishesController extends Controller
         }
 
         return redirect()->back()->with('message', 'Publish deleted.');
+    }
+
+    public function cadastrarPublishes(){
+        return view('vendor.adminlte.publishes.cad-publishes');
     }
 }

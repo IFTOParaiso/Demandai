@@ -25,3 +25,6 @@ Route::get('cadastrar-usuario/{tipo_usuario}', 'UsersController@cadastrarUsuario
 Route::get('listar-usuario/{tipo_usuario}', 'UsersController@index')->middleware('auth')->name('listar-usuario');
 Route::post('pesquisador/registrar', 'UsersController@store')->name('registrar-pesquisador');
 Route::get('login/{tipo_usuario}', 'UsersController@login')->name('login-usuario');
+
+Route::get('cadastrar-edital', 'PublishesController@cadastrarPublishes')->name('cadastrar-edital');
+Route::get('listar-edital', 'PublishesController@index')->name('listrar-edital');

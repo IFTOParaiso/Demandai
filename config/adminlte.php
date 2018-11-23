@@ -118,12 +118,12 @@ return [
             'submenu' => [
                 [
                     'text' => 'Cadastrar Editais',
-                    'url'  => '#',
+                    'url'  => 'cadastrar-edital',
                     'icon'    => 'file',
                 ],
                 [
                     'text' => 'Listar Editais',
-                    'url'  => '#',
+                    'url'  => 'listar-edital',
                     'icon'    => 'file',
                 ],
 
