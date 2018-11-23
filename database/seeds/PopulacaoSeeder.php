@@ -1468,14 +1468,26 @@ class PopulacaoSeeder extends Seeder
         \App\Entities\Publish::create([
             'title' => 'Edital 1',
             'description' => 'Descrição do Edital 1',
-            'date_closure' => '2018-11-30',
+            'date_closure' => '2019-11-30',
             'link' => 'www.ifto.edu.br/edital/01',
         ]);
         \App\Entities\Publish::create([
             'title' => 'Edital 2',
             'description' => 'Descrição do Edital 2',
-            'date_closure' => '2018-11-30',
+            'date_closure' => '2019-11-30',
             'link' => 'www.ifto.edu.br/edital/02',
+        ]);
+        \App\Entities\Publish::create([
+            'title' => 'Edital 3',
+            'description' => 'Descrição do Edital 3',
+            'date_closure' => '2018-01-30',
+            'link' => 'www.ifto.edu.br/edital/03',
+        ]);
+        \App\Entities\Publish::create([
+            'title' => 'Edital 4',
+            'description' => 'Descrição do Edital 4',
+            'date_closure' => '2018-01-30',
+            'link' => 'www.ifto.edu.br/edital/04',
         ]);
 
     }
