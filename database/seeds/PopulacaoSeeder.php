@@ -22,7 +22,7 @@ class PopulacaoSeeder extends Seeder
             'status' => '1',
             'street' => 'Rua do IFTO',
             'number' => '10',
-            'sector' => 'Parque Agroinsdutrial',
+            'sector' => 'Parque Agroindustrial',
             'city' => 'Paraíso do Tocantins',
             'complement' => 'IFTO',
 
@@ -65,20 +65,20 @@ class PopulacaoSeeder extends Seeder
 
         //  TIPO DE USUÁRIO (PROPI)
         \App\Entities\TypeUser::create([
-            'name' => 'Usuário Propi',
+            'name' => 'Propi',
             'description' => 'Descrição do Usuário PROPI',
             'status' => '1',
         ]);
         // TIPO DE USUÁRIO (ADMINISTRADOR)
         \App\Entities\TypeUser::create([
-            'name' => 'Usuário Administrador',
+            'name' => 'Administrador',
             'description' => 'Descrição do Usuário Administrador',
             'status' => '1',
 
         ]);
         // TIPO DE USUÁRIO (PESQUISADOR)
         \App\Entities\TypeUser::create([
-            'name' => 'Usuário Pesquisador',
+            'name' => 'Pesquisador',
             'description' => 'Descrição do Usuário Pesquisador',
             'status' => '1',
 
