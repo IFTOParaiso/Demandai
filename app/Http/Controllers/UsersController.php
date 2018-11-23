@@ -58,10 +58,10 @@ class UsersController extends Controller
                 'data' => $users,
             ]);
         }
-        dd($users);
+        //dd($users);
 //        return view('users.index', compact('users'));
 //        return view('vendor.adminlte.users.listar-propi', compact('users'));
-      //  return view('vendor.adminlte.users.listar-pesquisador', compact('users'));
+        return view('vendor.adminlte.users.listar-pesquisador', compact('users'));
     }
 
     /**
