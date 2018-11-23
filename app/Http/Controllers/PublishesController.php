@@ -11,6 +11,7 @@ use App\Http\Requests\PublishCreateRequest;
 use App\Http\Requests\PublishUpdateRequest;
 use App\Repositories\PublishRepository;
 use App\Validators\PublishValidator;
+use App\Entities\Publish;
 
 /**
  * Class PublishesController.
@@ -48,6 +49,7 @@ class PublishesController extends Controller
      */
     public function index()
     {
+        $publish = Publish::all();
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
         $publishes = $this->repository->all();
 
@@ -57,8 +59,8 @@ class PublishesController extends Controller
                 'data' => $publishes,
             ]);
         }
-
-        return view('publishes.index', compact('publishes'));
+        dd($publish);
+        //return view('publishes.index', compact('publishes'));
     }
 
     /**
