@@ -12,7 +12,7 @@ use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Repositories\UserRepository;
 use App\Validators\UserValidator;
-
+use App\Entities\User;
 /**
  * Class UsersController.
  *
@@ -50,7 +50,10 @@ class UsersController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $users = $this->repository->all();
+       $users = User::all();
+       foreach($users as $valor){
+           $valor->tipoUsuario;
+       }
 
         if (request()->wantsJson()) {
 
@@ -58,7 +61,7 @@ class UsersController extends Controller
                 'data' => $users,
             ]);
         }
-        //dd($users);
+       // dd($users);
 //        return view('users.index', compact('users'));
 //        return view('vendor.adminlte.users.listar-propi', compact('users'));
         return view('vendor.adminlte.users.listar-pesquisador', compact('users'));
