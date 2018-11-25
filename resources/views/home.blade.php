@@ -21,7 +21,7 @@
                 </div>
             </div>
             </a>
-           <a href="#">
+           <a href="listar-edital">
             <div class="col-lg-6 col-xs-6">
                 <div class="small-box bg-green-gradient">
                     <div class="inner">

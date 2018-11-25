@@ -72,7 +72,7 @@ class PublishesController extends Controller
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(PublishCreateRequest $request)
+    public function store(Request $request)
     {
         try {
 
@@ -90,7 +90,8 @@ class PublishesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+//            return redirect()->back()->with('message', $response['message']);
+            return redirect('listar-edital');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -148,7 +149,7 @@ class PublishesController extends Controller
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(PublishUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
         try {
 
@@ -205,6 +206,6 @@ class PublishesController extends Controller
     }
 
     public function cadastrarPublishes(){
-        return view('vendor.adminlte.publishes.cad-publishes');
+        return view('vendor.adminlte.publishes.cad-publishes', compact('publish'));
     }
 }

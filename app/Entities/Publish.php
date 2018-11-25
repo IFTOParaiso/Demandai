@@ -20,6 +20,6 @@ class Publish extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [ 'title','description','date_closure','link'];
 
 }
