@@ -88,29 +88,15 @@
                         </div>
                     </div>
 
-                <table id="usuarios-propi" class="table table-bordered table-hover">
+                <table id="tabela-areas" class="table table-bordered table-hover">
                     <thead>
                     <tr>
                         <th>Grandes Áreas</th>
                         <th>Status</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    {{--@forelse($big_areas as $ba)--}}
-                        {{--<tr>--}}
-                            {{--<td>{{$ba->name}}</td>--}}
-                            {{--<td>{{$ba->status}}</td>--}}
-                        {{--</tr>--}}
-                    {{--@empty--}}
-                        {{--Não há Grandes Áreas!--}}
-                    {{--@endforelse--}}
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <th>Grandes Áreas</th>
-                        <th>Status</th>
-                    </tr>
-                    </tfoot>
+
+
                 </table>
                 <button href="#tab_1" data-toggle="tab" class="btn btn-danger pull-left">Voltar</button>
                 <button href="#tab_3" data-toggle="tab" class="btn btn-success pull-right">Próxima Etapa</button>
