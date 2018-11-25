@@ -74,6 +74,20 @@
 
             <div class="tab-pane" id="tab_2">
                 <div class="container-fluid">
+
+                    <div class="form-group">
+                        <label for="">Grandes áreas</label>
+                        <div>
+                            <select id="big-area" name="big-area" class="form-control">
+                               @forelse($bigAreas as $b)
+                                <option value="{{$b->id}}">{{$b->name}}</option>
+                                   @empty
+                                    Não há registro
+                                   @endforelse
+                            </select>
+                        </div>
+                    </div>
+
                 <table id="usuarios-propi" class="table table-bordered table-hover">
                     <thead>
                     <tr>

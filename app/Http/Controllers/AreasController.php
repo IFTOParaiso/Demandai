@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Area;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -200,5 +201,10 @@ class AreasController extends Controller
         }
 
         return redirect()->back()->with('message', 'Area deleted.');
+    }
+
+    public function listarAreas(Area $areas, $idBigArea){
+        $areas = $areas->where('big_area_id','=',$idBigArea)->get();
+        return $areas;
     }
 }

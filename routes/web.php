@@ -26,10 +26,11 @@ Route::get('listar-usuario/{tipo_usuario}', 'UsersController@index')->middleware
 Route::post('pesquisador/registrar', 'UsersController@store')->name('registrar-pesquisador');
 Route::get('login/{tipo_usuario}', 'UsersController@login')->name('login-usuario');
 
-Route::get('cadastrar-edital', 'PublishesController@cadastrarPublishes')->name('cadastrar-edital');
+Route::get('cadastrar-edital', 'PublishesController@cadastrarEdital')->name('cadastrar-edital');
 Route::post('cadastrar-edital/store', 'PublishesController@store')->name('cadastrar-edital');
 Route::put('editar-edital/update/{id}', 'PublishesController@update')->name('editar-edital');
 Route::put('editar-edital/edit/{id}', 'PublishesController@edit')->name('editar-edital');
 Route::put('deletar-edital/delete/{id}', 'PublishesController@destroy')->name('deletar-edital');
 
 Route::get('listar-edital', 'PublishesController@index')->name('listrar-edital');
+Route::get('areas/{idBigArea}', 'AreasController@listarAreas')->name('listar-areas');

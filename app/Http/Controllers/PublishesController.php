@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\BigArea;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -205,7 +206,9 @@ class PublishesController extends Controller
         return redirect()->back()->with('message', 'Publish deleted.');
     }
 
-    public function cadastrarPublishes(){
-        return view('vendor.adminlte.publishes.cad-publishes', compact('publish'));
+    public function cadastrarEdital(BigArea $bigAreas){
+
+        $bigAreas = $bigAreas->all();
+        return view('vendor.adminlte.publishes.cad-publishes', compact('bigAreas'));
     }
 }
