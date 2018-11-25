@@ -20,12 +20,12 @@
             <p class="login-box-msg">Selecione o módulo desejado!</p>
 
                 <div class="form-group has-feedback">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                    <a href="{{route('login-usuario', 'propi')}}" class="btn btn-primary btn-block btn-flat">PROPI</a>
+                    <span class=" fa fa-user-circle form-control-feedback"></span>
+                    <a href="{{route('login-usuario', 'propi')}}" class="btn btn-primary btn-block">PROPI</a>
                 </div>
                 <div class="form-group has-feedback">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                    <a href="{{route('login-usuario', 'pesquisador')}}" class="btn btn-primary btn-block btn-flat">PESQUISADOR</a>
+                    <span class="fa fa-user-circle form-control-feedback"></span>
+                    <a href="{{route('login-usuario', 'pesquisador')}}" class="btn btn-primary btn-block">PESQUISADOR</a>
                 </div>
         </div>
     </div>
