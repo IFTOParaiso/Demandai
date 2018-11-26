@@ -93,7 +93,12 @@
                                                 </div>
                                             </div>
 
-                                            <table id="tabela-areas" class="table table-bordered table-hover">
+                                            <div id="tabela-areas">
+
+
+                                            </div>
+
+                                         {{--   <table id="tabela-areas" class="table table-bordered table-hover">
                                                 <thead>
                                                 <tr>
                                                     <th>Áreas</th>
@@ -101,8 +106,7 @@
                                                 </thead>
 
 
-
-                                            </table>
+                                            </table>--}}
                                             <button href="#tab_1" data-toggle="tab" class="btn btn-danger pull-left">
                                                 Voltar
                                             </button>
