@@ -62,13 +62,6 @@ class PopulacaoSeeder extends Seeder
             'institution_id' => '1',
 
         ]);
-
-        //  TIPO DE USUÁRIO (PROPI)
-        \App\Entities\TypeUser::create([
-            'name' => 'Propi',
-            'description' => 'Descrição do Usuário PROPI',
-            'status' => '1',
-        ]);
         // TIPO DE USUÁRIO (ADMINISTRADOR)
         \App\Entities\TypeUser::create([
             'name' => 'Administrador',
@@ -76,6 +69,14 @@ class PopulacaoSeeder extends Seeder
             'status' => '1',
 
         ]);
+
+        //  TIPO DE USUÁRIO (PROPI)
+        \App\Entities\TypeUser::create([
+            'name' => 'Propi',
+            'description' => 'Descrição do Usuário PROPI',
+            'status' => '1',
+        ]);
+
         // TIPO DE USUÁRIO (PESQUISADOR)
         \App\Entities\TypeUser::create([
             'name' => 'Pesquisador',
