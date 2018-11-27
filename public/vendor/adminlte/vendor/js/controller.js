@@ -14,14 +14,14 @@ $(document).on('click', '#big-area', function () {
 
        id = idBigArea[0].big_area_id;
 
-        listaAreas = '<table id="' + id + '" class="table table-bordered table-hover"><thead><tr><th>Áreas</th></tr></thead>';
+        listaAreas = '<div class="areas'+id+'"><table id="' + id + '" class="table table-bordered table-hover"><thead><tr><th>Áreas</th></tr></thead>';
         listaAreas += '<tbody>';
 
         for (var ba in idBigArea) {
             listaAreas += '<tr><td><input type="checkbox" name="areas[]" id="areas-0"value="' + idBigArea[ba].id + '">' + idBigArea[ba].name + '</td></tr>';
         }
         listaAreas += '</tbody>';
-        listaAreas += '</table>';
+        listaAreas += '</table></div>';
 
         if ($('#' + idBigArea[0].big_area_id).length) {
             $('table').hide();
