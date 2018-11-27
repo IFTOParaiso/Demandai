@@ -18,7 +18,7 @@ $(document).on('click', '#big-area', function () {
         listaAreas += '<tbody>';
 
         for (var ba in idBigArea) {
-            listaAreas += '<tr><td><input type="checkbox" name="areas[]" id="areas-0"value="' + idBigArea[ba].id + '">' + idBigArea[ba].name + '</td></tr>';
+            listaAreas += '<tr><td><input type="checkbox" name="areas[]" id="areas" value="' + idBigArea[ba].id + '">' + idBigArea[ba].name + '</td></tr>';
         }
         listaAreas += '</tbody>';
         listaAreas += '</table></div>';
@@ -81,5 +81,16 @@ $('.btnPrevious').click(function(){
 
 
 
+function pesquisadoresIteressados(){
+    var checkeds = new Array();
+    $("input[name='areas[]']:checked").each(function ()
+    {
+        // valores inteiros usa-se parseInt
+        checkeds.push(parseInt($(this).val()));
+        // string
+        // checkeds.push( $(this).val());
 
+    });
+    console.log(checkeds);
+}
 

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\AreaUser;
 use App\Entities\BigArea;
+use App\Entities\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -210,5 +212,20 @@ class PublishesController extends Controller
 
         $bigAreas = $bigAreas->all();
         return view('vendor.adminlte.publishes.cad-publishes', compact('bigAreas'));
+    }
+
+    public function listarInteressadosEdital($areas){
+        $dataform[] = $areas;
+        $pesquisador = AreaUser::whereIn('area_id',$dataform)->get();
+
+        foreach ($pesquisador as $p){
+            $interessados[] = $p->user_id;
+        }
+
+        $interessados = array_unique($interessados);
+
+        $pesquisadores = User::whereIn('id',$interessados)->get();
+
+        return $pesquisadores;
     }
 }

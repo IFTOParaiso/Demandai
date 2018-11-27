@@ -106,7 +106,7 @@
 
                                             </table>--}}
                                             <a class="btn btn-primary btnPrevious">Anterior</a>
-                                            <a class="btn btn-primary btnNext">Próximo</a>
+                                            <button type="button" class="btn btn-primary btnNext" onclick="pesquisadoresIteressados()">Próximo</button>
 
                                         </div>
                                     </div>
