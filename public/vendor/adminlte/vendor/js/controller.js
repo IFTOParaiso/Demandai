@@ -71,12 +71,13 @@ function paginacao(id) {
 }
 
 
+$('.btnNext').click(function(){
+    $('.nav-tabs > .active').next('li').find('a').trigger('click');
+});
 
-function traducaoTabela(id) {
-
-}
-
-
+$('.btnPrevious').click(function(){
+    $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+});
 
 
 

@@ -71,9 +71,7 @@
                                                 @endif
                                             </div>
                                             {{--<a href="#tab_2" data-toggle="tab" class="btn btn-success btn-flat ">Próxima Etapa</a>--}}
-                                            <button href="#tab_2" data-toggle="tab" class="btn btn-success pull-right">
-                                                Próxima Etapa
-                                            </button>
+                                            <a class="btn btn-primary btnNext">Próximo</a>
                                         </div>
                                     </div>
 
@@ -107,12 +105,9 @@
 
 
                                             </table>--}}
-                                            <button href="#tab_1" data-toggle="tab" class="btn btn-danger pull-left">
-                                                Voltar
-                                            </button>
-                                            <button href="#tab_3" data-toggle="tab" class="btn btn-success pull-right">
-                                                Próxima Etapa
-                                            </button>
+                                            <a class="btn btn-primary btnPrevious">Anterior</a>
+                                            <a class="btn btn-primary btnNext">Próximo</a>
+
                                         </div>
                                     </div>
 
@@ -142,9 +137,7 @@
                                                 </tr>
                                                 </tfoot>
                                             </table>
-                                            <button href="#tab_2" data-toggle="tab"
-                                                    class="btn btn-danger btn-flat pull-left">Voltar
-                                            </button>
+                                            <a class="btn btn-primary btnPrevious">Anterior</a>
                                             <button type="submit" class="btn btn-success pull-right">Enviar</button>
                                         </div>
                                     </div>
