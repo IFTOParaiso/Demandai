@@ -36,7 +36,7 @@
                                         <td>
                                             <b class="text " style="color: green">Edital Aberto!</b>
                                         </td>
-                                    @elseif($publish->date_closure <  Carbon\Carbon::today())
+                                    @elseif($publish->date_closure < Carbon\Carbon::today())
                                         <td>
                                             <b class="text " style="color: red">Edital Fechado!</b>
                                         </td>
