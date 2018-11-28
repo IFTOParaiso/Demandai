@@ -215,17 +215,22 @@ class PublishesController extends Controller
     }
 
     public function listarInteressadosEdital($areas){
-        $dataform[] = $areas;
-        $pesquisador = AreaUser::whereIn('area_id',$dataform)->get();
+        $areas = json_decode($areas);
+        $pesquisador = AreaUser::whereIn('area_id',$areas)->get();
 
-        foreach ($pesquisador as $p){
-            $interessados[] = $p->user_id;
+        if(count($pesquisador)<1){
+
+        }else{
+            foreach ($pesquisador as $p){
+                $interessados[] = $p->user_id;
+            }
+
+            $interessados = array_unique($interessados);
+
+            $pesquisadores = User::whereIn('id',$interessados)->get();
+
+            return $pesquisadores;
         }
 
-        $interessados = array_unique($interessados);
-
-        $pesquisadores = User::whereIn('id',$interessados)->get();
-
-        return $pesquisadores;
     }
 }

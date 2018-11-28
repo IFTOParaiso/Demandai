@@ -91,6 +91,16 @@ function pesquisadoresIteressados(){
         // checkeds.push( $(this).val());
 
     });
-    console.log(checkeds);
+
+    checkeds = checkeds.toString();
+
+
+    $.ajax({
+        url: "listar-interessados-edital/" + '%5B'+checkeds+'%5D',
+        method: "GET",
+    }).done(function (checkeds) {
+        console.log(checkeds[0].name);
+
+    });
 }
 

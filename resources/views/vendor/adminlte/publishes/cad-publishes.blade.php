@@ -113,30 +113,7 @@
 
                                     <div class="tab-pane" id="tab_3">
                                         <div class="container-fluid">
-                                            <table id="usuarios-propi" class="table table-bordered table-hover">
-                                                <thead>
-                                                <tr>
-                                                    <th>Pesquisadores</th>
-                                                    <th>Email</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                {{--@forelse($users as $user)--}}
-                                                {{--<tr>--}}
-                                                {{--<td>{{$user->name}}</td>--}}
-                                                {{--<td>{{$user->email}}</td>--}}
-                                                {{--</tr>--}}
-                                                {{--@empty--}}
-                                                {{--Não há Grandes Áreas!--}}
-                                                {{--@endforelse--}}
-                                                </tbody>
-                                                <tfoot>
-                                                <tr>
-                                                    <th>Pesquisadores</th>
-                                                    <th>Email</th>
-                                                </tr>
-                                                </tfoot>
-                                            </table>
+
                                             <a class="btn btn-primary btnPrevious">Anterior</a>
                                             <button type="submit" class="btn btn-success pull-right">Enviar</button>
                                         </div>
@@ -146,4 +123,6 @@
             </div>
         </div>
     </div>
+
+
 @stop
