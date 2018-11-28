@@ -99,7 +99,16 @@ function pesquisadoresIteressados(){
         url: "listar-interessados-edital/" + '%5B'+checkeds+'%5D',
         method: "GET",
     }).done(function (checkeds) {
-        console.log(checkeds[0].name);
+
+        console.log(checkeds);
+
+        for(var i in checkeds){
+
+            listaInteressados = '<li>'+checkeds[i].name+'</li>';
+            $('#pesquisadores-interessados').append(listaInteressados);
+        }
+
+
 
     });
 }

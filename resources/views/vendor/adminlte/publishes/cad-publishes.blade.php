@@ -114,6 +114,8 @@
                                     <div class="tab-pane" id="tab_3">
                                         <div class="container-fluid">
 
+                                            <div id="pesquisadores-interessados"></div>
+
                                             <a class="btn btn-primary btnPrevious">Anterior</a>
                                             <button type="submit" class="btn btn-success pull-right">Enviar</button>
                                         </div>
