@@ -12,9 +12,9 @@ $(document).on('click', '#big-area', function () {
         data: idBigArea
     }).done(function (idBigArea) {
 
-       id = idBigArea[0].big_area_id;
+        id = idBigArea[0].big_area_id;
 
-        listaAreas = '<div class="areas'+id+'"><table id="' + id + '" class="table table-bordered table-hover"><thead><tr><th>Áreas</th></tr></thead>';
+        listaAreas = '<div class="areas' + id + '"><table id="' + id + '" class="table table-bordered table-hover"><thead><tr><th>Áreas</th></tr></thead>';
         listaAreas += '<tbody>';
 
         for (var ba in idBigArea) {
@@ -42,8 +42,8 @@ $(document).on('click', '#big-area', function () {
 });
 
 function paginacao(id) {
-    $('#'+id).DataTable( {
-        "lengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "Todos"]],
+    $('#' + id).DataTable({
+        "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "Todos"]],
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
             "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -67,24 +67,22 @@ function paginacao(id) {
                 "sSortDescending": ": Ordenar colunas de forma descendente"
             }
         }
-    } );
+    });
 }
 
 
-$('.btnNext').click(function(){
+$('.btnNext').click(function () {
     $('.nav-tabs > .active').next('li').find('a').trigger('click');
 });
 
-$('.btnPrevious').click(function(){
+$('.btnPrevious').click(function () {
     $('.nav-tabs > .active').prev('li').find('a').trigger('click');
 });
 
 
-
-function pesquisadoresIteressados(){
+function pesquisadoresIteressados() {
     var checkeds = new Array();
-    $("input[name='areas[]']:checked").each(function ()
-    {
+    $("input[name='areas[]']:checked").each(function () {
         // valores inteiros usa-se parseInt
         checkeds.push(parseInt($(this).val()));
         // string
@@ -94,22 +92,25 @@ function pesquisadoresIteressados(){
 
     checkeds = checkeds.toString();
 
-
     $.ajax({
-        url: "listar-interessados-edital/" + '%5B'+checkeds+'%5D',
+        url: "listar-interessados-edital/" + '%5B' + checkeds + '%5D',
         method: "GET",
     }).done(function (checkeds) {
 
         console.log(checkeds);
 
-        for(var i in checkeds){
+        listaInteressados = '<table id="tabela-pesquisadores" class="table table-bordered table-hover"><thead><tr><th>Pesquisadores interessados</th></tr></thead>';
+        listaInteressados += '<tbody>';
+        for (var i in checkeds) {
+            listaInteressados += '<tr><td><input type="checkbox" name="pesquisadores[]" id="pesquisadores" value="' + checkeds[i].id + '" checked> ' + checkeds[i].name + '</td></tr>';
+        }
+        listaInteressados += '<tbody>';
 
-            listaInteressados = '<li>'+checkeds[i].name+'</li>';
+        if ($('#tabela-pesquisadores').length) {
+            $('#tabela-pesquisadores').replaceWith(listaInteressados);
+        } else {
             $('#pesquisadores-interessados').append(listaInteressados);
         }
-
-
-
     });
 }
 

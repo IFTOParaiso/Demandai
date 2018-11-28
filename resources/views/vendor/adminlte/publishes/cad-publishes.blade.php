@@ -96,17 +96,15 @@
 
                                             </div>
 
-                                         {{--   <table id="tabela-areas" class="table table-bordered table-hover">
-                                                <thead>
-                                                <tr>
-                                                    <th>Áreas</th>
-                                                </tr>
-                                                </thead>
+                                            {{--   <table id="tabela-areas" class="table table-bordered table-hover">
+                                                   <thead><tr><th>Áreas</th></tr></thead>
 
 
-                                            </table>--}}
+                                               </table>--}}
                                             <a class="btn btn-primary btnPrevious">Anterior</a>
-                                            <button type="button" class="btn btn-primary btnNext" onclick="pesquisadoresIteressados()">Próximo</button>
+                                            <button type="button" class="btn btn-primary btnNext"
+                                                    onclick="pesquisadoresIteressados()">Próximo
+                                            </button>
 
                                         </div>
                                     </div>
@@ -122,6 +120,7 @@
                                     </div>
                                 </div>
                             </form>
+                    </form>
             </div>
         </div>
     </div>

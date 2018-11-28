@@ -77,11 +77,18 @@ class PublishesController extends Controller
      */
     public function store(Request $request)
     {
+
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
             $publish = $this->repository->create($request->all());
+
+            $areas = $request['areas'];
+            $publish->areasEdital()->sync($areas);
+
+            $pesquisadores = $request['pesquisadores'];
+            $publish->editalUsuario()->sync($pesquisadores);
 
             $response = [
                 'message' => 'Publish created.',

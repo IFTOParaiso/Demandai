@@ -22,4 +22,13 @@ class Publish extends Model implements Transformable
      */
     protected $fillable = [ 'title','description','date_closure','link'];
 
+    public function areasEdital(){
+        return $this->belongsToMany(Area::class, 'area_publishes', 'publish_id', 'area_id');
+    }
+
+    public function editalUsuario(){
+        return $this->belongsToMany(Area::class, 'publish_users', 'publish_id', 'user_id');
+    }
+
+
 }
