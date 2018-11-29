@@ -34,8 +34,18 @@
                                 <tr>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{$user->formation}}</td>
-                                    <td>{{$user->status}}</td>
+                                    @if($user->formation == '1')
+                                        <td>Graduado</td>
+                                    @elseif($user->formation == '2')
+                                        <td>Graduado</td>
+                                    @elseif($user->formation == '3')
+                                        <td>Doutor</td>
+                                    @endif
+                                    @if($user->status == '1')
+                                    <td><p class="text" style="color: green">Ativado</p></td>
+                                    @elseif($user->status == '0')
+                                    <td><p class="text" style="color: red">Desativado</p></td>
+                                    @endif
                                     <td>{{$user->institution_id}}</td>
                                 </tr>
                             @empty

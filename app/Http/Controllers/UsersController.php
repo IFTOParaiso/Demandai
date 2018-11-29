@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\BigArea;
 use App\Entities\Institution;
 use Illuminate\Http\Request;
 
@@ -211,8 +212,14 @@ class UsersController extends Controller
         return redirect()->back()->with('message', 'User deleted.');
     }
 
-    public function cadastrarUsuario(Institution $institutions, $tipo_usuario){
+    public function cadastrarUsuario(Institution $institutions, $tipo_usuario, BigArea $bigArea){
+        if ($tipo_usuario == 'pesquisador'){
+            $institutions = $institutions->all();
+            $bigArea = $bigArea->all();
+            return view('vendor.adminlte.users.cad-pesquisador', compact('institutions','tipo_usuario', 'bigArea'));
+        }
         $institutions = $institutions->all();
+//        $bigAreas = $bigAreas->all();
         return view('vendor.adminlte.register', compact('institutions','tipo_usuario'));
     }
 
