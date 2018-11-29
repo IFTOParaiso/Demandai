@@ -129,17 +129,6 @@ return [
 
             ],
         ],
-        'PERFIL',
-        [
-            'text' => 'Perfil',
-            'url'  => '#',
-            'icon' => 'user',
-        ],
-        [
-            'text' => 'Change Password',
-            'url'  => 'admin/settings',
-            'icon' => 'lock',
-        ],
         'ADMINISTRAÇÃO DE USUÀRIOS',
         [
             'text'    => 'Usuários',
@@ -178,6 +167,17 @@ return [
                     ],
                 ],
             ],
+        ],
+        'PERFIL',
+        [
+            'text' => 'Perfil',
+            'url'  => '#',
+            'icon' => 'user',
+        ],
+        [
+            'text' => 'Change Password',
+            'url'  => 'admin/settings',
+            'icon' => 'lock',
         ],
     ],
 

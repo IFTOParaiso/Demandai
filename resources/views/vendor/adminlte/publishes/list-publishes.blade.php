@@ -42,7 +42,7 @@
                                         </td>
                                     @endif
                                     <td>
-                                        <a href="{{$publish->link}}">{{$publish->link}}</a>
+                                        <a href="{{$publish->link}}" target="_blank">{{$publish->link}}</a>
                                     </td>
                                     <td><a class="fa fa-edit" style="color: blue" href="#"> Editar</a></td>
                                     <td><a class="fa fa-trash" style="color: red" href="#"> Excluir</a></td>
@@ -51,35 +51,6 @@
                                 <b>Não há editais cadastrados até o momento!</b>
                             @endforelse
                             </tbody>
-
-
-                            {{--<div class="box-header">--}}
-                                {{--<h3 class="box-title">Editais Abertos</h3>--}}
-                            {{--</div>--}}
-                            {{--<hr>--}}
-                            {{--@foreach($publishes as $publish)--}}
-
-                                {{--@if($publish->date_closure >=  Carbon\Carbon::today())--}}
-                                    {{--{{$publish->title}}--}}
-                                    {{--<hr>--}}
-                                {{--@else--}}
-                                {{--@endif--}}
-                            {{--@endforeach--}}
-
-                            {{--<br>--}}
-
-                            {{--<div class="box-header">--}}
-                                {{--<h3 class="box-title">Editais Fechados</h3>--}}
-                            {{--</div>--}}
-                            {{--<hr>--}}
-                            {{--@foreach($publishes as $publish)--}}
-
-                                {{--@if($publish->date_closure <  Carbon\Carbon::today())--}}
-                                    {{--{{$publish->title}}--}}
-                                    {{--<hr>--}}
-                                {{--@else--}}
-                                {{--@endif--}}
-                            {{--@endforeach--}}
 
                         </table>
                     </div>

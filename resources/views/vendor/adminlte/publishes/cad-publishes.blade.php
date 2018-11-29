@@ -50,7 +50,7 @@
                                         <div class="form-group has-feedback {{ $errors->has('date_closure') ? 'has-error' : '' }}">
                                             <input type="date" name="date_closure" class="form-control"
                                                    placeholder="Data de Encerramento"
-                                                   required="Informe a data de encerramento !">
+                                                   required>
                                             <span class="fa fa-calendar form-control-feedback"></span>
                                             @if ($errors->has('date_closure'))
                                                 <span class="help-block">
