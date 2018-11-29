@@ -124,15 +124,17 @@ class PublishesController extends Controller
     public function show($id)
     {
         $publish = $this->repository->find($id);
-
+        foreach($publish as $valor){
+            $publish->areasEdital;
+        }
         if (request()->wantsJson()) {
 
             return response()->json([
                 'data' => $publish,
             ]);
         }
-
-        return view('publishes.show', compact('publish'));
+        //dd($publish);
+       // return view('publishes.show', compact('publish'));
     }
 
     /**

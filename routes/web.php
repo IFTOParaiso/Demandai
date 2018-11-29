@@ -31,6 +31,7 @@ Route::post('cadastrar-edital/store', 'PublishesController@store')->name('cadast
 Route::put('editar-edital/update/{id}', 'PublishesController@update')->name('editar-edital');
 Route::put('editar-edital/edit/{id}', 'PublishesController@edit')->name('editar-edital');
 Route::put('deletar-edital/delete/{id}', 'PublishesController@destroy')->name('deletar-edital');
+Route::get('detalhe-edital/show/{id}', 'PublishesController@show')->name('detalhe-edital');
 
 Route::get('listar-edital', 'PublishesController@index')->name('listrar-edital');
 Route::get('areas/{idBigArea}', 'AreasController@listarAreas')->name('listar-areas');
