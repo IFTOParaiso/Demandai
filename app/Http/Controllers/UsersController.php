@@ -7,6 +7,7 @@ use App\Entities\Institution;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 use App\Http\Requests\UserCreateRequest;
@@ -212,15 +213,20 @@ class UsersController extends Controller
         return redirect()->back()->with('message', 'User deleted.');
     }
 
-    public function cadastrarUsuario(Institution $institutions, $tipo_usuario, BigArea $bigArea){
-        if ($tipo_usuario == 'pesquisador'){
+    public function cadastrarUsuario(Institution $institutions, $tipo_usuario, BigArea $bigAreas)
+    {
+
+        if (Auth::check()) {
+            if ($tipo_usuario == 'pesquisador') {
+                $institutions = $institutions->all();
+                $bigAreas = $bigAreas->all();
+                return view('vendor.adminlte.users.cad-pesquisador', compact('institutions', 'tipo_usuario', 'bigAreas'));
+            }
+
             $institutions = $institutions->all();
-            $bigArea = $bigArea->all();
-            return view('vendor.adminlte.users.cad-pesquisador', compact('institutions','tipo_usuario', 'bigArea'));
+            $bigAreas = $bigAreas->all();
+            return view('vendor.adminlte.users.cad-pesquisador', compact('institutions', 'tipo_usuario', 'bigAreas'));
         }
-        $institutions = $institutions->all();
-//        $bigAreas = $bigAreas->all();
-        return view('vendor.adminlte.register', compact('institutions','tipo_usuario'));
     }
 
     public function login($tipo_usuario){
