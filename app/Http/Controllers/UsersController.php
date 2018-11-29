@@ -213,20 +213,29 @@ class UsersController extends Controller
         return redirect()->back()->with('message', 'User deleted.');
     }
 
-    public function cadastrarUsuario(Institution $institutions, $tipo_usuario, BigArea $bigAreas)
-    {
+    public function cadastrarUsuario(Institution $institutions, $tipo_usuario, BigArea $bigAreas){
+//        if ($tipo_usuario == 'pesquisador'){
+//            $institutions = $institutions->all();
+//            $bigAreas = $bigAreas->all();
+//            return view('vendor.adminlte.users.cad-pesquisador', compact('institutions','tipo_usuario', 'bigAreas'));
+//        }
 
-        if (Auth::check()) {
-            if ($tipo_usuario == 'pesquisador') {
-                $institutions = $institutions->all();
-                $bigAreas = $bigAreas->all();
-                return view('vendor.adminlte.users.cad-pesquisador', compact('institutions', 'tipo_usuario', 'bigAreas'));
+        if (Auth::check())
+        {
+            if ($tipo_usuario == 'pesquisador'){
+            $institutions = $institutions->all();
+            $bigAreas = $bigAreas->all();
+            return view('vendor.adminlte.users.cad-pesquisador', compact('institutions','tipo_usuario', 'bigAreas'));
             }
 
             $institutions = $institutions->all();
             $bigAreas = $bigAreas->all();
-            return view('vendor.adminlte.users.cad-pesquisador', compact('institutions', 'tipo_usuario', 'bigAreas'));
+            return view('vendor.adminlte.users.cad-pesquisador', compact('institutions','tipo_usuario', 'bigAreas'));
         }
+
+        $institutions = $institutions->all();
+        $bigAreas = $bigAreas->all();
+        return view('vendor.adminlte.register', compact('institutions','tipo_usuario', 'bigAreas'));
     }
 
     public function login($tipo_usuario){
