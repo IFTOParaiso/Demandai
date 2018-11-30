@@ -134,7 +134,7 @@ class PublishesController extends Controller
             ]);
         }
         //dd($publish);
-       // return view('publishes.show', compact('publish'));
+        return view('vendor.adminlte.publishes.details-publishes', compact('publish'));
     }
 
     /**
