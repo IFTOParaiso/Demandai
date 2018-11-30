@@ -18,7 +18,13 @@ class BigAreaValidator extends LaravelValidator
      * @var array
      */
     protected $rules = [
-        ValidatorInterface::RULE_CREATE => [],
-        ValidatorInterface::RULE_UPDATE => [],
+        ValidatorInterface::RULE_CREATE => [
+            'name' => 'required|string|min:5|max:50',
+            'status' => 'required|boolean',
+        ],
+        ValidatorInterface::RULE_UPDATE => [
+            'name' => 'required|string|min:5|max:50',
+            'status' => 'required|boolean',
+        ],
     ];
 }
