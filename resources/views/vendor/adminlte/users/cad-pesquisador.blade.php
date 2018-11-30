@@ -160,7 +160,7 @@
                                                 <div class="form-group">
                                                     <label for="">Grandes áreas</label>
                                                     <div>
-                                                        <select id="big-area" name="big-area" class="form-control">
+                                                        <select id="big-area-research" name="big-area-research" class="form-control">
                                                             @forelse($bigAreas as $b)
                                                                 <option value="{{$b->id}}">{{$b->name}}</option>
                                                             @empty
