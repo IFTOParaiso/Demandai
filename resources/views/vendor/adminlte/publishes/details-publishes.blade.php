@@ -16,25 +16,9 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-body">
-                            {{--<div class="title">--}}
-                                {{--<h3>{{$publish->title}}</h3>--}}
-                                {{--<h5>{{$publish->description}}</h5>--}}
-                            {{--</div>--}}
-
-                            {{--<div class="body">--}}
-                                    {{--<b><h4>Data de Encerramento: </h4></b><p>{{date('d/m/Y', strtotime($publish->date_closure))}}</p>--}}
-                                    {{--<span>--}}
-                                        {{--<h4>--}}
-                                            {{--@if($publish->date_closure >=  Carbon\Carbon::today())--}}
-                                                {{--<b class="text " style="color: green">Edital Aberto!</b>--}}
-                                            {{--@elseif($publish->date_closure < Carbon\Carbon::today())--}}
-                                                {{--<b class="text " style="color: red">Edital Fechado!</b>--}}
-                                            {{--@endif--}}
-                                        {{--</h4>--}}
-                                        {{--<a href="{{$publish->link}}" target="_blank">{{$publish->link}}</a>--}}
-                                    {{--</span>--}}
-                            {{--</div>--}}
-                        <a class="fa fa-edit pull-right" style="color: blue" href="#"> Retificar</a>
+                        <button class="btn btn-sm fa fa-thumbs-o-up " style="color: green" href=""> Tenho Interesse</button>
+                        <button class="btn btn-sm fa fa-thumbs-o-down " style="color: red" href=""> Não Tenho Interesse</button>
+                        <button class="btn btn-sm fa fa-edit pull-right" style="color: blue" href="#"> Retificar</button>
 
                         <div class="col-md-6">
                             <div class="box box-solid">
