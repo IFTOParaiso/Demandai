@@ -1470,26 +1470,51 @@ class PopulacaoSeeder extends Seeder
             'title' => 'Edital 1',
             'description' => 'Descrição do Edital 1',
             'date_closure' => '2019-11-30',
-            'link' => 'www.ifto.edu.br/edital/01',
+            'link' => 'http://www.ifto.edu.br/edital/01',
         ]);
         \App\Entities\Publish::create([
             'title' => 'Edital 2',
             'description' => 'Descrição do Edital 2',
             'date_closure' => '2019-11-30',
-            'link' => 'www.ifto.edu.br/edital/02',
+            'link' => 'http://www.ifto.edu.br/edital/02',
         ]);
         \App\Entities\Publish::create([
             'title' => 'Edital 3',
             'description' => 'Descrição do Edital 3',
-            'date_closure' => '2018-01-30',
-            'link' => 'www.ifto.edu.br/edital/03',
+            'date_closure' => '2019-11-30',
+            'link' => 'http://www.ifto.edu.br/edital/03',
         ]);
         \App\Entities\Publish::create([
             'title' => 'Edital 4',
             'description' => 'Descrição do Edital 4',
             'date_closure' => '2018-01-30',
-            'link' => 'www.ifto.edu.br/edital/04',
+            'link' => 'http://www.ifto.edu.br/edital/04',
         ]);
+        \App\Entities\Publish::create([
+            'title' => 'Edital 5',
+            'description' => 'Descrição do Edital 5',
+            'date_closure' => '2018-01-30',
+            'link' => 'http://www.ifto.edu.br/edital/05',
+        ]);
+        \App\Entities\Publish::create([
+            'title' => 'Edital 6',
+            'description' => 'Descrição do Edital 6',
+            'date_closure' => '2018-01-30',
+            'link' => 'http://www.ifto.edu.br/edital/06',
+        ]);
+        \App\Entities\Publish::create([
+            'title' => 'Edital 7',
+            'description' => 'Descrição do Edital 7',
+            'date_closure' => '2018-01-30',
+            'link' => 'http://www.ifto.edu.br/edital/07',
+        ]);
+        \App\Entities\Publish::create([
+            'title' => 'Edital 8',
+            'description' => 'Descrição do Edital 8',
+            'date_closure' => '2018-01-30',
+            'link' => 'http://www.ifto.edu.br/edital/08',
+        ]);
+
 
     }
 }
