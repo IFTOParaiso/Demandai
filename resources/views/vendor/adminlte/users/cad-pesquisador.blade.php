@@ -47,8 +47,8 @@
                                                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                                                     @if ($errors->has('name'))
                                                         <span class="help-block">
-                            <strong>{{ $errors->first('name') }}</strong>
-                        </span>
+                                                            <strong>{{ $errors->first('name') }}</strong>
+                                                        </span>
                                                     @endif
                                                 </div>
                                                 <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
@@ -58,8 +58,8 @@
                                                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                                                     @if ($errors->has('email'))
                                                         <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
+                                                            <strong>{{ $errors->first('email') }}</strong>
+                                                        </span>
                                                     @endif
                                                 </div>
                                                 <div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
@@ -68,8 +68,8 @@
                                                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                                                     @if ($errors->has('password'))
                                                         <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
+                                                            <strong>{{ $errors->first('password') }}</strong>
+                                                        </span>
                                                     @endif
                                                 </div>
                                                 <div class="form-group has-feedback {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
@@ -79,13 +79,12 @@
                                                     <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                                                     @if ($errors->has('password_confirmation'))
                                                         <span class="help-block">
-                            <strong>{{ $errors->first('password_confirmation') }}</strong>
-                        </span>
+                                                            <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                                        </span>
                                                     @endif
                                                 </div>
 
                                                 @if($tipo_usuario <> 'propi')
-
                                                     <div class="form-group has-feedback {{ $errors->has('lattes') ? 'has-error' : '' }}">
                                                         <input type="text" name="lattes" class="form-control"
                                                                value="{{ old('lattes') }}"
@@ -93,25 +92,20 @@
                                                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                                                         @if ($errors->has('lattes'))
                                                             <span class="help-block">
-                            <strong>{{ $errors->first('lattes') }}</strong>
-                        </span>
+                                                                <strong>{{ $errors->first('lattes') }}</strong>
+                                                            </span>
                                                         @endif
                                                     </div>
-
-                                                    <!-- Select Basic -->
                                                     <div class="form-group">
                                                         <label for="">Formação</label>
                                                         <div>
-                                                            <select id="formation" name="formation"
-                                                                    class="form-control">
+                                                            <select id="formation" name="formation" class="form-control">
                                                                 <option value="1">Graduado</option>
                                                                 <option value="2">Mestre</option>
                                                                 <option value="3">Doutor</option>
                                                             </select>
                                                         </div>
                                                     </div>
-
-                                                    <!-- Select Basic -->
                                                     <div class="form-group">
                                                         <label for="">Instituição</label>
                                                         <div>
@@ -125,7 +119,6 @@
                                                             </select>
                                                         </div>
                                                     </div>
-
                                                     <div class="form-group">
                                                         <label for="">Status do Usuário</label>
                                                         <div>
@@ -135,28 +128,21 @@
                                                             </select>
                                                         </div>
                                                     </div>
-
                                                     <a class="btn btn-success btnNext pull-right">Próximo Etapa</a>
                                                 @endif
-
                                                 @if($tipo_usuario == 'propi')
-                                                    <input type="hidden" id="tipousuario" name="tipousuario[]"
-                                                           value="2">
+                                                    <input type="hidden" id="tipousuario" name="tipousuario[]" value="2">
                                                 @endif
-
                                                 @if($tipo_usuario == 'pesquisador')
-                                                    <input type="hidden" id="tipousuario" name="tipousuario[]"
-                                                           value="3">
+                                                    <input type="hidden" id="tipousuario" name="tipousuario[]" value="3">
                                                 @endif
                                                 @if($tipo_usuario <> 'pesquisador')
                                                     <button type="submit" class="btn btn-success pull-right">Enviar</button>
                                                 @endif
                                             </div>
                                         </div>
-
                                         <div class="tab-pane" id="tab_2">
                                             <div class="container-fluid">
-
                                                 <div class="form-group">
                                                     <label for="">Grandes áreas</label>
                                                     <div>
@@ -169,19 +155,16 @@
                                                         </select>
                                                     </div>
                                                 </div>
-
-                                                <div id="tabela-areas">
-
-
-                                                </div>
-
+                                                <div id="tabela-areas"></div>
                                                 <a class="btn btn-danger btnPrevious">Anterior</a>
                                                 <button type="submit" class="btn btn-success pull-right">Enviar</button>
-
                                             </div>
                                         </div>
                                     </div>
+                                </form>
+                        </form>
                 </div>
-                </form>
             </div>
+        </div>
+    </div>
 @stop
