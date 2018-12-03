@@ -5,7 +5,7 @@
 @section('content_header')
     <section class="content-header">
         <h1>
-            Lista de Editais
+            Detalhes do Edital
         </h1>
     </section>
 @stop
@@ -18,7 +18,7 @@
                     <div class="box-body">
                         <button class="btn btn-sm fa fa-thumbs-o-up " style="color: green" href=""> Tenho Interesse</button>
                         <button class="btn btn-sm fa fa-thumbs-o-down " style="color: red" href=""> Não Tenho Interesse</button>
-                        <button class="btn btn-sm fa fa-edit pull-right" style="color: blue" href="#"> Retificar</button>
+                        <button class="btn btn-sm fa fa-edit pull-right" style="color: blue" href=""> Retificar</button>
 
                         <div class="col-md-6">
                             <div class="box box-solid">
