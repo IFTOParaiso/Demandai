@@ -8,71 +8,67 @@
     </section>
 @stop
 @section('content')
-
     <section class="content">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-6">
                 <div class="box">
                     <div class="box-body">
-                        <table id="usuarios-propi" class="table table-hover">
-                            {{--<tbody>--}}
-                            {{--@forelse($publishes as $publish)--}}
-                                {{--<a class="card" href="{{url('detalhe-edital/show',$publish->id)}}">--}}
+                            <h4 class="title" style="color: green">Editais Abertos</h4>
+                            <div class="table-overflow" style="height: 800px">
+                                <table id="editais-abertos" class="table table-hover">
+                                    <tbody>
+                                    @forelse($publishes as $publish)
+                                        <a class="card" href="{{url('detalhe-edital/show',$publish->id)}}" target="_blank">
+                                            @if($publish->date_closure >=  Carbon\Carbon::today())
+                                                <span><h4>{{$publish->title}}</h4></span>
+                                                <p class="text" style="color: black"><b>Descrição: </b>{{$publish->description}}</p>
+                                                <span class="text" style="color: black"><b>Encerramento de Inscrições:</b> {{date('d/m/Y', strtotime($publish->date_closure))}}</span>
+                                                <hr />
+                                            @endif
+                                        </a>
+                                    @empty
+                                        <b>Não há editais cadastrados até o momento!</b>
+                                    @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                    </div>
+                </div>
+            </div>
 
-                                        {{--<span><h3>{{$publish->title}}</h3></span>--}}
-                                        {{--<p class="text" style="color: black">{{$publish->description}}</p>--}}
-                                        {{--<span class="text" style="color: black">{{date('d/m/Y', strtotime($publish->date_closure))}}</span>--}}
-                                        {{--<span>--}}
-                                            {{--@if($publish->date_closure >=  Carbon\Carbon::today())--}}
-                                                {{--<br>--}}
-                                                {{--<b class="text " style="color: green">Edital Aberto!</b>--}}
-                                            {{--@elseif($publish->date_closure < Carbon\Carbon::today())--}}
-                                                {{--<br>--}}
-                                                {{--<b class="text " style="color: red">Edital Fechado!</b>--}}
-                                            {{--@endif--}}
-                                        {{--</span>--}}
-                                {{--</a>--}}
-
-                            {{--@empty--}}
-                                {{--<b>Não há editais cadastrados até o momento!</b>--}}
-                            {{--@endforelse--}}
-                            {{--</tbody>--}}
-                            <h3 class="title" style="color: green">Editais Abertos</h3>
-                            <tbody>
-                            @forelse($publishes as $publish)
-                                <a class="card" href="{{url('detalhe-edital/show',$publish->id)}}" target="_blank">
-                                    @if($publish->date_closure >=  Carbon\Carbon::today())
-                                        <span><h3>{{$publish->title}}</h3></span>
-                                        <p class="text" style="color: black"><b>Descrição: </b>{{$publish->description}}</p>
-                                        <span class="text" style="color: black"><b>Encerramento de Inscrições:</b> {{date('d/m/Y', strtotime($publish->date_closure))}}</span>
-                                        <hr />
-                                    @endif
-                                </a>
-                            @empty
-                                <b>Não há editais cadastrados até o momento!</b>
-                            @endforelse
-                            </tbody>
-
-                            <h3 class="title" style="color: red">Editais Fechados</h3>
-                            <tbody>
-                            @forelse($publishes as $publish)
-                                <a class="card" href="{{url('detalhe-edital/show',$publish->id)}}" target="_blank">
-                                    @if($publish->date_closure < Carbon\Carbon::today())
-                                        <span><h3>{{$publish->title}}</h3></span>
-                                        <p class="text" style="color: black"><b>Descrição: </b>{{$publish->description}}</p>
-                                        <span class="text" style="color: black"><b>Encerramento de Inscrições:</b> {{date('d/m/Y', strtotime($publish->date_closure))}}</span>
-                                        <hr />
-                                    @endif
-                                </a>
-                            @empty
-                                <b>Não há editais cadastrados até o momento!</b>
-                            @endforelse
-                            </tbody>
-                        </table>
+            <div class="col-xs-6">
+                <div class="box">
+                    <div class="box-body">
+                            <h4 class="title" style="color: red">Editais Fechados</h4>
+                        <div class="table-overflow" style="height: 800px">
+                            {{--<table id="editais-fechados" class="table table-hover">--}}
+                            <table id="editais-fechados" class="table table-striped table-bordered" style="width:100%">
+                                <tbody>
+                                @forelse($publishes as $publish)
+                                    <a class="card" href="{{url('detalhe-edital/show',$publish->id)}}" target="_blank">
+                                        @if($publish->date_closure < Carbon\Carbon::today())
+                                            <span><h4>{{$publish->title}}</h4></span>
+                                            <p class="text" style="color: black"><b>Descrição: </b>{{$publish->description}}</p>
+                                            <span class="text" style="color: black"><b>Encerramento de Inscrições:</b> {{date('d/m/Y', strtotime($publish->date_closure))}}</span>
+                                            <hr />
+                                        @endif
+                                    </a>
+                                @empty
+                                    <b>Não há editais cadastrados até o momento!</b>
+                                @endforelse
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+ <style>
+     .table-overflow {
+         max-height:400px;
+         overflow-x:auto;
+     }
+ </style>
 @stop

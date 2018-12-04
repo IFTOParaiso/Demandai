@@ -154,3 +154,7 @@ function pesquisadoresIteressados() {
     });
 }
 
+$(document).ready(function() {
+    $('#usuarios-propi').DataTable();
+    $('#usuarios-pesquisador').DataTable();
+} );

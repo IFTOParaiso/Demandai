@@ -19,7 +19,7 @@
                         <h3 class="box-title">Usuários do Tipo PESQUISADOR</h3>
                     </div>
                     <div class="box-body">
-                        <table id="usuarios-propi" class="table table-bordered table-hover">
+                        <table id="usuarios-pesquisador" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                             <tr>
                                 <th>Nome</th>
