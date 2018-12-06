@@ -130,7 +130,7 @@ class UsersController extends Controller
             ]);
         }
 
-        return view('users.show', compact('user'));
+        return view('vendor.adminlte.users.details-pesquisador', compact('user'));
     }
 
     /**
@@ -140,11 +140,13 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Institution $institutions, BigArea $bigAreas)
     {
         $user = $this->repository->find($id);
-
-        return view('users.edit', compact('user'));
+        $institutions = $institutions->all();
+        $bigAreas = $bigAreas->all();
+//        return view('users.edit', compact('user'));
+        return view('vendor.adminlte.users.cad-pesquisador', compact('user','institutions', 'bigAreas'));
     }
 
     /**

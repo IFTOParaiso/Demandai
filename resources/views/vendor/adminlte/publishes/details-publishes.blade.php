@@ -16,14 +16,14 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-body">
-                        <a class="btn btn-sm fa fa-edit pull-right" role="button" style="color: blue"
-                           href="{{url('editar-edital/edit',$publish->id)}}"> Retificar</a>
 
                         <div class="col-md-12">
                             <div class="box box-solid">
                                 <div class="box-header with-border">
                                     <i class="fa fa-file-o"></i>
                                     <h3 class="box-title">{{$publish->title}}</h3>
+                                    <a class="btn btn-sm fa fa-edit pull-right" role="button" style="color: blue"
+                                       href="{{url('editar-edital/edit',$publish->id)}}"> Retificar</a>
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">

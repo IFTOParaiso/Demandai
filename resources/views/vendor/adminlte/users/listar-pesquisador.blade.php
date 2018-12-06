@@ -26,7 +26,6 @@
                                 <th>Email</th>
                                 <th>Formação</th>
                                 <th>Status</th>
-                                <th>Instituição</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -46,21 +45,15 @@
                                     @elseif($user->status == '0')
                                     <td><p class="text" style="color: red">Desativado</p></td>
                                     @endif
-                                    <td>{{$user->institution_id}}</td>
+                                    <td>
+                                        <a class="btn btn-sm fa fa-info-circle" role="button" style="color: khaki"
+                                           href="{{url('detalhe-pesquisador/show',$user->id)}}"> Ver Detalhes</a>
+                                    </td>
                                 </tr>
                             @empty
                                 Não há usuários
                             @endforelse
                             </tbody>
-                            <tfoot>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Email</th>
-                                <th>Formação</th>
-                                <th>Status</th>
-                                <th>Instituição</th>
-                            </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>

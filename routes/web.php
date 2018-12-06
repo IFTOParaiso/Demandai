@@ -23,6 +23,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('cadastrar-usuario/{tipo_usuario}', 'UsersController@cadastrarUsuario')->name('cadastrar-usuario');
 Route::get('listar-usuario/{tipo_usuario}', 'UsersController@index')->middleware('auth')->name('listar-usuario');
+Route::get('editar-usuario/{tipo_usuario}/edit/{id}', 'UsersController@edit')->middleware('auth')->name('editar-usuario');
+Route::put('editar-usuario/{tipo_usuario}/update/{id}', 'UsersController@update')->middleware('auth')->name('editar-usuario');
+Route::get('detalhe-pesquisador/show/{id}', 'UsersController@show')->name('detalhe-pesquisador');
 Route::post('pesquisador/registrar', 'UsersController@store')->name('registrar-pesquisador');
 Route::get('login/{tipo_usuario}', 'UsersController@login')->name('login-usuario');
 
