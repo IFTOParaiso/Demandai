@@ -18,7 +18,7 @@
                                 <table id="editais-abertos" class="table table-hover">
                                     <tbody>
                                     @forelse($publishes as $publish)
-                                        <a class="card" href="{{url('detalhe-edital/show',$publish->id)}}" target="_blank">
+                                        <a class="card" href="{{url('detalhe-edital/show',$publish->id)}}">
                                             @if($publish->date_closure >=  Carbon\Carbon::today())
                                                 <span><h4>{{$publish->title}}</h4></span>
                                                 <p class="text" style="color: black"><b>Descrição: </b>{{$publish->description}}</p>
@@ -45,7 +45,7 @@
                             <table id="editais-fechados" class="table table-striped table-bordered" style="width:100%">
                                 <tbody>
                                 @forelse($publishes as $publish)
-                                    <a class="card" href="{{url('detalhe-edital/show',$publish->id)}}" target="_blank">
+                                    <a class="card" href="{{url('detalhe-edital/show',$publish->id)}}">
                                         @if($publish->date_closure < Carbon\Carbon::today())
                                             <span><h4>{{$publish->title}}</h4></span>
                                             <p class="text" style="color: black"><b>Descrição: </b>{{$publish->description}}</p>

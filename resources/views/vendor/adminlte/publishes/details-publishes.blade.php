@@ -16,11 +16,10 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-body">
-                        <button class="btn btn-sm fa fa-thumbs-o-up " style="color: green" href=""> Tenho Interesse</button>
-                        <button class="btn btn-sm fa fa-thumbs-o-down " style="color: red" href=""> Não Tenho Interesse</button>
-                        <a class="btn btn-sm fa fa-edit pull-right" role="button" style="color: blue" href="{{url('editar-edital/edit',$publish->id)}}"> Retificar</a>
+                        <a class="btn btn-sm fa fa-edit pull-right" role="button" style="color: blue"
+                           href="{{url('editar-edital/edit',$publish->id)}}"> Retificar</a>
 
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="box box-solid">
                                 <div class="box-header with-border">
                                     <i class="fa fa-file-o"></i>
@@ -49,9 +48,15 @@
                                         <dt>Link de Acesso</dt>
                                         <dd><a href="{{$publish->link}}" target="_blank">{{$publish->link}}</a></dd>
                                     </dl>
+                                    <button class="btn btn-sm fa fa-thumbs-o-up pull-right" style="color: green"
+                                            href=""> Tenho Interesse
+                                    </button>
+                                    <button class="btn btn-sm fa fa-thumbs-o-down pull-right " style="color: red"
+                                            href=""> Não Tenho Interesse
+                                    </button>
                                 </div>
                             </div>
-                    </div>
+                        </div>
                     </div>
                 </div>
             </div>
