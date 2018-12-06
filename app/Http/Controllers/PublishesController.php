@@ -144,11 +144,12 @@ class PublishesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, BigArea $bigAreas)
     {
+        $bigAreas = $bigAreas->all();
         $publish = $this->repository->find($id);
 
-        return view('publishes.edit', compact('publish'));
+        return view('vendor.adminlte.publishes.edit-publishes', compact('publish', 'bigAreas'));
     }
 
     /**
@@ -179,7 +180,8 @@ class PublishesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+//            return redirect()->back()->with('message', $response['message']);
+            return redirect(url('detalhe-edital/show',compact('id')));
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {

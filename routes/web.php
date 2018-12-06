@@ -29,7 +29,7 @@ Route::get('login/{tipo_usuario}', 'UsersController@login')->name('login-usuario
 Route::get('cadastrar-edital', 'PublishesController@cadastrarEdital')->name('cadastrar-edital');
 Route::post('cadastrar-edital/store', 'PublishesController@store')->name('cadastrar-edital');
 Route::put('editar-edital/update/{id}', 'PublishesController@update')->name('editar-edital');
-Route::put('editar-edital/edit/{id}', 'PublishesController@edit')->name('editar-edital');
+Route::get('editar-edital/edit/{id}', 'PublishesController@edit')->name('editar-edital');
 Route::put('deletar-edital/delete/{id}', 'PublishesController@destroy')->name('deletar-edital');
 Route::get('detalhe-edital/show/{id}', 'PublishesController@show')->name('detalhe-edital');
 

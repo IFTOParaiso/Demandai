@@ -15,8 +15,9 @@
                 <li class="pull-right header"><i class="fa fa-file-o"></i> Cadastro de Edital</li>
             </ul>
             @if(isset($publish))
-                        <form action="{{route('cadastrar-edital')}}" method="post">
-                            {!! csrf_field() !!}
+                <form class="form-horizontal" method="post"
+                      action="{{url('editar-edital/update',$publish->id)}}">
+                    {!! method_field('PUT') !!}
                             @endif
                             {!! csrf_field() !!}
                             <div class="tab-content">
@@ -25,7 +26,7 @@
 
                                         <div class="form-group has-feedback {{ $errors->has('title') ? 'has-error' : '' }}">
                                             <input type="text" name="title" class="form-control"
-                                                   value="{{ old('title') }}"
+                                                   value="{{$publish->title}}"
                                                    placeholder="Título" required>
                                             <span class="fa fa-file form-control-feedback"></span>
                                             @if ($errors->has('title'))
@@ -35,8 +36,8 @@
                                             @endif
                                         </div>
                                         <div class="form-group has-feedback {{ $errors->has('description') ? 'has-error' : '' }}">
-                        <textarea type="text" name="description" class="form-control" value="{{ old('description') }}"
-                                  placeholder="Descrição" style="height: 100px" required></textarea>
+                        <textarea type="text" name="description" class="form-control"
+                                  placeholder="Descrição" style="height: 100px" required>{{$publish->description}}</textarea>
                                             <span class="fa fa-file-text form-control-feedback"></span>
                                             @if ($errors->has('description'))
                                                 <span class="help-block">
@@ -46,7 +47,7 @@
                                         </div>
                                         <div class="form-group has-feedback {{ $errors->has('date_closure') ? 'has-error' : '' }}">
                                             <input type="date" name="date_closure" class="form-control"
-                                                   placeholder="Data de Encerramento"
+                                                   placeholder="Data de Encerramento" value="{{date('d/m/Y', strtotime($publish->date_closure))}}"
                                                    required>
                                             <span class="fa fa-calendar form-control-feedback"></span>
                                             @if ($errors->has('date_closure'))
@@ -57,7 +58,7 @@
                                         </div>
                                         <div class="form-group has-feedback {{ $errors->has('link') ? 'has-error' : '' }}">
                                             <input type="text" name="link" class="form-control"
-                                                   placeholder="Link de Acesso" required>
+                                                   placeholder="Link de Acesso" value="{{$publish->link}}" required>
                                             <span class="fa fa-link form-control-feedback"></span>
                                             @if ($errors->has('link'))
                                                 <span class="help-block">
@@ -109,9 +110,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                </form>
         </div>
     </div>
-
-
 @stop

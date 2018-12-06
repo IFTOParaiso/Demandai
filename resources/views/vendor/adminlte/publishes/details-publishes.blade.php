@@ -18,7 +18,7 @@
                     <div class="box-body">
                         <button class="btn btn-sm fa fa-thumbs-o-up " style="color: green" href=""> Tenho Interesse</button>
                         <button class="btn btn-sm fa fa-thumbs-o-down " style="color: red" href=""> Não Tenho Interesse</button>
-                        <button class="btn btn-sm fa fa-edit pull-right" style="color: blue" href=""> Retificar</button>
+                        <a class="btn btn-sm fa fa-edit pull-right" role="button" style="color: blue" href="{{url('editar-edital/edit',$publish->id)}}"> Retificar</a>
 
                         <div class="col-md-6">
                             <div class="box box-solid">
