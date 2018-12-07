@@ -132,15 +132,16 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group">
-                                                        <label for="">Status do Usuário</label>
-                                                        <div>
-                                                            <select id="status" name="status" class="form-control">
-                                                                <option value="1">Ativado</option>
-                                                                <option value="0">Desativado</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
+                                                    {{--<div class="form-group">--}}
+                                                        {{--<label for="">Status do Usuário</label>--}}
+                                                        {{--<div>--}}
+                                                            {{--<select id="status" name="status" class="form-control">--}}
+                                                                {{--<option value="1">Ativado</option>--}}
+                                                                {{--<option value="0">Desativado</option>--}}
+                                                            {{--</select>--}}
+                                                        {{--</div>--}}
+                                                    {{--</div>--}}
+                                                <input type="hidden" name="status" id="status" value="1">
 
                                                     <a class="btn btn-success btnNext pull-right">Próximo Etapa</a>
                                                 @endif
