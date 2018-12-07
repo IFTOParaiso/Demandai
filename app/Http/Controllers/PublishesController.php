@@ -132,7 +132,7 @@ class PublishesController extends Controller
         $user->id = Auth::user()->id;
         $tipo = $user->tipoUsuario()->get()->all();
             foreach ($tipo as $t){
-                $tipouser = $t->id;
+                $tipouser = $t->name;
             }
 
         if (request()->wantsJson()) {
@@ -141,8 +141,8 @@ class PublishesController extends Controller
                 'data' => $publish,
             ]);
         }
-       // dd($tipo);
-        return view('vendor.adminlte.publishes.details-publishes', compact('publish'));
+    //    dd($tipouser);
+        return view('vendor.adminlte.publishes.details-publishes', compact('publish','tipouser'));
     }
 
     /**

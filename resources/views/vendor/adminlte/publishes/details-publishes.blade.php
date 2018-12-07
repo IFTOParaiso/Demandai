@@ -22,8 +22,10 @@
                                 <div class="box-header with-border">
                                     <i class="fa fa-file-o"></i>
                                     <h3 class="box-title">{{$publish->title}}</h3>
+                                   @if ($tipouser=='Administrador')
                                     <a class="btn btn-sm fa fa-edit pull-right" role="button" style="color: blue"
                                        href="{{url('editar-edital/edit',$publish->id)}}"> Retificar</a>
+                                    @endif
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
@@ -48,12 +50,14 @@
                                         <dt>Link de Acesso</dt>
                                         <dd><a href="{{$publish->link}}" target="_blank">{{$publish->link}}</a></dd>
                                     </dl>
+                                    @if ($tipouser=='Pesquisador')
                                     <button class="btn btn-sm fa fa-thumbs-o-up pull-right" style="color: green"
                                             href=""> Tenho Interesse
                                     </button>
                                     <button class="btn btn-sm fa fa-thumbs-o-down pull-right " style="color: red"
                                             href=""> Não Tenho Interesse
                                     </button>
+                                    @endif
                                 </div>
                             </div>
                         </div>
