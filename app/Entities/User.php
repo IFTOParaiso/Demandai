@@ -40,5 +40,7 @@ class User extends Authenticatable implements Transformable
     public function tipoUsuario(){
         return $this->belongsToMany(TypeUser::class, 'user_type_users', 'user_id', 'type_user_id');
     }
-
+    public function publicacao(){
+        return $this->belongsToMany(Publish::class,'publish_users','user_id','publish_id');
+    }
 }

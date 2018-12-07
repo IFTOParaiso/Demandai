@@ -15,6 +15,7 @@ use App\Http\Requests\PublishUpdateRequest;
 use App\Repositories\PublishRepository;
 use App\Validators\PublishValidator;
 use App\Entities\Publish;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class PublishesController.
@@ -127,13 +128,20 @@ class PublishesController extends Controller
         foreach($publish as $valor){
             $publish->areasEdital;
         }
+        $user = new User();
+        $user->id = Auth::user()->id;
+        $tipo = $user->tipoUsuario()->get()->all();
+            foreach ($tipo as $t){
+                $tipouser = $t->id;
+            }
+
         if (request()->wantsJson()) {
 
             return response()->json([
                 'data' => $publish,
             ]);
         }
-        //dd($publish);
+       // dd($tipo);
         return view('vendor.adminlte.publishes.details-publishes', compact('publish'));
     }
 
