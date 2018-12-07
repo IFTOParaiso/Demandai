@@ -42,10 +42,12 @@
                                         @endif
                                     </dl>
                                     <dl>
-                                        <dt>
+                                        @foreach($institutions as $institution)
+                                            @if($institution->id == $user->institution_id)
                                         <dt><i class="fa fa-university"></i> Instituição</dt>
-                                        <dd>{{$user->institution_id}}</dd>
-                                        </dt>
+                                        <dd>{{$institution->name}}</dd>
+                                            @endif
+                                        @endforeach
                                     </dl>
                                     <dl>
                                         <dt>

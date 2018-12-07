@@ -36,7 +36,7 @@
                                     @if($user->formation == '1')
                                         <td>Graduado</td>
                                     @elseif($user->formation == '2')
-                                        <td>Graduado</td>
+                                        <td>Mestre</td>
                                     @elseif($user->formation == '3')
                                         <td>Doutor</td>
                                     @endif

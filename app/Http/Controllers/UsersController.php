@@ -119,10 +119,10 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Institution $institutions)
     {
         $user = $this->repository->find($id);
-
+        $institutions = $institutions->all();
         if (request()->wantsJson()) {
 
             return response()->json([
@@ -130,7 +130,7 @@ class UsersController extends Controller
             ]);
         }
 
-        return view('vendor.adminlte.users.details-pesquisador', compact('user'));
+        return view('vendor.adminlte.users.details-pesquisador', compact('user', 'institutions'));
     }
 
     /**
