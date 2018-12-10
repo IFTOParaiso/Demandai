@@ -1,13 +1,11 @@
-function teste() {
-    $('#title').css('display', 'block');
-}
+const urlBase = "http://localhost/Demandai/public/";
 
 $(document).on('click', '#big-area', function () {
     var id = event.target.id;
     var idBigArea = $("#" + id).val();
 
     $.ajax({
-        url: "areas/" + idBigArea,
+        url: urlBase + "areas/" + idBigArea,
         method: "GET",
         data: idBigArea
     }).done(function (idBigArea) {
@@ -47,7 +45,7 @@ $(document).on('click', '#big-area-research', function () {
     var idBigArea = $("#" + id).val();
 
     $.ajax({
-        url: "../areas/" + idBigArea,
+        url: urlBase + "areas/" + idBigArea,
         method: "GET",
         data: idBigArea
     }).done(function (idBigArea) {
