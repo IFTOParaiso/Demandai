@@ -15,10 +15,9 @@
                 <li class="pull-right header"><i class="fa fa-file-o"></i> Cadastro de Edital</li>
             </ul>
             @if(isset($publish))
-                <form class="form-horizontal" method="post"
-                      action="{{url('editar-edital/update',$publish->id)}}">
-                    {!! method_field('PUT') !!}
-                            @endif
+                <form action="{{route('editar-edital',$publish->id)}}" method="post">
+                    {!! csrf_field('PUT') !!}
+                    @endif
                             {!! csrf_field() !!}
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab_1">
