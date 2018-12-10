@@ -14,11 +14,10 @@
                 <li><a href="#tab_3" data-toggle="tab">Lista de Trasmissão</a></li>
                 <li class="pull-right header"><i class="fa fa-file-o"></i> Cadastro de Edital</li>
             </ul>
-            @if(isset($publish))
+
                         <form action="{{route('cadastrar-edital')}}" method="post">
                             {!! csrf_field() !!}
-                            @endif
-                            {!! csrf_field() !!}
+
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab_1">
                                     <div class="container-fluid">
