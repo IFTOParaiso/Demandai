@@ -107,7 +107,6 @@ class UsersController extends Controller
                     'message' => $e->getMessageBag()
                 ]);
             }
-            //mail('gerversonsa@gmail.com','testandooo','esse email e meramente teste porfavor nao exclua XD');
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
