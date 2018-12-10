@@ -23,13 +23,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('cadastrar-usuario/{tipo_usuario}', 'UsersController@cadastrarUsuario')->name('cadastrar-usuario');
 Route::get('listar-usuario/{tipo_usuario}', 'UsersController@index')->middleware('auth')->name('listar-usuario');
+Route::get('editar-usuario/{tipo_usuario}/edit/{id}', 'UsersController@edit')->middleware('auth')->name('editar-usuario');
+Route::put('editar-usuario/{tipo_usuario}/update/{id}', 'UsersController@update')->middleware('auth')->name('editar-usuario');
+Route::get('detalhe-pesquisador/show/{id}', 'UsersController@show')->name('detalhe-pesquisador');
 Route::post('pesquisador/registrar', 'UsersController@store')->name('registrar-pesquisador');
 Route::get('login/{tipo_usuario}', 'UsersController@login')->name('login-usuario');
 
 Route::get('cadastrar-edital', 'PublishesController@cadastrarEdital')->name('cadastrar-edital');
 Route::post('cadastrar-edital/store', 'PublishesController@store')->name('cadastrar-edital');
 Route::put('editar-edital/update/{id}', 'PublishesController@update')->name('editar-edital');
-Route::put('editar-edital/edit/{id}', 'PublishesController@edit')->name('editar-edital');
+Route::get('editar-edital/edit/{id}', 'PublishesController@edit')->name('editar-edital');
 Route::put('deletar-edital/delete/{id}', 'PublishesController@destroy')->name('deletar-edital');
 Route::get('detalhe-edital/show/{id}', 'PublishesController@show')->name('detalhe-edital');
 

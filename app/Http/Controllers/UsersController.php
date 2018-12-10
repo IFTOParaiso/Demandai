@@ -7,6 +7,7 @@ use App\Entities\Institution;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 use App\Http\Requests\UserCreateRequest;
@@ -118,10 +119,10 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Institution $institutions)
     {
         $user = $this->repository->find($id);
-
+        $institutions = $institutions->all();
         if (request()->wantsJson()) {
 
             return response()->json([
@@ -129,7 +130,7 @@ class UsersController extends Controller
             ]);
         }
 
-        return view('users.show', compact('user'));
+        return view('vendor.adminlte.users.details-pesquisador', compact('user', 'institutions'));
     }
 
     /**
@@ -139,11 +140,13 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Institution $institutions, BigArea $bigAreas)
     {
         $user = $this->repository->find($id);
-
-        return view('users.edit', compact('user'));
+        $institutions = $institutions->all();
+        $bigAreas = $bigAreas->all();
+//        return view('users.edit', compact('user'));
+        return view('vendor.adminlte.users.cad-pesquisador', compact('user','institutions', 'bigAreas'));
     }
 
     /**
@@ -212,15 +215,29 @@ class UsersController extends Controller
         return redirect()->back()->with('message', 'User deleted.');
     }
 
-    public function cadastrarUsuario(Institution $institutions, $tipo_usuario, BigArea $bigArea){
-        if ($tipo_usuario == 'pesquisador'){
+    public function cadastrarUsuario(Institution $institutions, $tipo_usuario, BigArea $bigAreas){
+//        if ($tipo_usuario == 'pesquisador'){
+//            $institutions = $institutions->all();
+//            $bigAreas = $bigAreas->all();
+//            return view('vendor.adminlte.users.cad-pesquisador', compact('institutions','tipo_usuario', 'bigAreas'));
+//        }
+
+        if (Auth::check())
+        {
+            if ($tipo_usuario == 'pesquisador'){
             $institutions = $institutions->all();
-            $bigArea = $bigArea->all();
-            return view('vendor.adminlte.users.cad-pesquisador', compact('institutions','tipo_usuario', 'bigArea'));
+            $bigAreas = $bigAreas->all();
+            return view('vendor.adminlte.users.cad-pesquisador', compact('institutions','tipo_usuario', 'bigAreas'));
+            }
+
+            $institutions = $institutions->all();
+            $bigAreas = $bigAreas->all();
+            return view('vendor.adminlte.users.cad-pesquisador', compact('institutions','tipo_usuario', 'bigAreas'));
         }
+
         $institutions = $institutions->all();
-//        $bigAreas = $bigAreas->all();
-        return view('vendor.adminlte.register', compact('institutions','tipo_usuario'));
+        $bigAreas = $bigAreas->all();
+        return view('vendor.adminlte.register', compact('institutions','tipo_usuario', 'bigAreas'));
     }
 
     public function login($tipo_usuario){

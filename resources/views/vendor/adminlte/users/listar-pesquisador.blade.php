@@ -19,14 +19,13 @@
                         <h3 class="box-title">Usuários do Tipo PESQUISADOR</h3>
                     </div>
                     <div class="box-body">
-                        <table id="usuarios-propi" class="table table-bordered table-hover">
+                        <table id="usuarios-pesquisador" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                             <tr>
                                 <th>Nome</th>
                                 <th>Email</th>
                                 <th>Formação</th>
                                 <th>Status</th>
-                                <th>Instituição</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -37,7 +36,7 @@
                                     @if($user->formation == '1')
                                         <td>Graduado</td>
                                     @elseif($user->formation == '2')
-                                        <td>Graduado</td>
+                                        <td>Mestre</td>
                                     @elseif($user->formation == '3')
                                         <td>Doutor</td>
                                     @endif
@@ -46,21 +45,15 @@
                                     @elseif($user->status == '0')
                                     <td><p class="text" style="color: red">Desativado</p></td>
                                     @endif
-                                    <td>{{$user->institution_id}}</td>
+                                    <td>
+                                        <a class="btn btn-sm fa fa-info-circle" role="button" style="color: khaki"
+                                           href="{{url('detalhe-pesquisador/show',$user->id)}}"> Ver Detalhes</a>
+                                    </td>
                                 </tr>
                             @empty
                                 Não há usuários
                             @endforelse
                             </tbody>
-                            <tfoot>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Email</th>
-                                <th>Formação</th>
-                                <th>Status</th>
-                                <th>Instituição</th>
-                            </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>

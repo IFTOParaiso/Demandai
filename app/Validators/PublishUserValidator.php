@@ -18,7 +18,11 @@ class PublishUserValidator extends LaravelValidator
      * @var array
      */
     protected $rules = [
-        ValidatorInterface::RULE_CREATE => [],
-        ValidatorInterface::RULE_UPDATE => [],
+        ValidatorInterface::RULE_CREATE => [
+            'interest' => 'required',
+        ],
+        ValidatorInterface::RULE_UPDATE => [
+            'interest' => 'required',
+        ],
     ];
 }

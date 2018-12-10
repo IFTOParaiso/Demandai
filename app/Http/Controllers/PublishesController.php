@@ -15,6 +15,7 @@ use App\Http\Requests\PublishUpdateRequest;
 use App\Repositories\PublishRepository;
 use App\Validators\PublishValidator;
 use App\Entities\Publish;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class PublishesController.
@@ -127,14 +128,21 @@ class PublishesController extends Controller
         foreach($publish as $valor){
             $publish->areasEdital;
         }
+        $user = new User();
+        $user->id = Auth::user()->id;
+        $tipo = $user->tipoUsuario()->get()->all();
+            foreach ($tipo as $t){
+                $tipouser = $t->name;
+            }
+
         if (request()->wantsJson()) {
 
             return response()->json([
                 'data' => $publish,
             ]);
         }
-        //dd($publish);
-       // return view('publishes.show', compact('publish'));
+    //    dd($tipouser);
+        return view('vendor.adminlte.publishes.details-publishes', compact('publish','tipouser'));
     }
 
     /**
@@ -144,11 +152,12 @@ class PublishesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, BigArea $bigAreas)
     {
+        $bigAreas = $bigAreas->all();
         $publish = $this->repository->find($id);
 
-        return view('publishes.edit', compact('publish'));
+        return view('vendor.adminlte.publishes.edit-publishes', compact('publish', 'bigAreas'));
     }
 
     /**
@@ -179,7 +188,8 @@ class PublishesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+//            return redirect()->back()->with('message', $response['message']);
+            return redirect(url('detalhe-edital/show',compact('id')));
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {

@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\Entities\User;
 use Illuminate\Support\Facades\Auth;
 class PropiAuthenticate
 {
@@ -14,11 +15,17 @@ class PropiAuthenticate
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
-    {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+    if (Auth::guard($guard)->check()) {
+        $user = new User();
+        $user->id = Auth::user()->id;
+        $tipo = $user->tipoUsuario()->get()->all();
+        foreach ($tipo as $t){
+            $tipouser = $t->id;
         }
-
+        if(isset($tipouser)) {
+            if ($tipouser == 2) {} else{
+                return redirect('login');
+            }
+        }}
         return $next($request);
-    }
-}
+        } }
