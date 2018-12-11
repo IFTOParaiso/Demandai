@@ -44,9 +44,10 @@
                                             @endif
                                         </div>
                                         <div class="form-group has-feedback {{ $errors->has('date_closure') ? 'has-error' : '' }}">
-                                            <input type="date" name="date_closure" class="form-control"
+                                            <input type="date" name="date_closure" id="date_closure" class="form-control"
                                                    placeholder="Data de Encerramento"
-                                                   required>
+                                                   required onblur="compare();">
+                                            <div id="msdata"></div>
                                             <span class="fa fa-calendar form-control-feedback"></span>
                                             @if ($errors->has('date_closure'))
                                                 <span class="help-block">
@@ -111,6 +112,20 @@
                         </form>
         </div>
     </div>
+    <script language="Javascript">
+        function compare()
+        {
+            var d1 = new Date();
+            var endDt = document.getElementById("date_closure").value;
 
+            if( (new Date(d1).getTime() > new Date(endDt).getTime()))
+            {
+                document.getElementById("msdata").innerHTML="<font color='red'>A data informada deve ser maior que a atual.</font>";
+            }
+            else{
+                document.getElementById("msdata").innerHTML="<font color='red'></font>";
+            }
+        }
+    </script>
 
 @stop
