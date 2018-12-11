@@ -15,6 +15,7 @@ use App\Http\Requests\UserUpdateRequest;
 use App\Repositories\UserRepository;
 use App\Validators\UserValidator;
 use App\Entities\User;
+
 /**
  * Class UsersController.
  *
@@ -41,7 +42,7 @@ class UsersController extends Controller
     public function __construct(UserRepository $repository, UserValidator $validator)
     {
         $this->repository = $repository;
-        $this->validator  = $validator;
+        $this->validator = $validator;
     }
 
     /**
@@ -52,10 +53,10 @@ class UsersController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-       $users = User::all();
-       foreach($users as $valor){
-           $valor->tipoUsuario;
-       }
+        $users = User::all();
+        foreach ($users as $valor) {
+            $valor->tipoUsuario;
+        }
 
         if (request()->wantsJson()) {
 
@@ -63,7 +64,7 @@ class UsersController extends Controller
                 'data' => $users,
             ]);
         }
-       // dd($users);
+        // dd($users);
 //        return view('users.index', compact('users'));
 //        return view('vendor.adminlte.users.listar-propi', compact('users'));
         return view('vendor.adminlte.users.listar-pesquisador', compact('users'));
@@ -89,9 +90,15 @@ class UsersController extends Controller
             $dataform = $request['tipousuario'];
             $user->tipoUsuario()->sync($dataform);
 
+            if($request['tipousuario'][0] == 3) {
+
+                $dataform = $request['areas'];
+                $user->areasUsuario()->sync($dataform);
+            }
+
             $response = [
                 'message' => 'Usuário cadastrado!',
-                'data'    => $user->toArray(),
+                'data' => $user->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -103,11 +110,11 @@ class UsersController extends Controller
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
-                    'error'   => true,
+                    'error' => true,
                     'message' => $e->getMessageBag()
                 ]);
             }
-            mail('gerversonsa@gmail.com','testandooo','esse email e meramente teste porfavor nao exclua XD');
+            mail('gerversonsa@gmail.com', 'testandooo', 'esse email e meramente teste porfavor nao exclua XD');
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
@@ -146,14 +153,14 @@ class UsersController extends Controller
         $institutions = $institutions->all();
         $bigAreas = $bigAreas->all();
 //        return view('users.edit', compact('user'));
-        return view('vendor.adminlte.users.cad-pesquisador', compact('user','institutions', 'bigAreas'));
+        return view('vendor.adminlte.users.cad-pesquisador', compact('user', 'institutions', 'bigAreas'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  UserUpdateRequest $request
-     * @param  string            $id
+     * @param  string $id
      *
      * @return Response
      *
@@ -169,7 +176,7 @@ class UsersController extends Controller
 
             $response = [
                 'message' => 'User updated.',
-                'data'    => $user->toArray(),
+                'data' => $user->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -183,7 +190,7 @@ class UsersController extends Controller
             if ($request->wantsJson()) {
 
                 return response()->json([
-                    'error'   => true,
+                    'error' => true,
                     'message' => $e->getMessageBag()
                 ]);
             }
@@ -215,32 +222,33 @@ class UsersController extends Controller
         return redirect()->back()->with('message', 'User deleted.');
     }
 
-    public function cadastrarUsuario(Institution $institutions, $tipo_usuario, BigArea $bigAreas){
+    public function cadastrarUsuario(Institution $institutions, $tipo_usuario, BigArea $bigAreas)
+    {
 //        if ($tipo_usuario == 'pesquisador'){
 //            $institutions = $institutions->all();
 //            $bigAreas = $bigAreas->all();
 //            return view('vendor.adminlte.users.cad-pesquisador', compact('institutions','tipo_usuario', 'bigAreas'));
 //        }
 
-        if (Auth::check())
-        {
-            if ($tipo_usuario == 'pesquisador'){
-            $institutions = $institutions->all();
-            $bigAreas = $bigAreas->all();
-            return view('vendor.adminlte.users.cad-pesquisador', compact('institutions','tipo_usuario', 'bigAreas'));
+        if (Auth::check()) {
+            if ($tipo_usuario == 'pesquisador') {
+                $institutions = $institutions->all();
+                $bigAreas = $bigAreas->all();
+                return view('vendor.adminlte.users.cad-pesquisador', compact('institutions', 'tipo_usuario', 'bigAreas'));
             }
 
             $institutions = $institutions->all();
             $bigAreas = $bigAreas->all();
-            return view('vendor.adminlte.users.cad-pesquisador', compact('institutions','tipo_usuario', 'bigAreas'));
+            return view('vendor.adminlte.users.cad-pesquisador', compact('institutions', 'tipo_usuario', 'bigAreas'));
         }
 
         $institutions = $institutions->all();
         $bigAreas = $bigAreas->all();
-        return view('vendor.adminlte.register', compact('institutions','tipo_usuario', 'bigAreas'));
+        return view('vendor.adminlte.register', compact('institutions', 'tipo_usuario', 'bigAreas'));
     }
 
-    public function login($tipo_usuario){
+    public function login($tipo_usuario)
+    {
         return view('vendor.adminlte.login', compact('tipo_usuario'));
     }
 }

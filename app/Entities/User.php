@@ -43,4 +43,8 @@ class User extends Authenticatable implements Transformable
     public function publicacao(){
         return $this->belongsToMany(Publish::class,'publish_users','user_id','publish_id');
     }
+
+    public function areasUsuario(){
+        return $this->belongsToMany(Area::class,'area_users','user_id','area_id');
+    }
 }
