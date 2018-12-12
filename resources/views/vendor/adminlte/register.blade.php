@@ -58,9 +58,10 @@
                                                     @endif
                                                 </div>
                                                 <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
-                                                    <input type="email" name="email" class="form-control"
-                                                           value="{{ old('email') }}"
+                                                    <input type="email" name="email" id="email" onblur="validacaoEmail()"
+                                                           class="form-control" value="{{ old('email') }}"
                                                            placeholder="{{ trans('adminlte::adminlte.email') }}">
+                                                    <div id="msgemail"></div>
                                                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                                                     @if ($errors->has('email'))
                                                         <span class="help-block">
@@ -300,6 +301,28 @@
         </div>
         <!-- /.form-box -->
     </div><!-- /.register-box -->
+
+    <script language="Javascript">
+        function validacaoEmail() {
+            var field = document.getElementById("email");
+            usuario = field.value.substring(0, field.value.indexOf("@"));
+            dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
+            if ((usuario.length >=1) &&
+                (dominio.length >=3) &&
+                (usuario.search("@")==-1) &&
+                (dominio.search("@")==-1) &&
+                (usuario.search(" ")==-1) &&
+                (dominio.search(" ")==-1) &&
+                (dominio.search(".")!=-1) &&
+                (dominio.indexOf(".") >=1)&&
+                (dominio.lastIndexOf(".") < dominio.length - 1)) {
+                document.getElementById("msgemail").innerHTML="";
+            }
+            else{
+                document.getElementById("msgemail").innerHTML="<font color='red'>Email inválido </font>";
+            }
+        }
+    </script>
 @stop
 
 @section('adminlte_js')
