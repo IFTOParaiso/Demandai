@@ -70,7 +70,7 @@
                                                     @endif
                                                 </div>
                                                 <div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
-                                                    <input type="password" name="password" class="form-control"
+                                                    <input type="password" name="password" id="password" class="form-control"
                                                            placeholder="{{ trans('adminlte::adminlte.password') }}">
                                                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                                                     @if ($errors->has('password'))
@@ -80,9 +80,10 @@
                                                     @endif
                                                 </div>
                                                 <div class="form-group has-feedback {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
-                                                    <input type="password" name="password_confirmation"
+                                                    <input type="password" name="password_confirmation" id="password_confirmation" onblur="validarsenha()"
                                                            class="form-control"
                                                            placeholder="{{ trans('adminlte::adminlte.retype_password') }}">
+                                                    <div id="msgsenha"></div>
                                                     <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                                                     @if ($errors->has('password_confirmation'))
                                                         <span class="help-block">
@@ -320,6 +321,16 @@
             }
             else{
                 document.getElementById("msgemail").innerHTML="<font color='red'>Email inválido </font>";
+            }
+        }
+        function validarsenha() {
+            var senha1 = document.getElementById("password");
+            var senha2 = document.getElementById("password_confirmation");
+            if (senha1.value != senha2.value){
+                document.getElementById("msgsenha").innerHTML="<font color='red'>Senha não são iguais</font>";
+            }
+            else {
+                document.getElementById("msgsenha").innerHTML="";
             }
         }
     </script>
