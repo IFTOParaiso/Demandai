@@ -45,8 +45,8 @@
                                             @endif
                                         </div>
                                         <div class="form-group has-feedback {{ $errors->has('date_closure') ? 'has-error' : '' }}">
-                                            <input type="date" name="date_closure" class="form-control"
-                                                   placeholder="Data de Encerramento" value="{{date('d/m/Y', strtotime($publish->date_closure))}}"
+                                            <input type="text" name="date_closure" class="form-control textbox-n"
+                                                   placeholder="Data de Encerramento" value="Data de Encerramento: {{date('d/m/Y', strtotime($publish->date_closure))}}" onfocus="(this.type='date')"
                                                    required>
                                             <span class="fa fa-calendar form-control-feedback"></span>
                                             @if ($errors->has('date_closure'))
