@@ -128,12 +128,6 @@ class PublishesController extends Controller
         foreach($publish as $valor){
             $publish->areasEdital;
         }
-        $user = new User();
-        $user->id = Auth::user()->id;
-        $tipo = $user->tipoUsuario()->get()->all();
-            foreach ($tipo as $t){
-                $tipouser = $t->name;
-            }
 
         if (request()->wantsJson()) {
 
@@ -141,8 +135,17 @@ class PublishesController extends Controller
                 'data' => $publish,
             ]);
         }
-    //    dd($tipouser);
-        return view('vendor.adminlte.publishes.details-publishes', compact('publish','tipouser'));
+
+        $user = new User();
+        $user->id = Auth::user()->id;
+        $tipo = $user->tipoUsuario()->get()->all();
+            foreach ($tipo as $t){
+                $tipouser = $t->name;
+            }
+
+            $areas = $publish->areasEdital;
+       // dd($publish->areasEdital);
+        return view('vendor.adminlte.publishes.details-publishes', compact('publish','tipouser','areas'));
     }
 
     /**

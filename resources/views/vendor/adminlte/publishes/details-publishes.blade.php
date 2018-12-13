@@ -51,6 +51,12 @@
                                             <dt>Link de Acesso</dt>
                                             <dd><a href="{{$publish->link}}" target="_blank">{{$publish->link}}</a></dd>
                                         </dl>
+                                        <dl>
+                                            <dt>Áreas relacionadas</dt>
+                                            @foreach($areas as $area)
+                                                {{$area->name}}<br>
+                                            @endforeach
+                                        </dl>
                                     </div>
 
                                     <div class="col-lg-6">
