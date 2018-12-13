@@ -50,7 +50,7 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($tipo_usuario)
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
         $users = User::all();
@@ -67,7 +67,7 @@ class UsersController extends Controller
         // dd($users);
 //        return view('users.index', compact('users'));
 //        return view('vendor.adminlte.users.listar-propi', compact('users'));
-        return view('vendor.adminlte.users.listar-pesquisador', compact('users'));
+        return view('vendor.adminlte.users.listar-pesquisador', compact('users', 'tipo_usuario'));
     }
 
     /**

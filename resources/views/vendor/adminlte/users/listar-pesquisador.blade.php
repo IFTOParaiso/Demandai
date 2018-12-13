@@ -7,6 +7,8 @@
         <h1>
             Lista de Usuários
         </h1>
+        <a class="btn btn-sm fa fa-user-plus pull-right" role="button"
+           href="{{url('cadastrar-usuario',$tipo_usuario)}}"> Cadastrar Novo Usuário</a>
     </section>
 @stop
 

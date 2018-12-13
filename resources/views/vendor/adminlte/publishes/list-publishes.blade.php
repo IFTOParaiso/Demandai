@@ -5,6 +5,8 @@
         <h1>
             Lista de Editais
         </h1>
+        <a class="btn btn-sm fa fa-plus-circle pull-right" role="button"
+           href="{{url('cadastrar-edital')}}"> Cadastrar Novo Edital</a>
     </section>
 @stop
 @section('content')
