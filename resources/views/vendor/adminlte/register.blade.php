@@ -95,9 +95,10 @@
                                                 @if($tipo_usuario <> 'propi')
 
                                                     <div class="form-group has-feedback {{ $errors->has('lattes') ? 'has-error' : '' }}">
-                                                        <input type="text" name="lattes" class="form-control"
+                                                        <input type="text" name="lattes" id="lattes" class="form-control" onblur="validarlattes();"
                                                                value="{{ old('lattes') }}"
                                                                placeholder="Lattes">
+                                                        <div id="msglattes"></div>
                                                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                                                         @if ($errors->has('lattes'))
                                                             <span class="help-block">
@@ -331,6 +332,20 @@
             }
             else {
                 document.getElementById("msgsenha").innerHTML="";
+            }
+        }
+        function validarlattes() {
+            var lates = document.getElementById("lattes").value;
+            var query = "lattes.cnpq.br";
+            var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+            if(!regex.test(lates)){
+                document.getElementById("msglattes").innerHTML="<font color='red'>Link Inválido</font>";
+            } else {
+                if (lates.toLowerCase().indexOf(query.toLowerCase()) != -1){
+                    document.getElementById("msglattes").innerHTML="";
+                }else {
+                    document.getElementById("msglattes").innerHTML="<font color='red'>Link parace não pertencer ao Lattes, deve ser no formato: http://lattes.cnpq.br/0000000000000000</font>";
+                }
             }
         }
     </script>
