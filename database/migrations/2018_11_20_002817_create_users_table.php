@@ -22,11 +22,11 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             //$table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('formation');
-            $table->string('lattes');
+            $table->integer('formation') ->nullable();
+            $table->string('lattes') -> nullable();
             $table->boolean('status');
             $table->rememberToken();
-            $table->integer('institution_id')->unsigned();
+            $table->integer('institution_id')->unsigned() ->nullable();
             $table->foreign('institution_id')->references('id')->on('institutions')->onDelete('cascade');
             $table->timestamps();
         });
