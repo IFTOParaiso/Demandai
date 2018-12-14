@@ -41,6 +41,7 @@
                                             <div class="container-fluid">
 
                                                 <input type="hidden" name="status" value="1">
+
                                                 <div class="form-group has-feedback {{ $errors->has('name') ? 'has-error' : '' }}">
                                                     <input type="text" name="name" class="form-control"
                                                            value="{{ old('name') }}"
