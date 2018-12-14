@@ -15,7 +15,8 @@ use App\Http\Requests\UserUpdateRequest;
 use App\Repositories\UserRepository;
 use App\Validators\UserValidator;
 use App\Entities\User;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ConfirmaCadastro;
 /**
  * Class UsersController.
  *
@@ -95,7 +96,7 @@ class UsersController extends Controller
                 $dataform = $request['areas'];
                 $user->areasUsuario()->sync($dataform);
             }
-
+            Mail::to($request['email'],$request['name'])->send(new ConfirmaCadastro($request));
             $response = [
                 'message' => 'Usuário cadastrado!',
                 'data' => $user->toArray(),
