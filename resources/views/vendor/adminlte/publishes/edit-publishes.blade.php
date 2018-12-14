@@ -12,7 +12,7 @@
                 <li class="active"><a href="#tab_1" data-toggle="tab">Edital</a></li>
                 <li><a href="#tab_2" data-toggle="tab">Áreas de Interesse</a></li>
                 <li><a href="#tab_3" data-toggle="tab">Lista de Trasmissão</a></li>
-                <li class="pull-right header"><i class="fa fa-file-o"></i> Cadastro de Edital</li>
+                <li class="pull-right header"><i class="fa fa-file-o"></i> Editar Dados do Edital</li>
             </ul>
             @if(isset($publish))
                 <form action="{{route('editar-edital',$publish->id)}}" method="post">
