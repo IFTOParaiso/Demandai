@@ -15,7 +15,8 @@ use App\Http\Requests\UserUpdateRequest;
 use App\Repositories\UserRepository;
 use App\Validators\UserValidator;
 use App\Entities\User;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ConfirmaCadastro;
 /**
  * Class UsersController.
  *
@@ -67,7 +68,7 @@ class UsersController extends Controller
         // dd($users);
 //        return view('users.index', compact('users'));
 //        return view('vendor.adminlte.users.listar-propi', compact('users'));
-        return view('vendor.adminlte.users.listar-pesquisador', compact('users', 'tipo_usuario'));
+        return view('vendor.adminlte.users.pesquisador.listar-pesquisador', compact('users', 'tipo_usuario'));
     }
 
     /**
@@ -95,7 +96,7 @@ class UsersController extends Controller
                 $dataform = $request['areas'];
                 $user->areasUsuario()->sync($dataform);
             }
-
+            Mail::to($request['email'],$request['name'])->send(new ConfirmaCadastro($request));
             $response = [
                 'message' => 'Usuário cadastrado!',
                 'data' => $user->toArray(),
@@ -136,7 +137,7 @@ class UsersController extends Controller
             ]);
         }
 
-        return view('vendor.adminlte.users.details-pesquisador', compact('user', 'institutions'));
+        return view('vendor.adminlte.users.pesquisador.details-pesquisador', compact('user', 'institutions'));
     }
 
     /**
@@ -152,7 +153,7 @@ class UsersController extends Controller
         $institutions = $institutions->all();
         $bigAreas = $bigAreas->all();
 //        return view('users.edit', compact('user'));
-        return view('vendor.adminlte.users.cad-pesquisador', compact('user', 'institutions', 'bigAreas'));
+        return view('vendor.adminlte.users.pesquisador.cad-pesquisador', compact('user', 'institutions', 'bigAreas'));
     }
 
     /**
@@ -233,12 +234,12 @@ class UsersController extends Controller
             if ($tipo_usuario == 'pesquisador') {
                 $institutions = $institutions->all();
                 $bigAreas = $bigAreas->all();
-                return view('vendor.adminlte.users.cad-pesquisador', compact('institutions', 'tipo_usuario', 'bigAreas'));
+                return view('vendor.adminlte.users.pesquisador.cad-pesquisador', compact('institutions', 'tipo_usuario', 'bigAreas'));
             }
 
             $institutions = $institutions->all();
             $bigAreas = $bigAreas->all();
-            return view('vendor.adminlte.users.cad-pesquisador', compact('institutions', 'tipo_usuario', 'bigAreas'));
+            return view('vendor.adminlte.users.pesquisador.cad-pesquisador', compact('institutions', 'tipo_usuario', 'bigAreas'));
         }
 
         $institutions = $institutions->all();
