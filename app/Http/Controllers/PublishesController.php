@@ -255,4 +255,13 @@ class PublishesController extends Controller
         }
 
     }
+
+    public function areasEdital($id = 10){
+        $publish = $this->repository->find($id);
+        foreach($publish as $p){
+            $areas = $publish->areasEdital;
+        }
+
+        return view('vendor.adminlte.publishes.edit-publishes', compact('areas','publish'));
+    }
 }

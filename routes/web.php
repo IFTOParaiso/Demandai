@@ -40,3 +40,5 @@ Route::get('listar-edital', 'PublishesController@index')->name('listrar-edital')
 Route::get('areas/{idBigArea}', 'AreasController@listarAreas')->name('listar-areas');
 
 Route::get('listar-interessados-edital/{areas}', 'PublishesController@listarInteressadosEdital')->name('listar-interessados');
+
+Route::get('areas-edital/{id}', 'PublishesController@areasEdital')->name('listar-areas');
