@@ -16,7 +16,8 @@ use App\Repositories\PublishRepository;
 use App\Validators\PublishValidator;
 use App\Entities\Publish;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EnviarEdital;
 /**
  * Class PublishesController.
  *
@@ -102,6 +103,25 @@ class PublishesController extends Controller
             }
 
 //            return redirect()->back()->with('message', $response['message']);
+    $pesquisador = AreaUser::whereIn('area_id',$request['areas'])->get();
+
+if(count($pesquisador)<1){
+
+}else{
+    foreach ($pesquisador as $p){
+        $interessados[] = $p->user_id;
+    }
+    $interessados = array_unique($interessados);
+
+    $listapesquisadores = User::whereIn('id',$interessados)->get();
+    //$teste=$listapesquisadores['email'];
+    foreach( $listapesquisadores as $index=>$value){
+        Mail::to($value['email'],$value['name'])->send(new EnviarEdital($request,$value));
+        //dd($value);
+    }
+
+
+}
             return redirect('listar-edital');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {

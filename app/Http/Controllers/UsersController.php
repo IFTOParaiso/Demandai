@@ -96,7 +96,6 @@ class UsersController extends Controller
                 $dataform = $request['areas'];
                 $user->areasUsuario()->sync($dataform);
             }
-            Mail::to($request['email'],$request['name'])->send(new ConfirmaCadastro($request));
             $response = [
                 'message' => 'Usuário cadastrado!',
                 'data' => $user->toArray(),
@@ -115,6 +114,8 @@ class UsersController extends Controller
                     'message' => $e->getMessageBag()
                 ]);
             }
+            Mail::to($request['email'],$request['name'])->send(new ConfirmaCadastro($request));
+
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
