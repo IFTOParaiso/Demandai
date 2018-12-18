@@ -160,7 +160,11 @@ class PublishesController extends Controller
         $bigAreas = $bigAreas->all();
         $publish = $this->repository->find($id);
 
-        return view('vendor.adminlte.publishes.edit-publishes', compact('publish', 'bigAreas'));
+        foreach($publish as $p){
+            $areas = $publish->areasEdital;
+        }
+
+        return view('vendor.adminlte.publishes.edit-publishes', compact('publish', 'bigAreas','areas'));
     }
 
     /**
@@ -180,6 +184,12 @@ class PublishesController extends Controller
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
             $publish = $this->repository->update($request->all(), $id);
+
+            $areas = $request['areas'];
+            $publish->areasEdital()->sync($areas);
+
+            $pesquisadores = $request['pesquisadores'];
+            $publish->editalUsuario()->sync($pesquisadores);
 
             $response = [
                 'message' => 'Publish updated.',

@@ -79,6 +79,8 @@ $(document).on('click', '#big-area-research', function () {
     });
 });
 
+
+
 function paginacao(id) {
     $('#' + id).DataTable({
         "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "Todos"]],
@@ -131,7 +133,7 @@ function pesquisadoresIteressados() {
     checkeds = checkeds.toString();
 
     $.ajax({
-        url: "listar-interessados-edital/" + '%5B' + checkeds + '%5D',
+        url: urlBase + "listar-interessados-edital/" + '%5B' + checkeds + '%5D',
         method: "GET",
     }).done(function (checkeds) {
 
@@ -152,7 +154,17 @@ function pesquisadoresIteressados() {
     });
 }
 
+function updateAreas() {
+    if (confirm("Tem certeza que deseja alterar?  As áreas atualmente selecionadas, serão removidas!")){
+        $('#areas-edital').remove();
+        $('#alterar').remove();
+        $('#update-areas').css('display', 'block');
+    }
+
+}
+
 $(document).ready(function() {
     $('#usuarios-propi').DataTable();
     $('#usuarios-pesquisador').DataTable();
 } );
+

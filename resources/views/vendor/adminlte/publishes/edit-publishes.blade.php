@@ -14,11 +14,8 @@
                 <li><a href="#tab_3" data-toggle="tab">Lista de Trasmissão</a></li>
                 <li class="pull-right header"><i class="fa fa-file-o"></i> Editar Dados do Edital</li>
             </ul>
-            @if(isset($publish))
-                <form action="{{route('editar-edital',$publish->id)}}" method="post">
+                <form action="{{route('atualizar-edital', $publish->id)}}" method="post">
                     {!! csrf_field('PUT') !!}
-                    @endif
-                    {!! csrf_field() !!}
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_1">
                             <div class="container-fluid">
@@ -76,32 +73,51 @@
                         <div class="tab-pane" id="tab_2">
                             <div class="container-fluid">
 
-                                <div class="form-group">
+                                <div class="form-group" id="areas-edital">
                                     <label for="">Áreas</label>
                                     <div>
                                         <table>
                                             <tbody>
                                             @forelse($areas as $a)
-                                            <tr>
-                                                <td>
-                                                    {{$a->name}}
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <td>
+                                                        {{$a->name}}
+                                                    </td>
+                                                </tr>
                                             @empty
                                                 Não há registro
                                             @endforelse
                                             </tbody>
+
                                         </table>
 
+                                    </div>
+                                </div>
 
 
-
+                                <div class="form-group" id="update-areas" style="display: none">
+                                    <label for="">Grandes áreas</label>
+                                    <div>
+                                        <select id="big-area" name="big-area" class="form-control">
+                                            @forelse($bigAreas as $b)
+                                                <option value="{{$b->id}}">{{$b->name}}</option>
+                                            @empty
+                                                Não há registro
+                                            @endforelse
+                                        </select>
                                     </div>
                                 </div>
 
                                 <div id="tabela-areas">
 
+                                </div>
 
+
+                                <div id="alterar">
+                                    Deseja alterar as áreas?
+                                    <a href="#" type="button"
+                                       onclick="updateAreas()">Alterar
+                                    </a>
                                 </div>
 
                                 <a class="btn btn-danger btnPrevious">Anterior</a>
