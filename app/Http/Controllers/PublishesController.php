@@ -64,8 +64,16 @@ class PublishesController extends Controller
                 'data' => $publishes,
             ]);
         }
+
+        $user = new User();
+        $user->id = Auth::user()->id;
+        $tipouser = 0;
+        $tipo = $user->tipoUsuario()->get()->all();
+        foreach ($tipo as $t){
+            $tipouser = $t->id;
+        }
 //        dd($publish);
-        return view('vendor.adminlte.publishes.list-publishes', compact('publishes'));
+        return view('vendor.adminlte.publishes.list-publishes', compact('publishes','tipouser'));
     }
 
     /**
@@ -160,7 +168,7 @@ if(count($pesquisador)<1){
         $user->id = Auth::user()->id;
         $tipo = $user->tipoUsuario()->get()->all();
             foreach ($tipo as $t){
-                $tipouser = $t->name;
+                $tipouser = $t->id;
             }
 
             $areas = $publish->areasEdital;

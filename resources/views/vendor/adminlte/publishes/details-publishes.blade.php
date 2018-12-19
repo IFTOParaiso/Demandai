@@ -22,7 +22,7 @@
                                 <div class="box-header with-border">
                                     <i class="fa fa-file-o"></i>
                                     <h3 class="box-title">{{$publish->title}}</h3>
-                                    @if ($tipouser=='Administrador')
+                                    @if ($tipouser == 1 || $tipouser == 2)
                                         <a class="btn btn-sm fa fa-edit pull-right" role="button" style="color: blue"
                                            href="{{url('editar-edital/edit',$publish->id)}}"> Retificar</a>
                                     @endif
@@ -60,7 +60,7 @@
                                     </div>
 
                                     <div class="col-lg-6">
-                                        @if ($tipouser=='Pesquisador')
+                                        @if ($tipouser == 3)
                                             <button class="btn btn-sm fa fa-thumbs-o-up pull-right" style="color: green"
                                                     href=""> Tenho Interesse
                                             </button>
@@ -69,7 +69,7 @@
                                                     href=""> Não Tenho Interesse
                                             </button>
                                         @endif
-                                        @if ($tipouser=='Administrador')
+                                        @if ($tipouser == 1 || $tipouser == 2)
                                             <dt class="text-right" style="font-size: large"
                                                 data-toggle="tooltip" data-placement="top"
                                                 title="Pessoas que visualizaram este edital">

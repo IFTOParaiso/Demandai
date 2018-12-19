@@ -5,8 +5,10 @@
         <h1>
             Lista de Editais
         </h1>
+        @if($tipouser == 1 || $tipouser == 2)
         <a class="btn btn-sm fa fa-plus-circle pull-right" role="button"
            href="{{url('cadastrar-edital')}}"> Cadastrar Novo Edital</a>
+        @endif
     </section>
 @stop
 @section('content')
