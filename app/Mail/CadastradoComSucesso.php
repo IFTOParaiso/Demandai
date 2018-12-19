@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ConfirmaCadastro extends Mailable
+class CadastradoComSucesso extends Mailable
 {
     use Queueable, SerializesModels;
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Entities\BigArea;
 use App\Entities\Institution;
+use App\Mail\CadastradoComSucesso;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -16,7 +17,6 @@ use App\Repositories\UserRepository;
 use App\Validators\UserValidator;
 use App\Entities\User;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ConfirmaCadastro;
 /**
  * Class UsersController.
  *
@@ -100,6 +100,7 @@ class UsersController extends Controller
                 'message' => 'Usuário cadastrado!',
                 'data' => $user->toArray(),
             ];
+            Mail::to($request['email'],$request['name'])->send(new CadastradoComSucesso($request));
 
             if ($request->wantsJson()) {
 
@@ -114,7 +115,6 @@ class UsersController extends Controller
                     'message' => $e->getMessageBag()
                 ]);
             }
-            Mail::to($request['email'],$request['name'])->send(new ConfirmaCadastro($request));
 
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }

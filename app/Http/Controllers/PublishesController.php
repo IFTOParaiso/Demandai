@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Entities\AreaUser;
 use App\Entities\BigArea;
 use App\Entities\User;
+use App\Mail\NovoEditalDisponivel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -17,7 +18,6 @@ use App\Validators\PublishValidator;
 use App\Entities\Publish;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\EnviarEdital;
 /**
  * Class PublishesController.
  *
@@ -124,7 +124,7 @@ if(count($pesquisador)<1){
     $listapesquisadores = User::whereIn('id',$interessados)->get();
     //$teste=$listapesquisadores['email'];
     foreach( $listapesquisadores as $index=>$value){
-        Mail::to($value['email'],$value['name'])->send(new EnviarEdital($request,$value));
+        Mail::to($value['email'],$value['name'])->send(new NovoEditalDisponivel($request,$value));
         //dd($value);
     }
 

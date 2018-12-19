@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class EnviarEdital extends Mailable
+class NovoEditalDisponivel extends Mailable
 {
     use Queueable, SerializesModels;
 
