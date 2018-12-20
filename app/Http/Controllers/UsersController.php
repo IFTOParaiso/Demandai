@@ -65,10 +65,11 @@ class UsersController extends Controller
                 'data' => $users,
             ]);
         }
-        // dd($users);
-//        return view('users.index', compact('users'));
-//        return view('vendor.adminlte.users.listar-propi', compact('users'));
-        return view('vendor.adminlte.users.pesquisador.listar-pesquisador', compact('users', 'tipo_usuario'));
+        if ($tipo_usuario == 'pesquisador'){
+            return view('vendor.adminlte.users.pesquisador.listar-pesquisador', compact('users', 'tipo_usuario'));
+        }elseif ($tipo_usuario == 'propi'){
+            return view('vendor.adminlte.users.propi.listar-propi', compact('users', 'tipo_usuario'));
+        }
     }
 
     /**
@@ -107,7 +108,7 @@ class UsersController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect(route('vendor.adminlte.users.admin.home'))->back()->with('message', $response['message']);
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -154,7 +155,8 @@ class UsersController extends Controller
         $institutions = $institutions->all();
         $bigAreas = $bigAreas->all();
 //        return view('users.edit', compact('user'));
-        return view('vendor.adminlte.users.pesquisador.cad-pesquisador', compact('user', 'institutions', 'bigAreas'));
+
+            return view('vendor.adminlte.users.pesquisador.edit-pesquisador', compact('user', 'institutions', 'bigAreas'));
     }
 
     /**
@@ -167,7 +169,7 @@ class UsersController extends Controller
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(UserUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
         try {
 
@@ -176,7 +178,7 @@ class UsersController extends Controller
             $user = $this->repository->update($request->all(), $id);
 
             $response = [
-                'message' => 'User updated.',
+                'message' => 'Usuário Atualizado com Sucesso!',
                 'data' => $user->toArray(),
             ];
 

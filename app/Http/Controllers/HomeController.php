@@ -25,6 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $users = User::all();
+        if (request()->wantsJson()) {
+
+            return response()->json([
+                'data' => $users,
+            ]);
+        }
+
         $user = new User();
         $user->id = Auth::user()->id;
         $tipouser = 0;
@@ -35,7 +43,7 @@ class HomeController extends Controller
         if($tipouser == 3){
             return redirect('/listar-edital');
         }else{
-            return view('vendor.adminlte.users.admin.home');
+            return view('vendor.adminlte.users.admin.index', compact('users', 'tipouser'));
         }
 
     }

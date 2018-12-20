@@ -7,6 +7,15 @@
 
 @section('content')
     <div class="content align-items-center">
+        @if(session('message'))
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <p>{{session('message')}}</p>
+            </div>
+        @endif
+
         <a href="listar-edital">
             <div class="col-lg-6 col-xs-6">
                 <div class="small-box bg-green-gradient">
