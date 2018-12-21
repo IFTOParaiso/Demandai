@@ -132,6 +132,11 @@ class UsersController extends Controller
     {
         $user = $this->repository->find($id);
         $institutions = $institutions->all();
+
+        foreach ($user as $valor){
+            $user->areasPesquisador;
+        }
+
         if (request()->wantsJson()) {
 
             return response()->json([
@@ -154,6 +159,7 @@ class UsersController extends Controller
         $user = $this->repository->find($id);
         $institutions = $institutions->all();
         $bigAreas = $bigAreas->all();
+
 //        return view('users.edit', compact('user'));
 
             return view('vendor.adminlte.users.pesquisador.edit-pesquisador', compact('user', 'institutions', 'bigAreas'));

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Area;
+use App\Entities\AreaUser;
 use Illuminate\Http\Request;
 use App\Entities\User;
 use Illuminate\Support\Facades\Auth;
@@ -33,6 +35,8 @@ class HomeController extends Controller
             ]);
         }
 
+        $areas = Area::all();
+
         $user = new User();
         $user->id = Auth::user()->id;
         $tipouser = 0;
@@ -43,7 +47,7 @@ class HomeController extends Controller
         if($tipouser == 3){
             return redirect('/listar-edital');
         }else{
-            return view('vendor.adminlte.users.admin.index', compact('users', 'tipouser'));
+            return view('vendor.adminlte.users.admin.index', compact('users', 'tipouser', 'areas'));
         }
 
     }
