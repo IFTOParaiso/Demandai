@@ -1,4 +1,4 @@
-const urlBase = "http://localhost/Demandai/public/";
+const urlBase = "http://localhost:8000/";
 
 $(document).on('click', '#big-area', function () {
     var id = event.target.id;
