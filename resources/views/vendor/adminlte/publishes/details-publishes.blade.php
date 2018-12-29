@@ -82,9 +82,11 @@
 
                                         <dl>
                                             <dt>Áreas relacionadas</dt>
-                                            @foreach($areas as $area)
+                                            @forelse($areas as $area)
                                                 {{$area->name}}<br>
-                                            @endforeach
+                                            @empty
+                                                <small>Não há áreas de interesse selecionadas até o momento!</small>
+                                            @endforelse
                                         </dl>
                                     </div>
                                     @endif
