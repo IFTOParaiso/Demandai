@@ -1865,54 +1865,137 @@ class PopulacaoSeeder extends Seeder
 
         // EDITAIS
         \App\Entities\Publish::create([
-            'title' => 'Edital 1',
-            'description' => 'Descrição do Edital 1',
-            'date_closure' => '2019-11-30',
-            'link' => 'http://www.ifto.edu.br/edital/01',
+            'title' => 'Edital de abertura nº 4/2018',
+            'description' => 'Chamada pública de normas e inscrição para o segundo evento de defesa de Trabalho de Conclusão de Curso - TCC em Licenciatura em Matemática, referente ao semestre letivo 2018/2',
+            'date_closure' => '2019-01-17',
+            'link' => 'http://portal.ifto.edu.br/paraiso/campus-paraiso/seletivos/chamada-publica/chamada-publica-de-normas-e-inscricao-para-o-segundo-evento-de-defesa-de-trabalho-de-conclusao-de-curso-tcc-em-licenciatura-em-matematica-referente-ao-semestre-letivo-2018-2',
         ]);
         \App\Entities\Publish::create([
-            'title' => 'Edital 2',
-            'description' => 'Descrição do Edital 2',
-            'date_closure' => '2019-11-30',
-            'link' => 'http://www.ifto.edu.br/edital/02',
+            'title' => 'EDITAL N.º 39/2018',
+            'description' => 'SELEÇÃO DE ALUNOS PARA CURSOS DE EXTENSÃO DO PROJETO SOCIAL DE INCLUSÃO DIGITAL “ANJO DA GUARDA” - PSID 2018/2',
+            'date_closure' => '2018-09-19',
+            'link' => 'http://portal.ifto.edu.br/palmas/campus-palmas/seletivos-palmas/processo-seletivo/edital-no-39-2018-selecao-de-alunos-para-cursos-de-extensao-do-projeto-social-de-inclusao-digital-201canjo-da-guarda201d-psid-2018-2',
         ]);
         \App\Entities\Publish::create([
-            'title' => 'Edital 3',
-            'description' => 'Descrição do Edital 3',
-            'date_closure' => '2019-11-30',
-            'link' => 'http://www.ifto.edu.br/edital/03',
+            'title' => 'EDITAL Nº 53/2018',
+            'description' => 'SELEÇÃO DE PORTADOR DE DIPLOMA EM CURSOS TÉCNICOS DE NÍVEL MÉDIO PARA VAGAS DISPONÍVEIS NO MÓDULO III DOS CURSOS TÉCNICOS SUBSEQUENTES EM AUTOMAÇÃO INDUSTRIAL E ELETROTÉCNICA',
+            'date_closure' => '2018-02-21',
+            'link' => 'http://portal.ifto.edu.br/palmas/campus-palmas/seletivos-palmas/processo-seletivo',
         ]);
         \App\Entities\Publish::create([
-            'title' => 'Edital 4',
-            'description' => 'Descrição do Edital 4',
-            'date_closure' => '2018-01-30',
-            'link' => 'http://www.ifto.edu.br/edital/04',
+            'title' => 'Edital de Apoio à Qualificação',
+            'description' => 'Classificação dos docentes para fins de afastamento.',
+            'date_closure' => '2018-12-21',
+            'link' => 'http://portal.ifto.edu.br/paraiso/campus-paraiso/seletivos/chamada-publica/edital-de-apoio-a-qualificacao-classificacao-dos-docentes-para-fins-de-afastamento',
         ]);
         \App\Entities\Publish::create([
-            'title' => 'Edital 5',
-            'description' => 'Descrição do Edital 5',
-            'date_closure' => '2018-01-30',
-            'link' => 'http://www.ifto.edu.br/edital/05',
+            'title' => 'EDITAL Nº 47/2018',
+            'description' => 'PROCESSO SELETIVO SIMPLIFICADO PARA O CURSO DE DESENHO ARTÍSTICO',
+            'date_closure' => '2019-01-18',
+            'link' => 'http://portal.ifto.edu.br/palmas/campus-palmas/seletivos-palmas/processo-seletivo/edital-no-47-2018-processo-seletivo-simplificado-para-o-curso-de-desenho-artistico',
         ]);
         \App\Entities\Publish::create([
-            'title' => 'Edital 6',
-            'description' => 'Descrição do Edital 6',
-            'date_closure' => '2018-01-30',
-            'link' => 'http://www.ifto.edu.br/edital/06',
+            'title' => 'EDITAL Nº 51/2018',
+            'description' => 'CONCESSÃO DE DIÁRIAS E PASSAGENS PARA APOIO A PARTICIPAÇÃO EM EVENTOS ACADÊMICO-CIENTÍFICOS',
+            'date_closure' => '2019-01-29',
+            'link' => 'http://portal.ifto.edu.br/palmas/campus-palmas/seletivos-palmas/processo-seletivo/edital-no-51-2018',
         ]);
         \App\Entities\Publish::create([
-            'title' => 'Edital 7',
-            'description' => 'Descrição do Edital 7',
-            'date_closure' => '2018-01-30',
-            'link' => 'http://www.ifto.edu.br/edital/07',
+            'title' => 'Edital n.º 49/2018',
+            'description' => 'SELEÇÃO PARA OFERTA DE DISCIPLINA ISOLADA DE MATEMÁTICA APLICADA',
+            'date_closure' => '2019-01-02',
+            'link' => 'http://portal.ifto.edu.br/gurupi/campus-gurupi/seletivos/selecao-para-oferta-de-disciplina-isolada-de-matematica-aplicada',
         ]);
         \App\Entities\Publish::create([
-            'title' => 'Edital 8',
-            'description' => 'Descrição do Edital 8',
-            'date_closure' => '2018-01-30',
-            'link' => 'http://www.ifto.edu.br/edital/08',
+            'title' => 'EDITAL N.º 47/2018',
+            'description' => 'PROCESSO SELETIVO PARA PREENCHIMENTO DE VAGAS OCIOSAS PARA OS CURSOS SUPERIORES',
+            'date_closure' => '2019-01-21',
+            'link' => 'http://portal.ifto.edu.br/gurupi/campus-gurupi/seletivos/processo-seletivo/processo-seletivo-de-vagas-ociosas-nos-cursos-de-graduacao',
         ]);
 
+        \App\Entities\AreaPublish::create([
+           'area_id' => '2',
+            'publish_id' => '1',
+        ]);
 
+        \App\Entities\AreaPublish::create([
+            'area_id' => '24',
+            'publish_id' => '1',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '52',
+            'publish_id' => '1',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '1071',
+            'publish_id' => '5',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '1103',
+            'publish_id' => '5',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '1076',
+            'publish_id' => '5',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '1087',
+            'publish_id' => '5',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '1094',
+            'publish_id' => '5',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '1098',
+            'publish_id' => '5',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '1086',
+            'publish_id' => '5',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '1090',
+            'publish_id' => '5',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '76',
+            'publish_id' => '6',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '99',
+            'publish_id' => '6',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '200',
+            'publish_id' => '6',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '942',
+            'publish_id' => '6',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '943',
+            'publish_id' => '6',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '944',
+            'publish_id' => '6',
+        ]);
     }
 }
