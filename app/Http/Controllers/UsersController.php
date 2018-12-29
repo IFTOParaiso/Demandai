@@ -260,4 +260,24 @@ class UsersController extends Controller
     {
         return view('vendor.adminlte.login', compact('tipo_usuario'));
     }
+
+    public function meuPerfil($id, Institution $institutions)
+    {
+        $user = $this->repository->find($id);
+        $institutions = $institutions->all();
+
+        foreach ($user as $valor){
+            $user->areasPesquisador;
+        }
+
+        if (request()->wantsJson()) {
+
+            return response()->json([
+                'data' => $user,
+            ]);
+        }
+        return view('vendor.adminlte.users.meu-perfil', compact('user', 'institutions'));
+    }
+
+
 }
