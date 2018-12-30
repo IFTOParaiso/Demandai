@@ -1,0 +1,53 @@
+.skin-blue .main-header .navbar {
+    background-color: #225730;
+}
+
+.skin-blue .main-header .logo {
+    background-color: #19882c;
+    color: #fff;
+    border-bottom: 0 solid transparent;
+}
+
+.skin-blue .main-header .logo:hover {
+    background-color: #a40c17;
+    /*background-color: #EB163AFF;*/
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+    background-color: #a40c17;
+}
+
+.skin-blue .sidebar-menu>li.header {
+    color: #fff;
+    background: #1a6e27;
+}
+
+.skin-blue .sidebar a:hover {
+    text-decoration: none;
+}
+
+.skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a, .skin-blue .sidebar-menu>li.menu-open>a {
+    color: #fff;
+    background: #a40c17;
+}
+
+.skin-blue .sidebar-menu>li.active>a {
+    border-left-color: #dd4b39;
+}
+
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+    background-color: #225730;
+}
+
+.skin-blue .sidebar-menu>li>.treeview-menu {
+    margin: 0 1px;
+    background: #225730;
+}
+
+.skin-blue .sidebar-menu .treeview-menu>li>a {
+    color: #A4A4A4;
+}
+
+.box.box-primary {
+    border-top-color: #3c763d;
+}
