@@ -51,12 +51,6 @@
                                             <dt>Link de Acesso</dt>
                                             <dd><a href="{{$publish->link}}" target="_blank">{{$publish->link}}</a></dd>
                                         </dl>
-                                        <dl>
-                                            <dt>Áreas relacionadas</dt>
-                                            @foreach($areas as $area)
-                                                {{$area->name}}<br>
-                                            @endforeach
-                                        </dl>
                                     </div>
 
                                     <div class="col-lg-6">
@@ -85,6 +79,15 @@
                                                 title="Pessoas que demonstraram desinteresse neste edital">
                                                 <i class="fa fa-thumbs-o-down"></i> : 1
                                             </dt>
+
+                                        <dl>
+                                            <dt>Áreas relacionadas</dt>
+                                            @forelse($areas as $area)
+                                                {{$area->name}}<br>
+                                            @empty
+                                                <small>Não há áreas de interesse selecionadas até o momento!</small>
+                                            @endforelse
+                                        </dl>
                                     </div>
                                     @endif
                                 </div>

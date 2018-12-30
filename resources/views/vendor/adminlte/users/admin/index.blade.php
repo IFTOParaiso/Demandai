@@ -67,7 +67,7 @@
 
     <style>
         .box-primary{
-            max-height:400px;
+            max-height:530px;
             overflow-x:auto;
         }
     </style>

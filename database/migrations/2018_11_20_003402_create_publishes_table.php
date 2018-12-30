@@ -20,7 +20,7 @@ class CreatePublishesTable extends Migration
 			$table->string('title');
 			$table->longText('description');
 			$table->date('date_closure');
-			$table->string('link');
+			$table->char('link', 255);
             $table->timestamps();
 		});
 	}

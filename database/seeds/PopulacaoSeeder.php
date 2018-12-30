@@ -13,20 +13,111 @@ class PopulacaoSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         // INSTITUIÇÃO
-        \App\Entities\Institution::create([
-            'name' => 'IFTO',
-            'description' => 'IFTO Campus Paraíso',
+        \App\Entities\Institution::create([ // ID:1 -PARAÍSO - TO
+            'name' => 'IFTO - Campus Paraíso do Tocantins',
+            'description' => 'Instituto Federal do Tocantins - Campus Paraíso',
             'email' => 'paraiso@ifto.edu.br',
-            'phone' => '63 33610300',
-            'site' => 'www.ifto.edu.br/paraiso',
+            'phone' => '63 3361-0300',
+            'site' => 'http://portal.ifto.edu.br/paraiso/',
             'status' => '1',
-            'street' => 'Rua do IFTO',
-            'number' => '10',
-            'sector' => 'Parque Agroindustrial',
-            'city' => 'Paraíso do Tocantins',
+            'street' => 'BR 153, KM 480',
+            'number' => 'sn',
+            'sector' => 'Plano Diretor Sul',
+            'city' => 'Palmas - TO',
             'complement' => 'IFTO',
 
         ]);
+
+        \App\Entities\Institution::create([ // ID:2 PALMAS - TO
+            'name' => 'IFTO - Campus Palmas',
+            'description' => 'Instituto Federal do Tocantins - Campus Palmas',
+            'email' => 'palmas@ifto.edu.br',
+            'phone' => '63 3236-4000',
+            'site' => 'http://portal.ifto.edu.br/paraiso/',
+            'status' => '1',
+            'street' => 'Quadra 310 Su, Lo 5',
+            'number' => 'sn',
+            'sector' => 'Parque Agroindustrial',
+            'city' => 'Paraíso do Tocantins - TO',
+            'complement' => 'IFTO',
+
+        ]);
+
+        \App\Entities\Institution::create([ // ID:3 ARAGUAÍNA - TO
+            'name' => 'IFTO - Campus Araguaína',
+            'description' => 'Instituto Federal do Tocantins - Campus Araguaína',
+            'email' => 'araguaina@ifto.edu.br',
+            'phone' => '63 3411-0300',
+            'site' => 'http://portal.ifto.edu.br/araguaina',
+            'status' => '1',
+            'street' => 'Av. Amazonas, esquina com a Av. Paraguai, Quadra 56, Lote 01',
+            'number' => 'sn',
+            'sector' => 'Cimba Araguaína',
+            'city' => 'Araguaína - TO',
+            'complement' => 'IFTO',
+
+        ]);
+
+        \App\Entities\Institution::create([ // ID:4 COLINAS - TO
+            'name' => 'IFTO - Campus Colinas',
+            'description' => 'Instituto Federal do Tocantins - Campus Colinas do Tocantins',
+            'email' => 'colinas@ifto.edu.br',
+            'phone' => '63 99972-2908',
+            'site' => 'http://portal.ifto.edu.br/colinas',
+            'status' => '1',
+            'street' => 'Avenida Bernardo Sayão, Lote 29B, Chácara Raio de Sol',
+            'number' => 'sn',
+            'sector' => 'Santa Maria',
+            'city' => 'Colinas do Tocantins - TO',
+            'complement' => 'IFTO',
+
+        ]);
+
+        \App\Entities\Institution::create([ // ID:5 DIANÓPOLIS - TO
+            'name' => 'IFTO - Campus Dianópolis',
+            'description' => 'Instituto Federal do Tocantins - Campus Dianópolis',
+            'email' => 'dianopolis@ifto.edu.br',
+            'phone' => '63 99969-4268',
+            'site' => 'http://portal.ifto.edu.br/dianopolis',
+            'status' => '1',
+            'street' => 'Rodovia TO 040 - Km 349',
+            'number' => 'sn',
+            'sector' => 'Loteamento Rio Palmeira - Lote 1',
+            'city' => 'Dianópolis - TO',
+            'complement' => 'IFTO',
+
+        ]);
+
+        \App\Entities\Institution::create([ // ID:6 GURUPI - TO
+            'name' => 'IFTO - Campus Gurupi',
+            'description' => 'Instituto Federal do Tocantins - Campus Gurupi',
+            'email' => 'gurupi@ifto.edu.br',
+            'phone' => '63 3311-5400',
+            'site' => 'http://portal.ifto.edu.br/gurupi',
+            'status' => '1',
+            'street' => 'Alameda Madrid',
+            'number' => '545',
+            'sector' => 'Jardim Sevilha',
+            'city' => 'Gurupi - TO',
+            'complement' => 'IFTO',
+
+        ]);
+
+        \App\Entities\Institution::create([ // ID:7 PORTO NACIONAL - TO
+            'name' => 'IFTO - Campus Porto Nacional',
+            'description' => 'Instituto Federal do Tocantins - Campus Gurupi',
+            'email' => 'portonacional@ifto.edu.br',
+            'phone' => '63 3363-9700',
+            'site' => 'http://portal.ifto.edu.br/porto',
+            'status' => '1',
+            'street' => 'Avenida Tocantins, A.I. - Loteamento Mãe Dedé',
+            'number' => 'sn',
+            'sector' => 'Jardim América',
+            'city' => 'Porto Nacional - TO',
+            'complement' => 'IFTO',
+
+        ]);
+
         // USUÁRIO (PROPI)
         \App\Entities\User::create([
             'name' => 'Propi',
@@ -52,16 +143,221 @@ class PopulacaoSeeder extends Seeder
         ]);
         // USUÁRIO (PESQUISADOR)
         \App\Entities\User::create([
-            'name' => 'Pesquisador',
-            'email' => 'pesquisador@demandai.com',
+            'name' => 'Leandro Teófilo Pinto dos Reis',
+            'email' => 'teofilo@ifto.edu.br',
             'password' => bcrypt('123456'),
-            'formation' => '1',
-            'lattes' => 'www.google.com',
+            'formation' => '2',
+            'lattes' => 'http://lattes.cnpq.br/5205961243034154',
             'status' => '1',
             'remember_token' => str_random(10),
             'institution_id' => '1',
 
         ]);
+
+        \App\Entities\User::create([
+            'name' => 'André Mesquita Rincon',
+            'email' => 'rincon.ifto@gmail.com',
+            'password' => bcrypt('123456'),
+            'formation' => '1',
+            'lattes' => 'http://lattes.cnpq.br/8592889761837696',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '1',
+
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Gislaine Pereira Sales',
+            'email' => 'gislaine@ifto.edu.br',
+            'password' => bcrypt('123456'),
+            'formation' => '2',
+            'lattes' => 'http://lattes.cnpq.br/4959271117499925',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '1',
+
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Thatiane de Oliveira Rosa',
+            'email' => 'thatiane@ifto.edu.br',
+            'password' => bcrypt('123456'),
+            'formation' => '2',
+            'lattes' => 'http://lattes.cnpq.br/0303783728759750',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '1',
+
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Stéfan de Oliveira Rosa',
+            'email' => 'stefan@ifto.edu.br',
+            'password' => bcrypt('123456'),
+            'formation' => '2',
+            'lattes' => 'http://lattes.cnpq.br/2774705785638791',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '1',
+
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Fábio Silveira Vidal',
+            'email' => 'vidalfs@gmail.com',
+            'password' => bcrypt('123456'),
+            'formation' => '3',
+            'lattes' => 'http://lattes.cnpq.br/5457169156572232',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '1',
+
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Wilson Wolf Costa',
+            'email' => 'wilsoncosta@ifto.edu.br',
+            'password' => bcrypt('123456'),
+            'formation' => '1',
+            'lattes' => 'http://lattes.cnpq.br/4641095971291235',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '2',
+
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Gerson Pesente Focking',
+            'email' => 'presente@ifto.edu.br',
+            'password' => bcrypt('123456'),
+            'formation' => '3',
+            'lattes' => 'http://lattes.cnpq.br/7255745251514223',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '2',
+
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Napoleão Póvoa Ribeiro Filho',
+            'email' => 'napoleao@ifto.edu.br',
+            'password' => bcrypt('123456'),
+            'formation' => '2',
+            'lattes' => 'http://lattes.cnpq.br/3384664312366751',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '2',
+
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Madson Teles de Souza',
+            'email' => 'madson@ifto.edu.br',
+            'password' => bcrypt('123456'),
+            'formation' => '2',
+            'lattes' => 'http://lattes.cnpq.br/8817711554486322',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '2',
+
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Daiane Aparecida Tonaco',
+            'email' => 'daiane@ifto.edu.br',
+            'password' => bcrypt('123456'),
+            'formation' => '2',
+            'lattes' => 'http://lattes.cnpq.br/1081122677251461',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '3',
+
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Cassiana Barros da Silva',
+            'email' => 'cassiana@ifto.edu.br',
+            'password' => bcrypt('123456'),
+            'formation' => '1',
+            'lattes' => 'http://lattes.cnpq.br/8510907561824305',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '3',
+
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Bárbara Marques Bianchini',
+            'email' => 'barbara@ifto.edu.br',
+            'password' => bcrypt('123456'),
+            'formation' => '1',
+            'lattes' => 'http://lattes.cnpq.br/8890370120392974',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '3',
+
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Ana Carolina Resende Maia',
+            'email' => 'anacarolina@ifto.edu.br',
+            'password' => bcrypt('123456'),
+            'formation' => '2',
+            'lattes' => 'http://lattes.cnpq.br/6339954928780661',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '3',
+
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Ricardo Alencar Liborio',
+            'email' => 'ricardo@ifto.edu.br',
+            'password' => bcrypt('123456'),
+            'formation' => '2',
+            'lattes' => 'http://lattes.cnpq.br/6261435311932626',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '6',
+
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Paulo Victor Gomes Sales',
+            'email' => 'paulovictor@ifto.edu.br',
+            'password' => bcrypt('123456'),
+            'formation' => '3',
+            'lattes' => 'http://lattes.cnpq.br/3165647792943190',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '6',
+
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Helber Véras Nunes',
+            'email' => 'helber@ifto.edu.br',
+            'password' => bcrypt('123456'),
+            'formation' => '3',
+            'lattes' => 'http://lattes.cnpq.br/2795363298472337',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '6',
+
+        ]);
+
+        \App\Entities\User::create([
+            'name' => 'Ademil Domingos do Nascimento',
+            'email' => 'ademil@ifto.edu.br',
+            'password' => bcrypt('123456'),
+            'formation' => '2',
+            'lattes' => 'http://lattes.cnpq.br/5796073468092493',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '6',
+
+        ]);
+
         // TIPO DE USUÁRIO (ADMINISTRADOR)
         \App\Entities\TypeUser::create([
             'name' => 'Administrador',
@@ -101,6 +397,108 @@ class PopulacaoSeeder extends Seeder
         // USUÁRIO TIPO USUÁRIO (PESQUISADOR)
         \App\Entities\UserTypeUser::create([
             'user_id' => '3',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '4',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '5',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '6',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '7',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '8',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '9',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '10',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '11',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '12',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '13',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '14',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '15',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '16',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '17',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '18',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '19',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '20',
             'type_user_id' => '3',
 
         ]);
@@ -1467,54 +1865,137 @@ class PopulacaoSeeder extends Seeder
 
         // EDITAIS
         \App\Entities\Publish::create([
-            'title' => 'Edital 1',
-            'description' => 'Descrição do Edital 1',
-            'date_closure' => '2019-11-30',
-            'link' => 'http://www.ifto.edu.br/edital/01',
+            'title' => 'Edital de abertura nº 4/2018',
+            'description' => 'Chamada pública de normas e inscrição para o segundo evento de defesa de Trabalho de Conclusão de Curso - TCC em Licenciatura em Matemática, referente ao semestre letivo 2018/2',
+            'date_closure' => '2019-01-17',
+            'link' => 'http://portal.ifto.edu.br/paraiso/campus-paraiso/seletivos/chamada-publica/chamada-publica-de-normas-e-inscricao-para-o-segundo-evento-de-defesa-de-trabalho-de-conclusao-de-curso-tcc-em-licenciatura-em-matematica-referente-ao-semestre-letivo-2018-2',
         ]);
         \App\Entities\Publish::create([
-            'title' => 'Edital 2',
-            'description' => 'Descrição do Edital 2',
-            'date_closure' => '2019-11-30',
-            'link' => 'http://www.ifto.edu.br/edital/02',
+            'title' => 'EDITAL N.º 39/2018',
+            'description' => 'SELEÇÃO DE ALUNOS PARA CURSOS DE EXTENSÃO DO PROJETO SOCIAL DE INCLUSÃO DIGITAL “ANJO DA GUARDA” - PSID 2018/2',
+            'date_closure' => '2018-09-19',
+            'link' => 'http://portal.ifto.edu.br/palmas/campus-palmas/seletivos-palmas/processo-seletivo/edital-no-39-2018-selecao-de-alunos-para-cursos-de-extensao-do-projeto-social-de-inclusao-digital-201canjo-da-guarda201d-psid-2018-2',
         ]);
         \App\Entities\Publish::create([
-            'title' => 'Edital 3',
-            'description' => 'Descrição do Edital 3',
-            'date_closure' => '2019-11-30',
-            'link' => 'http://www.ifto.edu.br/edital/03',
+            'title' => 'EDITAL Nº 53/2018',
+            'description' => 'SELEÇÃO DE PORTADOR DE DIPLOMA EM CURSOS TÉCNICOS DE NÍVEL MÉDIO PARA VAGAS DISPONÍVEIS NO MÓDULO III DOS CURSOS TÉCNICOS SUBSEQUENTES EM AUTOMAÇÃO INDUSTRIAL E ELETROTÉCNICA',
+            'date_closure' => '2018-02-21',
+            'link' => 'http://portal.ifto.edu.br/palmas/campus-palmas/seletivos-palmas/processo-seletivo',
         ]);
         \App\Entities\Publish::create([
-            'title' => 'Edital 4',
-            'description' => 'Descrição do Edital 4',
-            'date_closure' => '2018-01-30',
-            'link' => 'http://www.ifto.edu.br/edital/04',
+            'title' => 'Edital de Apoio à Qualificação',
+            'description' => 'Classificação dos docentes para fins de afastamento.',
+            'date_closure' => '2018-12-21',
+            'link' => 'http://portal.ifto.edu.br/paraiso/campus-paraiso/seletivos/chamada-publica/edital-de-apoio-a-qualificacao-classificacao-dos-docentes-para-fins-de-afastamento',
         ]);
         \App\Entities\Publish::create([
-            'title' => 'Edital 5',
-            'description' => 'Descrição do Edital 5',
-            'date_closure' => '2018-01-30',
-            'link' => 'http://www.ifto.edu.br/edital/05',
+            'title' => 'EDITAL Nº 47/2018',
+            'description' => 'PROCESSO SELETIVO SIMPLIFICADO PARA O CURSO DE DESENHO ARTÍSTICO',
+            'date_closure' => '2019-01-18',
+            'link' => 'http://portal.ifto.edu.br/palmas/campus-palmas/seletivos-palmas/processo-seletivo/edital-no-47-2018-processo-seletivo-simplificado-para-o-curso-de-desenho-artistico',
         ]);
         \App\Entities\Publish::create([
-            'title' => 'Edital 6',
-            'description' => 'Descrição do Edital 6',
-            'date_closure' => '2018-01-30',
-            'link' => 'http://www.ifto.edu.br/edital/06',
+            'title' => 'EDITAL Nº 51/2018',
+            'description' => 'CONCESSÃO DE DIÁRIAS E PASSAGENS PARA APOIO A PARTICIPAÇÃO EM EVENTOS ACADÊMICO-CIENTÍFICOS',
+            'date_closure' => '2019-01-29',
+            'link' => 'http://portal.ifto.edu.br/palmas/campus-palmas/seletivos-palmas/processo-seletivo/edital-no-51-2018',
         ]);
         \App\Entities\Publish::create([
-            'title' => 'Edital 7',
-            'description' => 'Descrição do Edital 7',
-            'date_closure' => '2018-01-30',
-            'link' => 'http://www.ifto.edu.br/edital/07',
+            'title' => 'Edital n.º 49/2018',
+            'description' => 'SELEÇÃO PARA OFERTA DE DISCIPLINA ISOLADA DE MATEMÁTICA APLICADA',
+            'date_closure' => '2019-01-02',
+            'link' => 'http://portal.ifto.edu.br/gurupi/campus-gurupi/seletivos/selecao-para-oferta-de-disciplina-isolada-de-matematica-aplicada',
         ]);
         \App\Entities\Publish::create([
-            'title' => 'Edital 8',
-            'description' => 'Descrição do Edital 8',
-            'date_closure' => '2018-01-30',
-            'link' => 'http://www.ifto.edu.br/edital/08',
+            'title' => 'EDITAL N.º 47/2018',
+            'description' => 'PROCESSO SELETIVO PARA PREENCHIMENTO DE VAGAS OCIOSAS PARA OS CURSOS SUPERIORES',
+            'date_closure' => '2019-01-21',
+            'link' => 'http://portal.ifto.edu.br/gurupi/campus-gurupi/seletivos/processo-seletivo/processo-seletivo-de-vagas-ociosas-nos-cursos-de-graduacao',
         ]);
 
+        \App\Entities\AreaPublish::create([
+           'area_id' => '2',
+            'publish_id' => '1',
+        ]);
 
+        \App\Entities\AreaPublish::create([
+            'area_id' => '24',
+            'publish_id' => '1',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '52',
+            'publish_id' => '1',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '1071',
+            'publish_id' => '5',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '1103',
+            'publish_id' => '5',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '1076',
+            'publish_id' => '5',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '1087',
+            'publish_id' => '5',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '1094',
+            'publish_id' => '5',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '1098',
+            'publish_id' => '5',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '1086',
+            'publish_id' => '5',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '1090',
+            'publish_id' => '5',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '76',
+            'publish_id' => '6',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '99',
+            'publish_id' => '6',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '200',
+            'publish_id' => '6',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '942',
+            'publish_id' => '6',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '943',
+            'publish_id' => '6',
+        ]);
+
+        \App\Entities\AreaPublish::create([
+            'area_id' => '944',
+            'publish_id' => '6',
+        ]);
     }
 }

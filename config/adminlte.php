@@ -171,12 +171,13 @@ return [
         'PERFIL',
         [
             'text' => 'Perfil',
-            'url'  => '#',
+//            'url'  => 'meu-perfil/'.Auth::user()->id,
+            'url'  => 'meu-perfil/1',
             'icon' => 'user',
         ],
         [
             'text' => 'Change Password',
-            'url'  => 'admin/settings',
+            'url'  => 'password/reset',
             'icon' => 'lock',
         ],
     ],
