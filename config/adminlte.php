@@ -171,8 +171,7 @@ return [
         'PERFIL',
         [
             'text' => 'Perfil',
-//            'url'  => 'meu-perfil/'.Auth::user()->id,
-            'url'  => 'meu-perfil/1',
+            'url'  => 'meu-perfil',
             'icon' => 'user',
         ],
         [

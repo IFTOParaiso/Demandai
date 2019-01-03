@@ -65,13 +65,13 @@
                                     </dl>
                                 </div>
 
-                                <div class="col-lg-6 pull-right">
-                                    <dl>
-                                        <dt>Áreas relacionadas</dt>
-
-                                        {{$user->name}}<br>
-
-                                    </dl>
+                                <div class="col-lg-6 pull-right" style="margin-top: 60px">
+                                    <dt>Áreas relacionadas</dt>
+                                    {{--@forelse($areas as $area)--}}
+                                        {{--{{$areas->name}}<br>--}}
+                                    {{--@empty--}}
+                                        {{--<small>Não há áreas de interesse selecionadas até o momento!</small>--}}
+                                    {{--@endforelse--}}
                                 </div>
 
                             </div>
