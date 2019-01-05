@@ -17,6 +17,15 @@
                 <div class="box">
                     <div class="box-body">
 
+                        @if(session('message'))
+                            <div class="alert alert-success">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <p>{{session('message')}}</p>
+                            </div>
+                        @endif
+
                         <div class="col-md-12">
                             <div class="box box-solid">
                                 <div class="box-header with-border">
@@ -67,11 +76,11 @@
 
                                 <div class="col-lg-6 pull-right" style="margin-top: 60px">
                                     <dt>Áreas relacionadas</dt>
-                                    {{--@forelse($areas as $area)--}}
-                                        {{--{{$areas->name}}<br>--}}
-                                    {{--@empty--}}
-                                        {{--<small>Não há áreas de interesse selecionadas até o momento!</small>--}}
-                                    {{--@endforelse--}}
+                                    @forelse($areas as $area)
+                                        {{$area->name}}<br>
+                                    @empty
+                                        <small>Não há áreas de interesse selecionadas até o momento!</small>
+                                    @endforelse
                                 </div>
 
                             </div>

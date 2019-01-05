@@ -140,7 +140,14 @@ class UsersController extends Controller
             ]);
         }
 
-        return view('vendor.adminlte.users.pesquisador.details-pesquisador', compact('user', 'institutions'));
+        $tipo = $user->tipoUsuario()->get()->all();
+            foreach ($tipo as $t){
+                $tipouser = $t->id;
+            }
+            $areas = $user->areasUsuario;
+//            return $areas;
+
+        return view('vendor.adminlte.users.pesquisador.details-pesquisador', compact('user', 'institutions', 'areas', 'tipouser'));
     }
 
     /**
@@ -156,9 +163,11 @@ class UsersController extends Controller
         $institutions = $institutions->all();
         $bigAreas = $bigAreas->all();
 
-//        return view('users.edit', compact('user'));
+        foreach ($user as $u){
+            $areas = $user->areasUsuario;
+        }
 
-            return view('vendor.adminlte.users.pesquisador.edit-pesquisador', compact('user', 'institutions', 'bigAreas'));
+            return view('vendor.adminlte.users.pesquisador.edit-pesquisador', compact('user', 'institutions', 'bigAreas', 'areas'));
     }
 
     /**
@@ -178,6 +187,8 @@ class UsersController extends Controller
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
             $user = $this->repository->update($request->all(), $id);
+            $areas = $request['areas'];
+            $user->areasUsuario()->sync($areas);
 
             $response = [
                 'message' => 'Usuário Atualizado com Sucesso!',
@@ -189,7 +200,7 @@ class UsersController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect(url('detalhe-pesquisador/show',compact('id')))->with('message');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -272,5 +283,14 @@ class UsersController extends Controller
 
 
         return view('vendor.adminlte.users.meu-perfil', compact('user', 'institutions'));
+    }
+
+    public function areasUsuario($id = 10){
+        $user = $this->repository->find($id);
+        foreach($user as $u){
+            $areas = $user->areasUsuario;
+        }
+
+        return view('vendor.adminlte.users.edit-pesquisador', compact('areas','user', 'areas'));
     }
 }

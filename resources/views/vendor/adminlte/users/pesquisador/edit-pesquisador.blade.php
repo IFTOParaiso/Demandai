@@ -142,10 +142,36 @@
                                         </div>
                                         <div class="tab-pane" id="tab_2">
                                             <div class="container-fluid">
-                                                <div class="form-group">
+                                                <div class="form-group" id="areas-usuario">
+                                                    <div>
+                                                        <hr>
+                                                        <table id="tabela-areas-usuario" class="table table-bordered table-hover">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Áreas</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            @forelse($areas as $a)
+                                                                <tr>
+                                                                    <td>
+                                                                        <input type="checkbox" name="areas[]" value="{{$a->id}}" checked style="display: none">{{$a->name}}
+                                                                    </td>
+                                                                </tr>
+                                                            @empty
+                                                                Não há registro
+                                                            @endforelse
+                                                            </tbody>
+
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group" id="update-areas" style="display: none">
                                                     <label for="">Grandes áreas</label>
                                                     <div>
-                                                        <select id="big-area-research" name="big-area-research" class="form-control">
+                                                        <select id="big-area" name="big-area" class="form-control">
                                                             @forelse($bigAreas as $b)
                                                                 <option value="{{$b->id}}">{{$b->name}}</option>
                                                             @empty
@@ -154,7 +180,19 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div id="tabela-areas"></div>
+
+                                                <div id="tabela-areas">
+
+                                                </div>
+
+
+                                                <div id="alterar">
+                                                    Deseja alterar as áreas?
+                                                    <a href="#" type="button"
+                                                       onclick="updateAreas()">Alterar
+                                                    </a>
+                                                </div>
+
                                                 <a class="btn btn-danger btnPrevious">Anterior</a>
                                                 <button type="submit" class="btn btn-success pull-right">Enviar</button>
                                             </div>

@@ -1913,6 +1913,7 @@ class PopulacaoSeeder extends Seeder
             'link' => 'http://portal.ifto.edu.br/gurupi/campus-gurupi/seletivos/processo-seletivo/processo-seletivo-de-vagas-ociosas-nos-cursos-de-graduacao',
         ]);
 
+        //AREA EDITAL
         \App\Entities\AreaPublish::create([
            'area_id' => '2',
             'publish_id' => '1',
@@ -1996,6 +1997,93 @@ class PopulacaoSeeder extends Seeder
         \App\Entities\AreaPublish::create([
             'area_id' => '944',
             'publish_id' => '6',
+        ]);
+
+
+        //AREA USUÁRIO
+        \App\Entities\AreaUser::create([
+            'area_id' => '2',
+            'user_id' => '1',
+        ]);
+
+        \App\Entities\AreaUser::create([
+            'area_id' => '24',
+            'user_id' => '1',
+        ]);
+
+        \App\Entities\AreaUser::create([
+            'area_id' => '52',
+            'user_id' => '1',
+        ]);
+
+        \App\Entities\AreaUser::create([
+            'area_id' => '1071',
+            'user_id' => '5',
+        ]);
+
+        \App\Entities\AreaUser::create([
+            'area_id' => '1103',
+            'user_id' => '5',
+        ]);
+
+        \App\Entities\AreaUser::create([
+            'area_id' => '1076',
+            'user_id' => '5',
+        ]);
+
+        \App\Entities\AreaUser::create([
+            'area_id' => '1087',
+            'user_id' => '5',
+        ]);
+
+        \App\Entities\AreaUser::create([
+            'area_id' => '1094',
+            'user_id' => '5',
+        ]);
+
+        \App\Entities\AreaUser::create([
+            'area_id' => '1098',
+            'user_id' => '5',
+        ]);
+
+        \App\Entities\AreaUser::create([
+            'area_id' => '1086',
+            'user_id' => '5',
+        ]);
+
+        \App\Entities\AreaUser::create([
+            'area_id' => '1090',
+            'user_id' => '5',
+        ]);
+
+        \App\Entities\AreaUser::create([
+            'area_id' => '76',
+            'user_id' => '6',
+        ]);
+
+        \App\Entities\AreaUser::create([
+            'area_id' => '99',
+            'user_id' => '6',
+        ]);
+
+        \App\Entities\AreaUser::create([
+            'area_id' => '200',
+            'user_id' => '6',
+        ]);
+
+        \App\Entities\AreaUser::create([
+            'area_id' => '942',
+            'user_id' => '6',
+        ]);
+
+        \App\Entities\AreaUser::create([
+            'area_id' => '943',
+            'user_id' => '6',
+        ]);
+
+        \App\Entities\AreaUser::create([
+            'area_id' => '944',
+            'user_id' => '6',
         ]);
     }
 }
