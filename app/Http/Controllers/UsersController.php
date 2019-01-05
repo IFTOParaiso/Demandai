@@ -200,7 +200,11 @@ class UsersController extends Controller
                 return response()->json($response);
             }
 
-            return redirect(url('detalhe-pesquisador/show',compact('id')))->with('message');
+            if (Auth::user()->id == $user->id){
+                return redirect(url('meu-perfil'))->with('message');
+            }else
+                return redirect(url('detalhe-pesquisador/show',compact('id')))->with('message');
+
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -280,9 +284,15 @@ class UsersController extends Controller
             ]);
         }
 
+        $user = new User();
+        $user->id = Auth::user()->id;
+        $tipo = $user->tipoUsuario()->get()->all();
+        foreach ($tipo as $t){
+            $tipouser = $t->id;
+        }
+        $areas = $user->areasUsuario;
 
-
-        return view('vendor.adminlte.users.meu-perfil', compact('user', 'institutions'));
+        return view('vendor.adminlte.users.meu-perfil', compact('user', 'institutions', 'tipouser', 'areas'));
     }
 
     public function areasUsuario($id = 10){

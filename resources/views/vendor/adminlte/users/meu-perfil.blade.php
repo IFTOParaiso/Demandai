@@ -35,9 +35,25 @@
                 <li class="list-group-item">
                     <b><i class="fa fa-external-link"></i> Currículo Lattes</b> <a class="pull-right"><a href="{{Auth::user()->lattes}}" target="_blank" class="pull-right">{{Auth::user()->lattes}}</a></a>
                 </li>
+
+                <h3 class="profile-username text-center"><i class="ion ion-clipboard"></i> Áreas de Interesse</h3>
+                <div class="list-group-areas">
+                @forelse($areas as $area)
+                <p class="text-muted text-center">{{$area->name}}</p>
+                @empty
+                    <small>Não há áreas de interesse selecionadas até o momento!</small>
+                @endforelse
+                </div>
             </ul>
 
-            <a href="{{route('editar-usuario',Auth::user()->id)}}" class="btn btn-success pull-right"><b>Editar Perfil</b></a>
+            <a href="{{route('editar-usuario',Auth::user()->id)}}" class="btn btn-success fa fa-edit pull-right"><span> Editar Perfil</span></a>
         </div>
     </div>
+
+    <style>
+        .list-group-areas {
+            max-height:200px;
+            overflow-x:auto;
+        }
+    </style>
 @stop

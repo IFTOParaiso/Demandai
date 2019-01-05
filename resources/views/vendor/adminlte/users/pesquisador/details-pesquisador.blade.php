@@ -75,12 +75,14 @@
                                 </div>
 
                                 <div class="col-lg-6 pull-right" style="margin-top: 60px">
+                                    <div class="list-group-areas">
                                     <dt>Áreas relacionadas</dt>
                                     @forelse($areas as $area)
                                         {{$area->name}}<br>
                                     @empty
                                         <small>Não há áreas de interesse selecionadas até o momento!</small>
                                     @endforelse
+                                    </div>
                                 </div>
 
                             </div>
@@ -91,4 +93,11 @@
             </div>
         </div>
     </section>
+
+    <style>
+        .list-group-areas {
+            max-height:200px;
+            overflow-x:auto;
+        }
+    </style>
 @stop
