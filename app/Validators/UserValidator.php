@@ -17,7 +17,7 @@ class UserValidator extends LaravelValidator
      *
      * @var array
      */
-    /*protected $rules = [
+    protected $rules = [
         ValidatorInterface::RULE_CREATE => [
             'name' => 'required|min:5|max:100',
             'email' => 'required|email|unique:users|min:5|max:150',
@@ -36,5 +36,5 @@ class UserValidator extends LaravelValidator
             'status' => 'required|boolean',
             'institution_id' => 'required',
         ],
-    ];*/
+    ];
 }

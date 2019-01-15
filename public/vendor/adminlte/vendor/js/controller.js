@@ -1,4 +1,4 @@
-const urlBase = "http://demandai.test/";
+const urlBase = "http://localhost:8000/";
 
 $(document).on('click', '#big-area', function () {
     var id = event.target.id;
@@ -157,7 +157,6 @@ function pesquisadoresIteressados() {
 function updateAreas() {
     if (confirm("Tem certeza que deseja alterar?  As áreas atualmente selecionadas, serão removidas!")){
         $('#areas-edital').remove();
-        $('#areas-usuario').remove();
         $('#alterar').remove();
         $('#update-areas').css('display', 'block');
     }
@@ -168,3 +167,4 @@ $(document).ready(function() {
     $('#usuarios-propi').DataTable();
     $('#usuarios-pesquisador').DataTable();
 } );
+
