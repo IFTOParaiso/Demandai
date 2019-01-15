@@ -27,7 +27,7 @@ class Publish extends Model implements Transformable
     }
 
     public function editalUsuario(){
-        return $this->belongsToMany(Area::class, 'publish_users', 'publish_id', 'user_id');
+        return $this->belongsToMany(User::class, 'publish_users', 'publish_id', 'user_id');
     }
 
 

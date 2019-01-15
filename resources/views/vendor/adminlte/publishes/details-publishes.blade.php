@@ -67,17 +67,17 @@
                                             <dt class="text-right" style="font-size: large"
                                                 data-toggle="tooltip" data-placement="top"
                                                 title="Pessoas que visualizaram este edital">
-                                                <i class="fa fa-eye"></i> : 10
+                                                <i class="fa fa-eye"></i> : {{$visualizador}}
                                             </dt>
                                             <dt class="text-right" style="font-size: large"
                                                 data-toggle="tooltip" data-placement="top"
                                                 title="Pessoas que demonstraram interesse neste edital">
-                                                <i class="fa fa-thumbs-o-up"></i> : 1
+                                                <i class="fa fa-thumbs-o-up"></i> : {{$interesse}}
                                             </dt>
                                             <dt class="text-right" style="font-size: large"
                                                 data-toggle="tooltip" data-placement="top"
                                                 title="Pessoas que demonstraram desinteresse neste edital">
-                                                <i class="fa fa-thumbs-o-down"></i> : 1
+                                                <i class="fa fa-thumbs-o-down"></i> : {{$naointeresse}}
                                             </dt>
 
                                         <dl>

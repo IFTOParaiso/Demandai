@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Entities\AreaUser;
 use App\Entities\BigArea;
+use App\Entities\PublishUser;
 use App\Entities\User;
 use App\Mail\NovoEditalDisponivel;
 use Illuminate\Http\Request;
@@ -163,7 +164,11 @@ if(count($pesquisador)<1){
                 'data' => $publish,
             ]);
         }
-
+        $publishUser = new PublishUser();
+        $visualizador=count($publishUser->all()->where('publish_id','=',$id));
+        $interesse=count($publishUser->all()->where('publish_id','=',$id)->where('interest','=',1));
+        $naointeresse=count($publishUser->all()->where('publish_id','=',$id)->where('interest','=',2));
+        //dd($visualizador.",".$interesse.",".$naointeresse);
         $user = new User();
         $user->id = Auth::user()->id;
         $tipo = $user->tipoUsuario()->get()->all();
@@ -173,7 +178,7 @@ if(count($pesquisador)<1){
 
             $areas = $publish->areasEdital;
        // dd($publish->areasEdital);
-        return view('vendor.adminlte.publishes.details-publishes', compact('publish','tipouser','areas'));
+        return view('vendor.adminlte.publishes.details-publishes', compact('publish','tipouser','areas','visualizador','interesse','naointeresse'));
     }
 
     /**
