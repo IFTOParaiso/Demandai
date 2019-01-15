@@ -57,6 +57,30 @@
                 <div class="navbar-custom-menu">
 
                     <ul class="nav navbar-nav">
+
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user-circle-o"></i>
+                                <span class="hidden-sm">{{Auth::user()->name}}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <i class="fa fa-user-circle-o"></i>
+
+                                    <p>
+                                        {{Auth::user()->name}}
+                                        <small>{{Auth::user()->email}}</small>
+                                    </p>
+                                </li>
+                                <li class="user-footer">
+                                        <a href="{{url('meu-perfil')}}" class="btn btn-default btn-flat">Profile</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Control Sidebar Toggle Button -->
+
                         <li>
                             @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
                                 <a href="{{ url(config('adminlte.logout_url', 'auth/logout')) }}">
@@ -77,6 +101,7 @@
                             @endif
                         </li>
                     </ul>
+
                 </div>
                 @if(config('adminlte.layout') == 'top-nav')
                 </div>

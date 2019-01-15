@@ -51,3 +51,7 @@
 .box.box-primary {
     border-top-color: #3c763d;
 }
+
+.skin-blue .main-header li.user-header {
+    background-color: #ffffff;
+}
