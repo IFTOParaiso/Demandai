@@ -169,6 +169,9 @@ if(count($pesquisador)<1){
         $interesse=count($publishUser->all()->where('publish_id','=',$id)->where('interest','=',1));
         $naointeresse=count($publishUser->all()->where('publish_id','=',$id)->where('interest','=',2));
         //dd($visualizador.",".$interesse.",".$naointeresse);
+        $publishUser = new PublishUser();
+        $retorno=$publishUser->all()->where('publish_id','=',$id)->where('user_id','=',Auth::user()->id);
+        $userInteress=$retorno[0]->interest;
         $user = new User();
         $user->id = Auth::user()->id;
         $tipo = $user->tipoUsuario()->get()->all();
@@ -178,7 +181,7 @@ if(count($pesquisador)<1){
 
             $areas = $publish->areasEdital;
        // dd($publish->areasEdital);
-        return view('vendor.adminlte.publishes.details-publishes', compact('publish','tipouser','areas','visualizador','interesse','naointeresse'));
+        return view('vendor.adminlte.publishes.details-publishes', compact('userInteress','publish','tipouser','areas','visualizador','interesse','naointeresse'));
     }
 
     /**

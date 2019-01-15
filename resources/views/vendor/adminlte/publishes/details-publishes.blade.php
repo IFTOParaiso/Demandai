@@ -55,15 +55,38 @@
 
                                     <div class="col-lg-6">
                                         @if ($tipouser == 3)
-                                            <a href="{{url('interesse/1/publish/'.$publish->id.'/user/'. Auth::user()->id.'/0')}}" >
-                                                <button class="btn btn-sm fa fa-thumbs-o-up pull-right" style="color: green"> Tenho Interesse
-                                                </button>
-                                            </a>
-                                            <a href="{{url('interesse/2/publish/'.$publish->id.'/user/'. Auth::user()->id).'/0'}}" >
-                                            <button class="btn btn-sm fa fa-thumbs-o-down pull-right "
-                                                    style="color: red"> Não Tenho Interesse
-                                            </button>
-                                            </a>
+                                            @if($userInteress==1)
+                                                <a href="{{url('interesse/1/publish/'.$publish->id.'/user/'. Auth::user()->id.'/0')}}" >
+                                                    <button class="btn btn-sm fa fa-thumbs-o-up pull-right" style="color: green"> Interessado
+                                                    </button>
+                                                </a>
+                                                <a href="{{url('interesse/2/publish/'.$publish->id.'/user/'. Auth::user()->id).'/0'}}" >
+                                                    <button class="btn btn-sm fa fa-thumbs-o-down pull-right "
+                                                            style="color: red">
+                                                    </button>
+                                                </a>
+                                            @elseif($userInteress==2)
+                                                <a href="{{url('interesse/1/publish/'.$publish->id.'/user/'. Auth::user()->id.'/0')}}" >
+                                                    <button class="btn btn-sm fa fa-thumbs-o-up pull-right" style="color: green">
+                                                    </button>
+                                                </a>
+                                                <a href="{{url('interesse/2/publish/'.$publish->id.'/user/'. Auth::user()->id).'/0'}}" >
+                                                    <button class="btn btn-sm fa fa-thumbs-o-down pull-right "
+                                                            style="color: red">  Não Tenho Interesse
+                                                    </button>
+                                                </a>
+                                            @else
+                                                <a href="{{url('interesse/1/publish/'.$publish->id.'/user/'. Auth::user()->id.'/0')}}" >
+                                                    <button class="btn btn-sm fa fa-thumbs-o-up pull-right" style="color: green"> Tenho Interesse
+                                                    </button>
+                                                </a>
+                                                <a href="{{url('interesse/2/publish/'.$publish->id.'/user/'. Auth::user()->id).'/0'}}" >
+                                                    <button class="btn btn-sm fa fa-thumbs-o-down pull-right "
+                                                            style="color: red"> Não Tenho Interesse
+                                                    </button>
+                                                </a>
+                                            @endif
+
                                         @endif
                                         @if ($tipouser == 1 || $tipouser == 2)
                                             <dt class="text-right" style="font-size: large"
