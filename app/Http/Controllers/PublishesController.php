@@ -316,7 +316,10 @@ if(count($pesquisador)<1){
             PublishUser::create(['interest'=>$interesse,'publish_id'=>$publish_id,'user_id'=>$user_id]);
 
         }else{
+            if($interesse==0){}else{
+
              $retorno=$publish->atualizarInteresse($user_id,$publish_id,$interesse);
+            }
             // dd($retorno);
         }
 
