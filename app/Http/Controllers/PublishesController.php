@@ -307,4 +307,25 @@ if(count($pesquisador)<1){
 
         return view('vendor.adminlte.publishes.edit-publishes', compact('areas','publish'));
     }
+    public function interesse($interesse,$publish_id,$user_id,$url){
+        $publish = $this->repository->find($publish_id);
+        $publishUser = new PublishUser();
+        $visualizador=0;
+        $visualizador=count($publishUser->all()->where('publish_id','=',$publish_id)->where('user_id','=',$user_id));
+        if($visualizador==0){
+            PublishUser::create(['interest'=>$interesse,'publish_id'=>$publish_id,'user_id'=>$user_id]);
+
+        }else{
+             $retorno=$publish->atualizarInteresse($user_id,$publish_id,$interesse);
+            // dd($retorno);
+        }
+
+        if($url==0){
+
+            return redirect('detalhe-edital/show/'.$publish_id);
+        }
+        else{
+            return redirect($publish->link);
+        }
+    }
 }

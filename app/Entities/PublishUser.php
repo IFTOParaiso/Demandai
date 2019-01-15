@@ -20,6 +20,6 @@ class PublishUser extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['interest','user_id','publish_id'];
 
 }

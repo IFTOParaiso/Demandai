@@ -38,6 +38,8 @@ Route::post('editar-edital/update/{id}', 'PublishesController@update')->name('at
 Route::get('editar-edital/edit/{id}', 'PublishesController@edit')->name('editar-edital');
 Route::put('deletar-edital/delete/{id}', 'PublishesController@destroy')->name('deletar-edital');
 Route::get('detalhe-edital/show/{id}', 'PublishesController@show')->name('detalhe-edital');
+Route::get('interesse/{interesse}/publish/{publish_id}/user/{user_id}/{url}', 'PublishesController@interesse')->name('detalhe-edital');
+
 
 Route::get('listar-edital', 'PublishesController@index')->name('listrar-edital');
 Route::get('areas/{idBigArea}', 'AreasController@listarAreas')->name('listar-areas');

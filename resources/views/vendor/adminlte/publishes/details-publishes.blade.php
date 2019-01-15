@@ -49,19 +49,21 @@
                                         </dl>
                                         <dl>
                                             <dt>Link de Acesso</dt>
-                                            <dd><a href="{{$publish->link}}" target="_blank">{{$publish->link}}</a></dd>
+                                            <dd><a href="{{url('interesse/0/publish/'.$publish->id.'/user/'. Auth::user()->id.'/1')}}" target="_blank">{{$publish->link}}</a></dd>
                                         </dl>
                                     </div>
 
                                     <div class="col-lg-6">
                                         @if ($tipouser == 3)
-                                            <button class="btn btn-sm fa fa-thumbs-o-up pull-right" style="color: green"
-                                                    href=""> Tenho Interesse
-                                            </button>
+                                            <a href="{{url('interesse/1/publish/'.$publish->id.'/user/'. Auth::user()->id.'/0')}}" >
+                                                <button class="btn btn-sm fa fa-thumbs-o-up pull-right" style="color: green"> Tenho Interesse
+                                                </button>
+                                            </a>
+                                            <a href="{{url('interesse/2/publish/'.$publish->id.'/user/'. Auth::user()->id).'/0'}}" >
                                             <button class="btn btn-sm fa fa-thumbs-o-down pull-right "
-                                                    style="color: red"
-                                                    href=""> Não Tenho Interesse
+                                                    style="color: red"> Não Tenho Interesse
                                             </button>
+                                            </a>
                                         @endif
                                         @if ($tipouser == 1 || $tipouser == 2)
                                             <dt class="text-right" style="font-size: large"
