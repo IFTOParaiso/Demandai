@@ -173,6 +173,8 @@ if(count($pesquisador)<1){
         if(($publishUser->all()->where('publish_id','=',$id)->where('user_id','=',Auth::user()->id))==null){
             $retorno=$publishUser->all()->where('publish_id','=',$id)->where('user_id','=',Auth::user()->id);
             $userInteress=$retorno[0]->interest;
+        }else{
+            $userInteress=0;
         }
         $user = new User();
         $user->id = Auth::user()->id;
