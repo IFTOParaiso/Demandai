@@ -170,8 +170,10 @@ if(count($pesquisador)<1){
         $naointeresse=count($publishUser->all()->where('publish_id','=',$id)->where('interest','=',2));
         //dd($visualizador.",".$interesse.",".$naointeresse);
         $publishUser = new PublishUser();
-        $retorno=$publishUser->all()->where('publish_id','=',$id)->where('user_id','=',Auth::user()->id);
-        $userInteress=$retorno[0]->interest;
+        if(($publishUser->all()->where('publish_id','=',$id)->where('user_id','=',Auth::user()->id))==null){
+            $retorno=$publishUser->all()->where('publish_id','=',$id)->where('user_id','=',Auth::user()->id);
+            $userInteress=$retorno[0]->interest;
+        }
         $user = new User();
         $user->id = Auth::user()->id;
         $tipo = $user->tipoUsuario()->get()->all();
