@@ -70,8 +70,9 @@
                                                     @endif
                                                 </div>
                                                 <div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
-                                                    <input type="password" name="password" id="password" class="form-control"
+                                                    <input type="password" name="password" id="password" class="form-control" onblur="validarsenha6()"
                                                            placeholder="{{ trans('adminlte::adminlte.password') }}">
+                                                    <div id="msgsenha6"></div>
                                                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                                                     @if ($errors->has('password'))
                                                         <span class="help-block">
@@ -322,6 +323,16 @@
             }
             else{
                 document.getElementById("msgemail").innerHTML="<font color='red'>Email inválido </font>";
+            }
+        }
+        function validarsenha6() {
+            var senha1 = document.getElementById("password").value;
+            var senhanum = senha1.length;
+            if (senhanum >= 6){
+                document.getElementById("msgsenha6").innerHTML="";
+            }
+            else {
+                document.getElementById("msgsenha6").innerHTML="<font color='red'>A senha deve conter 6 carácteres</font>";
             }
         }
         function validarsenha() {
