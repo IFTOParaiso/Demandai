@@ -170,9 +170,13 @@ if(count($pesquisador)<1){
         $naointeresse=count($publishUser->all()->where('publish_id','=',$id)->where('interest','=',2));
         //dd($visualizador.",".$interesse.",".$naointeresse);
         $publishUser = new PublishUser();
-        if(($publishUser->all()->where('publish_id','=',$id)->where('user_id','=',Auth::user()->id))==null){
+        if(0<count($publishUser->all()->where('publish_id','=',$id)->where('user_id','=',Auth::user()->id))){
             $retorno=$publishUser->all()->where('publish_id','=',$id)->where('user_id','=',Auth::user()->id);
-            $userInteress=$retorno[0]->interest;
+            foreach ($retorno as $value=>$intem){
+                $index=$intem;
+            }
+            $userInteress=$index->interest;
+
         }else{
             $userInteress=0;
         }
@@ -314,7 +318,8 @@ if(count($pesquisador)<1){
 
         return view('vendor.adminlte.publishes.edit-publishes', compact('areas','publish'));
     }
-    public function interesse($interesse,$publish_id,$user_id,$url){
+    public function interesse($interesse,$publish_id,$url){
+        $user_id= Auth::user()->id;
         $publish = $this->repository->find($publish_id);
         $publishUser = new PublishUser();
         $visualizador=0;
