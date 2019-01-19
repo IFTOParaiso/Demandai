@@ -108,32 +108,20 @@ return [
     */
 
     'menu' => [
-        'EDITAIS',
-        [
-            'text'        => 'Editais',
-            'url'         => '#',
-            'icon'        => 'file',
-//            'label'       => 4,
-//            'label_color' => 'success',
-            'submenu' => [
-                [
+
+             /*   [
                     'text' => 'Cadastrar Editais',
                     'url'  => 'cadastrar-edital',
                     'icon'    => 'file',
-                ],
+                ],*/
                 [
-                    'text' => 'Listar Editais',
+                    'text' => 'Editais',
                     'url'  => 'listar-edital',
                     'icon'    => 'file',
                 ],
 
-            ],
-        ],
-        'ADMINISTRAÇÃO DE USUÀRIOS',
-        [
-            'text'    => 'Usuários',
-            'icon'    => 'user',
-            'submenu' => [
+
+
                 [
                     'text' => 'Cadastrar Usuários',
                     'icon'    => 'user-plus',
@@ -166,9 +154,9 @@ return [
                         ],
                     ],
                 ],
-            ],
-        ],
-        'PERFIL',
+
+
+
         [
             'text' => 'Perfil',
 //            'url'  => 'meu-perfil/'.Auth::user()->id,

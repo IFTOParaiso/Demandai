@@ -10,12 +10,13 @@
 
 @section('body')
     <div class="login-box">
-        <div class="login-logo">
-            <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
-        </div>
         <!-- /.login-logo -->
 
         <div class="login-box-body">
+            <div class="login-logo"><img src="{{ asset('vendor/adminlte/img/logo.png')}}" alt="" height="130px"></div>
+            <div class="login-logo">
+                <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
+            </div>
             <p class="login-box-msg">{{ trans('adminlte::adminlte.login_message') }}</p>
             <form action="{{ url(config('adminlte.login_url', 'login')) }}" method="post">
                 {!! csrf_field() !!}
@@ -49,14 +50,14 @@
                     @endif
                 </div>
                 <div class="row">
-                    {{--<div class="col-xs-8">
-                        <div class="checkbox icheck">
-                            <label>
-                                <input type="checkbox" name="remember"> {{ trans('adminlte::adminlte.remember_me') }}
-                            </label>
-                        </div>
-                    </div>--}}
-                    <!-- /.col -->
+                {{--<div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label>
+                            <input type="checkbox" name="remember"> {{ trans('adminlte::adminlte.remember_me') }}
+                        </label>
+                    </div>
+                </div>--}}
+                <!-- /.col -->
                     <div class="col-xs-4">
                         <button type="submit"
                                 class="btn btn-primary btn-block btn-flat">{{ trans('adminlte::adminlte.sign_in') }}</button>
@@ -69,11 +70,11 @@
                    class="text-center"
                 >{{ trans('adminlte::adminlte.i_forgot_my_password') }}</a>
                 <br>
-                    @if($tipo_usuario == 'pesquisador')
+                @if($tipo_usuario == 'pesquisador')
                     <a href="{{ route('cadastrar-usuario', 'pesquisador') }}"
                        class="text-center"
                     >{{ trans('adminlte::adminlte.register_a_new_membership') }}</a>
-                        @elseif($tipo_usuario == 'propi' || $tipo_usuario == 'administrador')
+                @elseif($tipo_usuario == 'propi' || $tipo_usuario == 'administrador')
 
                 @endif
 
