@@ -19,6 +19,14 @@
         <div class="login-box-body">
             <p class="login-box-msg">Selecione o módulo desejado!</p>
 
+
+            @if(!empty($errors->first()))
+
+                    <div class="alert alert-danger">
+                        <span>{{ $errors->first() }}</span>
+                    </div>
+            @endif
+
                 <div class="form-group has-feedback">
                     <span class=" fa fa-user-circle form-control-feedback"></span>
                     <a href="{{route('login-usuario', 'propi')}}" class="btn btn-primary btn-block">PROPI</a>

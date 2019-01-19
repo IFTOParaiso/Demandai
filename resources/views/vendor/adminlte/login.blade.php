@@ -14,10 +14,19 @@
             <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
         </div>
         <!-- /.login-logo -->
+
         <div class="login-box-body">
             <p class="login-box-msg">{{ trans('adminlte::adminlte.login_message') }}</p>
             <form action="{{ url(config('adminlte.login_url', 'login')) }}" method="post">
                 {!! csrf_field() !!}
+
+                @if($tipo_usuario == 'administrador')
+                    <input type="hidden" name="type_user_login" value="1">
+                @elseif($tipo_usuario == 'propi')
+                    <input type="hidden" name="type_user_login" value="2">
+                @elseif($tipo_usuario == 'pesquisador')
+                    <input type="hidden" name="type_user_login" value="3">
+                @endif
 
                 <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
                     <input type="email" name="email" class="form-control" value="{{ old('email') }}"
