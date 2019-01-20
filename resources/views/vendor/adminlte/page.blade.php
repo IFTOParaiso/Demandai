@@ -48,10 +48,10 @@
 
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <!-- Sidebar toggle button-- desativado>-->
+             {{--  <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                     <span class="sr-only">{{ trans('adminlte::adminlte.toggle_navigation') }}</span>
-                </a>
+                </a>--}}
             @endif
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
@@ -112,7 +112,7 @@
         @if(config('adminlte.layout') != 'top-nav')
         <!-- Left side column. contains the logo and sidebar -->
         <aside class="main-sidebar">
-            <div style="text-align: center; margin: 10px"><a href="{{ url(config('adminlte.dashboard_url', 'home')) }}"><img src="{{ asset('vendor/adminlte/img/logo.png')}}" alt="" height="100px"></a></div>
+            <div class="logo-mini" style="text-align: center; margin: 10px"><a href="{{ url(config('adminlte.dashboard_url', 'home')) }}"><img src="{{ asset('vendor/adminlte/img/logo.png')}}" alt="" height="100px"></a></div>
             <hr>
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">

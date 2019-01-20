@@ -1,4 +1,4 @@
-const urlBase = "http://localhost:8000/";
+const urlBase = "http://localhost/";
 
 $(document).on('click', '#big-area', function () {
     var id = event.target.id;
@@ -166,5 +166,21 @@ function updateAreas() {
 $(document).ready(function() {
     $('#usuarios-propi').DataTable();
     $('#usuarios-pesquisador').DataTable();
+    paginacao('tabela-editais');
+
 } );
 
+
+
+function validateFieldsPublish() {
+    var data = $('#form-publish').serialize();
+
+    $.ajax({
+        url: "../cadastrar-edital/store",
+        method: "POST",
+        data: data,
+    }).done(function (data) {
+
+      console.log(data);
+    })
+}

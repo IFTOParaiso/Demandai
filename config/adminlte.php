@@ -109,65 +109,64 @@ return [
 
     'menu' => [
 
-             /*   [
-                    'text' => 'Cadastrar Editais',
-                    'url'  => 'cadastrar-edital',
-                    'icon'    => 'file',
-                ],*/
-                [
-                    'text' => 'Editais',
-                    'url'  => 'listar-edital',
-                    'icon'    => 'file',
-                ],
-
-
-
-                [
-                    'text' => 'Cadastrar Usuários',
-                    'icon'    => 'user-plus',
-                    'submenu' => [
-                        [
-                            'text' => 'Usuário PROPI',
-                            'url'  => 'cadastrar-usuario/propi',
-                            'icon'    => 'user-plus',
-                        ],
-                        [
-                            'text'    => 'Usuário Pesquisador',
-                            'url'     => 'cadastrar-usuario/pesquisador',
-                            'icon'    => 'user-plus',
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'Listar Usuários',
-                    'icon'    => 'users',
-                    'submenu' => [
-                        [
-                            'text' => 'Usuário PROPI',
-                            'url'  => 'listar-usuario/propi',
-                            'icon'    => 'users',
-                        ],
-                        [
-                            'text'    => 'Usuário Pesquisador',
-                            'url'     => 'listar-usuario/pesquisador',
-                            'icon'    => 'users',
-                        ],
-                    ],
-                ],
-
+        /*   [
+               'text' => 'Cadastrar Editais',
+               'url'  => 'cadastrar-edital',
+               'icon'    => 'file',
+           ],*/
+        [
+            'text' => 'Início',
+            'url' => 'home',
+            'icon' => 'home',
+        ],
+        [
+            'text' => 'Editais',
+            'url' => 'listar-edital',
+            'icon' => 'file',
+        ],
 
 
         [
+            'text' => 'Pesquisadores',
+            'url' => 'meu-perfil/1',
+            'icon' => 'users',
+        ],
+
+        [
+            'text' => 'Instituições',
+            'url' => 'meu-perfil/1',
+            'icon' => 'university',
+        ],
+
+        [
+            'text' => 'Áreas de pesquisa',
+            'url' => 'meu-perfil/1',
+            'icon' => 'search',
+        ],
+        [
+            'text' => 'Usuários',
+            'url' => 'meu-perfil/1',
+            'icon' => 'user',
+        ],
+        [
+            'text' => 'Relatórios',
+            'url' => 'meu-perfil/1',
+            'icon' => 'files-o',
+        ],
+
+
+
+      /*  [
             'text' => 'Perfil',
 //            'url'  => 'meu-perfil/'.Auth::user()->id,
-            'url'  => 'meu-perfil/1',
+            'url' => 'meu-perfil/1',
             'icon' => 'user',
         ],
         [
             'text' => 'Change Password',
-            'url'  => 'password/reset',
+            'url' => 'password/reset',
             'icon' => 'lock',
-        ],
+        ],*/
     ],
 
     /*
@@ -203,7 +202,7 @@ return [
 
     'plugins' => [
         'datatables' => true,
-        'select2'    => true,
-        'chartjs'    => true,
+        'select2' => true,
+        'chartjs' => true,
     ],
 ];
