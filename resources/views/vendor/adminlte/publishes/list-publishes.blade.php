@@ -27,7 +27,6 @@
 
                 <table id="tabela-editais" class="table table-hover">
                     <thead>
-                    <th>COD</th>
                     <th>Título</th>
                     <th>Descrição</th>
                     <th>Status</th>
@@ -37,7 +36,6 @@
                     <tbody>
                     @forelse($publishes as $publish)
                         <tr>
-                            <td>{{$publish->id}}</td>
                             <td>  <a class="card" href="{{url('detalhe-edital/show',$publish->id)}}">{{$publish->title}}</a></td>
                             <td>{{$publish->description}}</td>
                             <td>

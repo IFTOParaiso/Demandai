@@ -23,9 +23,10 @@
                                     <div class="container-fluid">
 
                                         <div class="form-group has-feedback {{ $errors->has('title') ? 'has-error' : '' }}">
-                                            <input type="text" name="title" class="form-control"
+                                            <input type="text" name="title" id="title" class="form-control"
                                                    value="{{ old('title') }}"
                                                    placeholder="Título" >
+                                            <strong id="error-title" style="color: red"></strong>
                                             <span class="fa fa-file form-control-feedback"></span>
                                             @if ($errors->has('title'))
                                                 <span class="help-block">
@@ -34,8 +35,9 @@
                                             @endif
                                         </div>
                                         <div class="form-group has-feedback {{ $errors->has('description') ? 'has-error' : '' }}">
-                        <textarea type="text" name="description" class="form-control" value="{{ old('description') }}"
+                        <textarea type="text" name="description" id="description" class="form-control" value="{{ old('description') }}"
                                   placeholder="Descrição" style="height: 100px" ></textarea>
+                                            <strong id="error-description" style="color: red"></strong>
                                             <span class="fa fa-file-text form-control-feedback"></span>
                                             @if ($errors->has('description'))
                                                 <span class="help-block">
@@ -47,6 +49,7 @@
                                             <input type="text" name="date_closure" id="date_closure" class="form-control textbox-n"
                                                    placeholder="Data de Encerramento" onfocus="(this.type='date')"
                                                     onblur="compare();">
+                                            <strong id="error-date_closure" style="color: red"></strong>
                                             <div id="msdata"></div>
                                             <span class="fa fa-calendar form-control-feedback"></span>
                                             @if ($errors->has('date_closure'))
@@ -56,8 +59,9 @@
                                             @endif
                                         </div>
                                         <div class="form-group has-feedback {{ $errors->has('link') ? 'has-error' : '' }}">
-                                            <input type="text" name="link" class="form-control"
+                                            <input type="text" name="link" id="link" class="form-control"
                                                    placeholder="Link de Acesso" >
+                                            <strong id="error-link" style="color: red"></strong>
                                             <span class="fa fa-link form-control-feedback"></span>
                                             @if ($errors->has('link'))
                                                 <span class="help-block">

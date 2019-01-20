@@ -112,7 +112,27 @@ function paginacao(id) {
 
 
 $('.btnNext').click(function () {
-    $('.nav-tabs > .active').next('li').find('a').trigger('click');
+
+    if($('#title').val()==""){
+        $('#error-title').append("O campo título é obrigatório.");
+    }
+
+    if($('#description').val()==""){
+        $('#error-description').append("O campo descrição é obrigatório.");
+    }
+
+    if($('#date_closure').val()==""){
+        $('#error-date_closure').append("O campo data de fechamento é obrigatório.");
+    }
+    if($('#link').val()==""){
+        $('#error-link').append("O campo link é obrigatório.");
+    }
+
+
+    else{
+        $('.nav-tabs > .active').next('li').find('a').trigger('click');
+    }
+
 });
 
 $('.btnPrevious').click(function () {
@@ -173,14 +193,7 @@ $(document).ready(function() {
 
 
 function validateFieldsPublish() {
-    var data = $('#form-publish').serialize();
-
-    $.ajax({
-        url: "../cadastrar-edital/store",
-        method: "POST",
-        data: data,
-    }).done(function (data) {
-
-      console.log(data);
-    })
+  if($('#title').val()==""){
+      $('#erro-title').append('O campo título é obrigatório.');
+  }
 }
