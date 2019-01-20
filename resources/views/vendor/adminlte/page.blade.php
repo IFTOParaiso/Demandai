@@ -112,7 +112,8 @@
         @if(config('adminlte.layout') != 'top-nav')
         <!-- Left side column. contains the logo and sidebar -->
         <aside class="main-sidebar">
-
+            <div style="text-align: center; margin: 10px"><a href="{{ url(config('adminlte.dashboard_url', 'home')) }}"><img src="{{ asset('vendor/adminlte/img/logo.png')}}" alt="" height="100px"></a></div>
+            <hr>
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
 

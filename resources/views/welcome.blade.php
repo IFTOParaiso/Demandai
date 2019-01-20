@@ -16,7 +16,7 @@
 
 
         <div class="login-box-body">
-            <div class="login-logo"><img src="{{ asset('vendor/adminlte/img/logo.png')}}" alt="" height="130px"></div>
+            <div class="login-logo"><a href="{{ url(config('adminlte.dashboard_url', 'home')) }}"><img src="{{ asset('vendor/adminlte/img/logo.png')}}" alt="" height="130px"></a></div>
             <div class="login-logo">
                 <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
             </div>
@@ -31,14 +31,14 @@
             @endif
 
             <div class="form-group has-feedback">
-                <span class=" fa fa-user-circle form-control-feedback" style="color: white; font-size: 20px"></span>
+
                 <a href="{{route('login-usuario', 'propi')}}" class="btn btn-primary btn-block"
-                   style="font-size: 20px">Propi</a>
+                   style="font-size: 20px"> <i class="fa fa-user-circle"></i> Propi</a>
             </div>
             <div class="form-group has-feedback">
-                <span class="fa fa-book form-control-feedback" style="color: white; font-size: 20px"></span>
+
                 <a href="{{route('login-usuario', 'pesquisador')}}" class="btn btn-primary btn-block"
-                   style="font-size: 20px">Pesquisador</a>
+                   style="font-size: 20px"> <i class="fa fa-book"></i> Pesquisador</a>
             </div>
         </div>
     </div>
