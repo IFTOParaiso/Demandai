@@ -25,7 +25,7 @@
                                         <div class="form-group has-feedback {{ $errors->has('title') ? 'has-error' : '' }}">
                                             <input type="text" name="title" id="title" class="form-control"
                                                    value="{{ old('title') }}"
-                                                   placeholder="Título" >
+                                                   placeholder="Título">
                                             <strong id="error-title" style="color: red"></strong>
                                             <span class="fa fa-file form-control-feedback"></span>
                                             @if ($errors->has('title'))

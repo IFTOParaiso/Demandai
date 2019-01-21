@@ -113,19 +113,20 @@ function paginacao(id) {
 
 $('.btnNext').click(function () {
 
+    $('p').remove();
     if($('#title').val()==""){
-        $('#error-title').append("O campo título é obrigatório.");
+        $('#error-title').append("<p>O campo título é obrigatório.</p>");
     }
 
     if($('#description').val()==""){
-        $('#error-description').append("O campo descrição é obrigatório.");
+        $('#error-description').append("<p>O campo descrição é obrigatório.</p>");
     }
 
     if($('#date_closure').val()==""){
-        $('#error-date_closure').append("O campo data de fechamento é obrigatório.");
+        $('#error-date_closure').append("<p>O campo data de fechamento é obrigatório.</p>");
     }
     if($('#link').val()==""){
-        $('#error-link').append("O campo link é obrigatório.");
+        $('#error-link').append("<p>O campo link é obrigatório.</p>");
     }
 
 
