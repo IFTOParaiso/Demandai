@@ -1952,19 +1952,19 @@ class PopulacaoSeeder extends Seeder
         \App\Entities\Publish::create([
             'title' => 'EDITAL N.º 39/2018',
             'description' => 'SELEÇÃO DE ALUNOS PARA CURSOS DE EXTENSÃO DO PROJETO SOCIAL DE INCLUSÃO DIGITAL “ANJO DA GUARDA” - PSID 2018/2',
-            'date_closure' => '2018-09-19',
+            'date_closure' => '2019-02-19',
             'link' => 'http://portal.ifto.edu.br/palmas/campus-palmas/seletivos-palmas/processo-seletivo/edital-no-39-2018-selecao-de-alunos-para-cursos-de-extensao-do-projeto-social-de-inclusao-digital-201canjo-da-guarda201d-psid-2018-2',
         ]);
         \App\Entities\Publish::create([
             'title' => 'EDITAL Nº 53/2018',
             'description' => 'SELEÇÃO DE PORTADOR DE DIPLOMA EM CURSOS TÉCNICOS DE NÍVEL MÉDIO PARA VAGAS DISPONÍVEIS NO MÓDULO III DOS CURSOS TÉCNICOS SUBSEQUENTES EM AUTOMAÇÃO INDUSTRIAL E ELETROTÉCNICA',
-            'date_closure' => '2018-02-21',
+            'date_closure' => '2019-02-21',
             'link' => 'http://portal.ifto.edu.br/palmas/campus-palmas/seletivos-palmas/processo-seletivo',
         ]);
         \App\Entities\Publish::create([
             'title' => 'Edital de Apoio à Qualificação',
             'description' => 'Classificação dos docentes para fins de afastamento.',
-            'date_closure' => '2018-12-21',
+            'date_closure' => '2019-03-21',
             'link' => 'http://portal.ifto.edu.br/paraiso/campus-paraiso/seletivos/chamada-publica/edital-de-apoio-a-qualificacao-classificacao-dos-docentes-para-fins-de-afastamento',
         ]);
         \App\Entities\Publish::create([
