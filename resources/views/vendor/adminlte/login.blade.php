@@ -17,6 +17,12 @@
             <div class="login-logo">
                 <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
             </div>
+            @if(!empty($errors->first()))
+
+                <div class="alert alert-success">
+                    <span>{{ $errors->first() }}</span>
+                </div>
+            @endif
             <p class="login-box-msg">{{ trans('adminlte::adminlte.login_message') }}</p>
             <form action="{{ url(config('adminlte.login_url', 'login')) }}" method="post">
                 {!! csrf_field() !!}

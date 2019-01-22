@@ -105,7 +105,7 @@ class UsersController extends Controller
                 $dataform = $request['areas'];
                 $user->areasUsuario()->sync($dataform);
             }
-            $response = [
+            $messagem = [
                 'message' => 'Usuário cadastrado!',
                 'data' => $user->toArray(),
             ];
@@ -113,10 +113,10 @@ class UsersController extends Controller
 
             if ($request->wantsJson()) {
 
-                return response()->json($response);
+                return response()->json($messagem);
             }
+            return redirect('login/pesquisador')->withErrors('Usuário cadastrado!');
 
-            return redirect(route('vendor.adminlte.users.admin.home'))->back()->with('message', $response['message']);
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
