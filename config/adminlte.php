@@ -134,7 +134,7 @@ return [
 
         [
             'text' => 'Instituições',
-            'url' => '#',
+            'url' => 'list-instituicoes',
             'icon' => 'university',
         ],
 

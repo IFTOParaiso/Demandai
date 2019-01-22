@@ -6,6 +6,7 @@
 @stop
 
 @section('content')
+    <div class="panel-body">
     <div class="row">
         <a href="{{route('listar-edital')}}" style="color: inherit">
         <div class="col-md-3 col-sm-6 col-xs-12">
@@ -187,20 +188,21 @@
             </div>
         </div>
     </div>
+    </div>
 
     <style>
         .publishes-box-body {
-            height: 200px;
+            height: 300px;
             overflow-x: auto;
         }
 
         .areas-publish-box-body {
-            height: 200px;
+            height: 250px;
             overflow-x: auto;
         }
 
         .user-box-body {
-            height: 200px;
+            height: 250px;
             overflow-x: auto;
         }
     </style>
