@@ -41,7 +41,7 @@
 
         <!-- fix for small devices only -->
         <div class="clearfix visible-sm-block"></div>
-        <a href="{{route('listar-edital')}}" style="color: inherit">
+        <a href="{{url('list-instituicoes')}}" style="color: inherit">
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
                 <span class="info-box-icon bg-green"><i class="fa fa-university"></i></span>
@@ -192,7 +192,7 @@
 
     <style>
         .publishes-box-body {
-            height: 300px;
+            max-height: 300px;
             overflow-x: auto;
         }
 
