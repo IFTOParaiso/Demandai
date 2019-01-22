@@ -17,6 +17,7 @@ use App\Repositories\UserRepository;
 use App\Validators\UserValidator;
 use App\Entities\User;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
 /**
  * Class UsersController.
  *
@@ -87,8 +88,15 @@ class UsersController extends Controller
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-            $request['password'] = bcrypt($request['password']);
-            $user = $this->repository->create($request->all());
+            $user = User::create([
+                'name' => $request['name'] ,
+                'email' => $request['email'] ,
+                'password' => Hash::make($request['password']) ,
+                'password_confirmation' =>Hash::make($request['password_confirmation']) ,
+                'formation' => $request['formation'] ,
+                'lattes' => $request['lattes'] ,
+                'status' => $request['status'] ,
+                'institution_id' => $request['institution_id'] ,]);
             $dataform = $request['tipousuario'];
             $user->tipoUsuario()->sync($dataform);
 
@@ -267,7 +275,7 @@ class UsersController extends Controller
         return view('vendor.adminlte.register', compact('institutions', 'tipo_usuario', 'bigAreas'));
     }
 
-    public function login($tipo_usuario)
+    public function showFormLogin($tipo_usuario)
     {
         return view('vendor.adminlte.login', compact('tipo_usuario'));
     }
@@ -303,6 +311,8 @@ class UsersController extends Controller
 
         return view('vendor.adminlte.users.edit-pesquisador', compact('areas','user', 'areas'));
     }
+
+
 
 
 }
