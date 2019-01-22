@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Entities\AreaUser;
 use App\Entities\BigArea;
+use App\Entities\PublishUser;
 use App\Entities\User;
 use App\Mail\NovoEditalDisponivel;
 use Illuminate\Http\Request;
@@ -18,6 +19,7 @@ use App\Validators\PublishValidator;
 use App\Entities\Publish;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+
 /**
  * Class PublishesController.
  *
@@ -44,7 +46,7 @@ class PublishesController extends Controller
     public function __construct(PublishRepository $repository, PublishValidator $validator)
     {
         $this->repository = $repository;
-        $this->validator  = $validator;
+        $this->validator = $validator;
     }
 
     /**
@@ -54,7 +56,7 @@ class PublishesController extends Controller
      */
     public function index()
     {
-        $publish = Publish::all();
+
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
         $publishes = $this->repository->all();
 
@@ -69,11 +71,11 @@ class PublishesController extends Controller
         $user->id = Auth::user()->id;
         $tipouser = 0;
         $tipo = $user->tipoUsuario()->get()->all();
-        foreach ($tipo as $t){
+        foreach ($tipo as $t) {
             $tipouser = $t->id;
         }
 //        dd($publish);
-        return view('vendor.adminlte.publishes.list-publishes', compact('publishes','tipouser'));
+        return view('vendor.adminlte.publishes.list-publishes', compact('publishes', 'tipouser'));
     }
 
     /**
@@ -102,7 +104,7 @@ class PublishesController extends Controller
 
             $response = [
                 'message' => 'Publish created.',
-                'data'    => $publish->toArray(),
+                'data' => $publish->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -111,30 +113,30 @@ class PublishesController extends Controller
             }
 
 //            return redirect()->back()->with('message', $response['message']);
-    $pesquisador = AreaUser::whereIn('area_id',$request['areas'])->get();
+            $pesquisador = AreaUser::whereIn('area_id', $request['areas'])->get();
 
-if(count($pesquisador)<1){
+            if (count($pesquisador) < 1) {
 
-}else{
-    foreach ($pesquisador as $p){
-        $interessados[] = $p->user_id;
-    }
-    $interessados = array_unique($interessados);
+            } else {
+                foreach ($pesquisador as $p) {
+                    $interessados[] = $p->user_id;
+                }
+                $interessados = array_unique($interessados);
 
-    $listapesquisadores = User::whereIn('id',$interessados)->get();
-    //$teste=$listapesquisadores['email'];
-    foreach( $listapesquisadores as $index=>$value){
-        Mail::to($value['email'],$value['name'])->send(new NovoEditalDisponivel($request,$value));
-        //dd($value);
-    }
+                $listapesquisadores = User::whereIn('id', $interessados)->get();
+                //$teste=$listapesquisadores['email'];
+                foreach ($listapesquisadores as $index => $value) {
+                    Mail::to($value['email'], $value['name'])->send(new NovoEditalDisponivel($request, $value));
+                    //dd($value);
+                }
 
 
-}
+            }
             return redirect('listar-edital');
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
-                    'error'   => true,
+                    'error' => true,
                     'message' => $e->getMessageBag()
                 ]);
             }
@@ -153,7 +155,7 @@ if(count($pesquisador)<1){
     public function show($id)
     {
         $publish = $this->repository->find($id);
-        foreach($publish as $valor){
+        foreach ($publish as $valor) {
             $publish->areasEdital;
         }
 
@@ -163,17 +165,32 @@ if(count($pesquisador)<1){
                 'data' => $publish,
             ]);
         }
+        $publishUser = new PublishUser();
+        $visualizador = count($publishUser->all()->where('publish_id', '=', $id));
+        $interesse = count($publishUser->all()->where('publish_id', '=', $id)->where('interest', '=', 1));
+        $naointeresse = count($publishUser->all()->where('publish_id', '=', $id)->where('interest', '=', 2));
+        //dd($visualizador.",".$interesse.",".$naointeresse);
+        $publishUser = new PublishUser();
+        if (0 < count($publishUser->all()->where('publish_id', '=', $id)->where('user_id', '=', Auth::user()->id))) {
+            $retorno = $publishUser->all()->where('publish_id', '=', $id)->where('user_id', '=', Auth::user()->id);
+            foreach ($retorno as $value => $intem) {
+                $index = $intem;
+            }
+            $userInteress = $index->interest;
 
+        } else {
+            $userInteress = 0;
+        }
         $user = new User();
         $user->id = Auth::user()->id;
         $tipo = $user->tipoUsuario()->get()->all();
-            foreach ($tipo as $t){
-                $tipouser = $t->id;
-            }
+        foreach ($tipo as $t) {
+            $tipouser = $t->id;
+        }
 
-            $areas = $publish->areasEdital;
-       // dd($publish->areasEdital);
-        return view('vendor.adminlte.publishes.details-publishes', compact('publish','tipouser','areas'));
+        $areas = $publish->areasEdital;
+        // dd($publish->areasEdital);
+        return view('vendor.adminlte.publishes.details-publishes', compact('userInteress', 'publish', 'tipouser', 'areas', 'visualizador', 'interesse', 'naointeresse'));
     }
 
     /**
@@ -188,18 +205,18 @@ if(count($pesquisador)<1){
         $bigAreas = $bigAreas->all();
         $publish = $this->repository->find($id);
 
-        foreach($publish as $p){
+        foreach ($publish as $p) {
             $areas = $publish->areasEdital;
         }
 
-        return view('vendor.adminlte.publishes.edit-publishes', compact('publish', 'bigAreas','areas'));
+        return view('vendor.adminlte.publishes.edit-publishes', compact('publish', 'bigAreas', 'areas'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  PublishUpdateRequest $request
-     * @param  string            $id
+     * @param  string $id
      *
      * @return Response
      *
@@ -221,7 +238,7 @@ if(count($pesquisador)<1){
 
             $response = [
                 'message' => 'Publish updated.',
-                'data'    => $publish->toArray(),
+                'data' => $publish->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -230,13 +247,13 @@ if(count($pesquisador)<1){
             }
 
 //            return redirect()->back()->with('message', $response['message']);
-            return redirect(url('detalhe-edital/show',compact('id')));
+            return redirect(url('detalhe-edital/show', compact('id')));
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
 
                 return response()->json([
-                    'error'   => true,
+                    'error' => true,
                     'message' => $e->getMessageBag()
                 ]);
             }
@@ -268,38 +285,68 @@ if(count($pesquisador)<1){
         return redirect()->back()->with('message', 'Publish deleted.');
     }
 
-    public function cadastrarEdital(BigArea $bigAreas){
+    public function cadastrarEdital(BigArea $bigAreas)
+    {
 
         $bigAreas = $bigAreas->all();
         return view('vendor.adminlte.publishes.cad-publishes', compact('bigAreas'));
     }
 
-    public function listarInteressadosEdital($areas){
+    public function listarInteressadosEdital($areas)
+    {
         $areas = json_decode($areas);
-        $pesquisador = AreaUser::whereIn('area_id',$areas)->get();
+        $pesquisador = AreaUser::whereIn('area_id', $areas)->get();
 
-        if(count($pesquisador)<1){
+        if (count($pesquisador) < 1) {
 
-        }else{
-            foreach ($pesquisador as $p){
+        } else {
+            foreach ($pesquisador as $p) {
                 $interessados[] = $p->user_id;
             }
 
             $interessados = array_unique($interessados);
 
-            $pesquisadores = User::whereIn('id',$interessados)->get();
+            $pesquisadores = User::whereIn('id', $interessados)->get();
 
             return $pesquisadores;
         }
 
     }
 
-    public function areasEdital($id = 10){
+    public function areasEdital($id = 10)
+    {
         $publish = $this->repository->find($id);
-        foreach($publish as $p){
+        foreach ($publish as $p) {
             $areas = $publish->areasEdital;
         }
 
-        return view('vendor.adminlte.publishes.edit-publishes', compact('areas','publish'));
+        return view('vendor.adminlte.publishes.edit-publishes', compact('areas', 'publish'));
+    }
+
+    public function interesse($interesse, $publish_id, $url)
+    {
+        $user_id = Auth::user()->id;
+        $publish = $this->repository->find($publish_id);
+        $publishUser = new PublishUser();
+        $visualizador = 0;
+        $visualizador = count($publishUser->all()->where('publish_id', '=', $publish_id)->where('user_id', '=', $user_id));
+        if ($visualizador == 0) {
+            PublishUser::create(['interest' => $interesse, 'publish_id' => $publish_id, 'user_id' => $user_id]);
+
+        } else {
+            if ($interesse == 0) {
+            } else {
+
+                $retorno = $publish->atualizarInteresse($user_id, $publish_id, $interesse);
+            }
+            // dd($retorno);
+        }
+
+        if ($url == 0) {
+
+            return redirect('detalhe-edital/show/' . $publish_id);
+        } else {
+            return redirect($publish->link);
+        }
     }
 }

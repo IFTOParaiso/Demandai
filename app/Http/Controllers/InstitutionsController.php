@@ -58,9 +58,9 @@ class InstitutionsController extends Controller
             ]);
         }
 
-        //return view('institutions.index', compact('institutions'));
+        return view('vendor.adminlte.institutions.list-institutions', compact('institutions'));
 
-        return $institutions;
+//        return $institutions;
     }
 
     /**
@@ -121,7 +121,7 @@ class InstitutionsController extends Controller
             ]);
         }
 
-        return view('institutions.show', compact('institution'));
+        return view('vendor.adminlte.institutions.details-institutions', compact('institution'));
     }
 
     /**

@@ -112,7 +112,28 @@ function paginacao(id) {
 
 
 $('.btnNext').click(function () {
-    $('.nav-tabs > .active').next('li').find('a').trigger('click');
+
+    $('p').remove();
+    if($('#title').val()==""){
+        $('#error-title').append("<p>O campo título é obrigatório.</p>");
+    }
+
+    if($('#description').val()==""){
+        $('#error-description').append("<p>O campo descrição é obrigatório.</p>");
+    }
+
+    if($('#date_closure').val()==""){
+        $('#error-date_closure').append("<p>O campo data de fechamento é obrigatório.</p>");
+    }
+    if($('#link').val()==""){
+        $('#error-link').append("<p>O campo link é obrigatório.</p>");
+    }
+
+
+    else{
+        $('.nav-tabs > .active').next('li').find('a').trigger('click');
+    }
+
 });
 
 $('.btnPrevious').click(function () {
@@ -157,6 +178,7 @@ function pesquisadoresIteressados() {
 function updateAreas() {
     if (confirm("Tem certeza que deseja alterar?  As áreas atualmente selecionadas, serão removidas!")){
         $('#areas-edital').remove();
+        $('#areas-usuario').remove();
         $('#alterar').remove();
         $('#update-areas').css('display', 'block');
     }
@@ -166,5 +188,14 @@ function updateAreas() {
 $(document).ready(function() {
     $('#usuarios-propi').DataTable();
     $('#usuarios-pesquisador').DataTable();
+    paginacao('tabela-editais');
+
 } );
 
+
+
+function validateFieldsPublish() {
+  if($('#title').val()==""){
+      $('#erro-title').append('O campo título é obrigatório.');
+  }
+}

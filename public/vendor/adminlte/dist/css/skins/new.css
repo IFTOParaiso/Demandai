@@ -36,7 +36,7 @@
 }
 
 .skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
-    background-color: #225730;
+    background-color: #ffffff;
 }
 
 .skin-blue .sidebar-menu>li>.treeview-menu {
@@ -50,4 +50,17 @@
 
 .box.box-primary {
     border-top-color: #3c763d;
+}
+
+.skin-blue .main-header li.user-header {
+    background-color: #ffffff;
+}
+
+.skin-blue .sidebar a {
+    color: #000000;
+}
+
+.skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a, .skin-blue .sidebar-menu>li.menu-open>a {
+    color: #000000;
+    background: #E7E7E7;
 }

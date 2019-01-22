@@ -13,20 +13,33 @@
         <a href="{{route('login-usuario', 'administrador')}}" class="text-center">Acesso Administrador</a>
     </div>
     <div class="login-box">
-        <div class="login-logo">
-            <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
-        </div>
+
+
         <div class="login-box-body">
+            <div class="login-logo"><a href="{{ url(config('adminlte.dashboard_url', 'home')) }}"><img src="{{ asset('vendor/adminlte/img/logo.png')}}" alt="" height="130px"></a></div>
+            <div class="login-logo">
+                <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
+            </div>
             <p class="login-box-msg">Selecione o módulo desejado!</p>
 
-                <div class="form-group has-feedback">
-                    <span class=" fa fa-user-circle form-control-feedback"></span>
-                    <a href="{{route('login-usuario', 'propi')}}" class="btn btn-primary btn-block">PROPI</a>
+
+            @if(!empty($errors->first()))
+
+                <div class="alert alert-danger">
+                    <span>{{ $errors->first() }}</span>
                 </div>
-                <div class="form-group has-feedback">
-                    <span class="fa fa-user-circle form-control-feedback"></span>
-                    <a href="{{route('login-usuario', 'pesquisador')}}" class="btn btn-primary btn-block">PESQUISADOR</a>
-                </div>
+            @endif
+
+            <div class="form-group has-feedback">
+
+                <a href="{{route('login-usuario', 'propi')}}" class="btn btn-primary btn-block"
+                   style="font-size: 20px"> <i class="fa fa-user-circle"></i> Propi</a>
+            </div>
+            <div class="form-group has-feedback">
+
+                <a href="{{route('login-usuario', 'pesquisador')}}" class="btn btn-primary btn-block"
+                   style="font-size: 20px"> <i class="fa fa-book"></i> Pesquisador</a>
+            </div>
         </div>
     </div>
 @stop

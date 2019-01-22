@@ -49,42 +49,70 @@
                                         </dl>
                                         <dl>
                                             <dt>Link de Acesso</dt>
-                                            <dd><a href="{{$publish->link}}" target="_blank">{{$publish->link}}</a></dd>
-                                        </dl>
-                                        <dl>
-                                            <dt>Áreas relacionadas</dt>
-                                            @foreach($areas as $area)
-                                                {{$area->name}}<br>
-                                            @endforeach
+                                            <dd><a href="{{url('interesse/0/publish/'.$publish->id.'/1')}}" target="_blank">{{$publish->link}}</a></dd>
                                         </dl>
                                     </div>
 
                                     <div class="col-lg-6">
                                         @if ($tipouser == 3)
-                                            <button class="btn btn-sm fa fa-thumbs-o-up pull-right" style="color: green"
-                                                    href=""> Tenho Interesse
-                                            </button>
-                                            <button class="btn btn-sm fa fa-thumbs-o-down pull-right "
-                                                    style="color: red"
-                                                    href=""> Não Tenho Interesse
-                                            </button>
+                                            @if($userInteress==1)
+                                                <a href="{{url('interesse/1/publish/'.$publish->id.'/0')}}" >
+                                                    <button class="btn btn-sm fa fa-thumbs-o-up pull-right" style="color: green"> Interessado
+                                                    </button>
+                                                </a>
+                                                <a href="{{url('interesse/2/publish/'.$publish->id.'/0')}}" >
+                                                    <button class="btn btn-sm fa fa-thumbs-o-down pull-right "
+                                                            style="color: red">
+                                                    </button>
+                                                </a>
+                                            @elseif($userInteress==2)
+                                                <a href="{{url('interesse/1/publish/'.$publish->id.'/0')}}" >
+                                                    <button class="btn btn-sm fa fa-thumbs-o-up pull-right" style="color: green">
+                                                    </button>
+                                                </a>
+                                                <a href="{{url('interesse/2/publish/'.$publish->id.'/0')}}" >
+                                                    <button class="btn btn-sm fa fa-thumbs-o-down pull-right "
+                                                            style="color: red">  Não Tenho Interesse
+                                                    </button>
+                                                </a>
+                                            @else
+                                                <a href="{{url('interesse/1/publish/'.$publish->id.'/0')}}" >
+                                                    <button class="btn btn-sm fa fa-thumbs-o-up pull-right" style="color: green"> Tenho Interesse
+                                                    </button>
+                                                </a>
+                                                <a href="{{url('interesse/2/publish/'.$publish->id.'/0')}}" >
+                                                    <button class="btn btn-sm fa fa-thumbs-o-down pull-right "
+                                                            style="color: red"> Não Tenho Interesse
+                                                    </button>
+                                                </a>
+                                            @endif
+
                                         @endif
                                         @if ($tipouser == 1 || $tipouser == 2)
                                             <dt class="text-right" style="font-size: large"
                                                 data-toggle="tooltip" data-placement="top"
                                                 title="Pessoas que visualizaram este edital">
-                                                <i class="fa fa-eye"></i> : 10
+                                                <i class="fa fa-eye"></i> : {{$visualizador}}
                                             </dt>
                                             <dt class="text-right" style="font-size: large"
                                                 data-toggle="tooltip" data-placement="top"
                                                 title="Pessoas que demonstraram interesse neste edital">
-                                                <i class="fa fa-thumbs-o-up"></i> : 1
+                                                <i class="fa fa-thumbs-o-up"></i> : {{$interesse}}
                                             </dt>
                                             <dt class="text-right" style="font-size: large"
                                                 data-toggle="tooltip" data-placement="top"
                                                 title="Pessoas que demonstraram desinteresse neste edital">
-                                                <i class="fa fa-thumbs-o-down"></i> : 1
+                                                <i class="fa fa-thumbs-o-down"></i> : {{$naointeresse}}
                                             </dt>
+
+                                        <dl>
+                                            <dt>Áreas relacionadas</dt>
+                                            @forelse($areas as $area)
+                                                {{$area->name}}<br>
+                                            @empty
+                                                <small>Não há áreas de interesse selecionadas até o momento!</small>
+                                            @endforelse
+                                        </dl>
                                     </div>
                                     @endif
                                 </div>

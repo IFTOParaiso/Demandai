@@ -2,77 +2,69 @@
 @section('title', 'Demandaí')
 @section('content_header')
     <section class="content-header">
-        <h1>
-            Lista de Editais
-        </h1>
-        @if($tipouser == 1 || $tipouser == 2)
-        <a class="btn btn-sm fa fa-plus-circle pull-right" role="button"
-           href="{{url('cadastrar-edital')}}"> Cadastrar Novo Edital</a>
-        @endif
+        <div>
+            @if($tipouser == 1 || $tipouser == 2)
+                <a class="btn btn-success"
+                   href="{{url('cadastrar-edital')}}"> Cadastrar novo edital</a>
+            @endif
+        </div>
+
     </section>
 @stop
 @section('content')
     <section class="content">
-        <div class="row">
-            <div class="col-xs-6">
-                <div class="box">
-                    <div class="box-body">
-                            <h4 class="title" style="color: green">Editais Abertos</h4>
-                            <div class="table-overflow" style="height: 800px">
-                                <table id="editais-abertos" class="table table-hover">
-                                    <tbody>
-                                    @forelse($publishes as $publish)
-                                        <a class="card" href="{{url('detalhe-edital/show',$publish->id)}}">
-                                            @if($publish->date_closure >=  Carbon\Carbon::today())
-                                                <span><h4>{{$publish->title}}</h4></span>
-                                                <p class="text" style="color: black"><b>Descrição: </b>{{$publish->description}}</p>
-                                                <span class="text" style="color: black"><b>Encerramento de Inscrições:</b> {{date('d/m/Y', strtotime($publish->date_closure))}}</span>
-                                                <hr />
-                                            @endif
-                                        </a>
-                                    @empty
-                                        <b>Não há editais cadastrados até o momento!</b>
-                                    @endforelse
-                                    </tbody>
-                                </table>
-                            </div>
-                    </div>
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3><i class="fa fa-file"></i> Editais</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
                 </div>
             </div>
 
-            <div class="col-xs-6">
-                <div class="box">
-                    <div class="box-body">
-                            <h4 class="title" style="color: red">Editais Fechados</h4>
-                        <div class="table-overflow" style="height: 800px">
-                            {{--<table id="editais-fechados" class="table table-hover">--}}
-                            <table id="editais-fechados" class="table table-striped table-bordered" style="width:100%">
-                                <tbody>
-                                @forelse($publishes as $publish)
-                                    <a class="card" href="{{url('detalhe-edital/show',$publish->id)}}">
-                                        @if($publish->date_closure < Carbon\Carbon::today())
-                                            <span><h4>{{$publish->title}}</h4></span>
-                                            <p class="text" style="color: black"><b>Descrição: </b>{{$publish->description}}</p>
-                                            <span class="text" style="color: black"><b>Encerramento de Inscrições:</b> {{date('d/m/Y', strtotime($publish->date_closure))}}</span>
-                                            <hr />
-                                        @endif
-                                    </a>
-                                @empty
-                                    <b>Não há editais cadastrados até o momento!</b>
-                                @endforelse
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+
+                <table id="tabela-editais" class="table table-hover">
+                    <thead>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Status</th>
+                    <th>Encerramento de inscrições</th>
+
+                    </thead>
+                    <tbody>
+                    @forelse($publishes as $publish)
+                        <tr>
+                            <td>  <a class="card" href="{{url('detalhe-edital/show',$publish->id)}}">{{$publish->title}}</a></td>
+                            <td>{{$publish->description}}</td>
+                            <td>
+                                @if($publish->date_closure >=  Carbon\Carbon::today())
+                                    <span class="label label-success">Aberto</span>
+                                @elseif($publish->date_closure < Carbon\Carbon::today())
+                                    <span class="label label-danger">Encerrado</span>
+                                @endif
+                            </td>
+                            <td>{{date('d/m/Y', strtotime($publish->date_closure))}}</td>
+
+                        </tr>
+                    @empty
+                        Não há registros
+
+                    @endforelse
+                    </tbody>
+                </table>
+                <!-- /.table-responsive -->
             </div>
+
+
         </div>
     </section>
 
- <style>
-     .table-overflow {
-         max-height:400px;
-         overflow-x:auto;
-     }
- </style>
+    <style>
+        .table-overflow {
+            max-height:400px;
+            overflow-x:auto;
+        }
+    </style>
 @stop
