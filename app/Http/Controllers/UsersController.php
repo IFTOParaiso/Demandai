@@ -256,7 +256,7 @@ class UsersController extends Controller
         return view('vendor.adminlte.register', compact('institutions', 'tipo_usuario', 'bigAreas'));
     }
 
-    public function login($tipo_usuario)
+    public function showFormLogin($tipo_usuario)
     {
         return view('vendor.adminlte.login', compact('tipo_usuario'));
     }
@@ -278,6 +278,8 @@ class UsersController extends Controller
         }
         return view('vendor.adminlte.users.meu-perfil', compact('user', 'institutions'));
     }
+
+
 
 
 }

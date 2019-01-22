@@ -29,7 +29,7 @@ Route::get('editar-usuario/edit/{id}', 'UsersController@edit')->middleware('auth
 Route::put('editar-usuario/update/{id}', 'UsersController@update')->middleware('auth');
 Route::get('detalhe-pesquisador/show/{id}', 'UsersController@show')->name('detalhe-pesquisador');
 Route::post('pesquisador/registrar', 'UsersController@store')->name('registrar-pesquisador');
-Route::get('login/{tipo_usuario}', 'UsersController@login')->name('login-usuario');
+Route::get('login/{tipo_usuario}', 'UsersController@showFormLogin')->name('login-usuario');
 Route::get('meu-perfil/{id}', 'UsersController@meuPerfil')->name('perfil-usuario');
 
 Route::get('cadastrar-edital', 'PublishesController@cadastrarEdital')->name('cadastrar-edital');
