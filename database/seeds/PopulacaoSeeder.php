@@ -211,6 +211,17 @@ class PopulacaoSeeder extends Seeder
         ]);
         // USUÁRIO (PESQUISADOR)
         \App\Entities\User::create([
+            'name' => 'Pesquisador',
+            'email' => 'pesquisador@demandai.com ',
+            'password' => bcrypt('123456'),
+            'formation' => '2',
+            'lattes' => 'http://lattes.cnpq.br/5205961243034154',
+            'status' => '1',
+            'remember_token' => str_random(10),
+            'institution_id' => '1',
+
+        ]);
+        \App\Entities\User::create([
             'name' => 'Leandro Teófilo Pinto dos Reis',
             'email' => 'teofilo@ifto.edu.br',
             'password' => bcrypt('123456'),
@@ -453,7 +464,7 @@ class PopulacaoSeeder extends Seeder
         // USUÁRIO TIPO USUÁRIO (PROPI)
         \App\Entities\UserTypeUser::create([
             'user_id' => '1',
-            'type_user_id' => '1',
+            'type_user_id' => '2',
 
         ]);
         // USUÁRIO TIPO USUÁRIO (ADMINISTRADOR)
