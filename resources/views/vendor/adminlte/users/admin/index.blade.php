@@ -6,7 +6,6 @@
 @stop
 
 @section('content')
-
     <div class="row">
         <a href="{{route('listar-edital')}}" style="color: inherit">
         <div class="col-md-3 col-sm-6 col-xs-12">
@@ -23,7 +22,7 @@
         </div>
         </a>
         <!-- /.col -->
-        <a href="{{route('listar-edital')}}" style="color: inherit">
+        <a href="{{url('listar-usuario/pesquisador')}}" style="color: inherit">
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
                 <span class="info-box-icon bg-red"><i class="fa fa-users"></i></span>
@@ -83,7 +82,7 @@
             </div>
         </div>
         <!-- /.box-header -->
-        <div class="box-body">
+        <div class="publishes-box-body">
 
             <table id="tabela-editais-abertos" class="table table-hover">
                 <thead>
@@ -123,7 +122,7 @@
             </div>
         </div>
         <!-- /.box-header -->
-        <div class="box-body">
+        <div class="areas-publish-box-body">
 
             <table id="tabela-editais-abertos" class="table table-hover">
                 <thead>
@@ -152,6 +151,7 @@
         </div>
     </div>
     </div>
+
     <div class="col-md-6">
         <div class="box box-primary">
             <div class="box-header with-border">
@@ -162,7 +162,7 @@
                 </div>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="user-box-body">
 
                 <table id="tabela-editais-abertos" class="table table-hover">
                     <thead>
@@ -188,13 +188,19 @@
         </div>
     </div>
 
-
-
-
-
     <style>
-        .box-primary {
-            max-height: 530px;
+        .publishes-box-body {
+            height: 200px;
+            overflow-x: auto;
+        }
+
+        .areas-publish-box-body {
+            height: 200px;
+            overflow-x: auto;
+        }
+
+        .user-box-body {
+            height: 200px;
             overflow-x: auto;
         }
     </style>

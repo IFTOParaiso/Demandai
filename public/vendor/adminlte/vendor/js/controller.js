@@ -1,4 +1,4 @@
-const urlBase = "http://localhost/";
+const urlBase = "http://demandai.test/";
 
 $(document).on('click', '#big-area', function () {
     var id = event.target.id;
@@ -178,6 +178,7 @@ function pesquisadoresIteressados() {
 function updateAreas() {
     if (confirm("Tem certeza que deseja alterar?  As áreas atualmente selecionadas, serão removidas!")){
         $('#areas-edital').remove();
+        $('#areas-usuario').remove();
         $('#alterar').remove();
         $('#update-areas').css('display', 'block');
     }

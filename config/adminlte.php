@@ -128,29 +128,29 @@ return [
 
         [
             'text' => 'Pesquisadores',
-            'url' => 'meu-perfil/1',
+            'url' => 'meu-perfil',
             'icon' => 'users',
         ],
 
         [
             'text' => 'Instituições',
-            'url' => 'meu-perfil/1',
+            'url' => '#',
             'icon' => 'university',
         ],
 
         [
             'text' => 'Áreas de pesquisa',
-            'url' => 'meu-perfil/1',
+            'url' => '#',
             'icon' => 'search',
         ],
         [
             'text' => 'Usuários',
-            'url' => 'meu-perfil/1',
+            'url' => 'listar-usuario/pesquisador',
             'icon' => 'user',
         ],
         [
             'text' => 'Relatórios',
-            'url' => 'meu-perfil/1',
+            'url' => '#',
             'icon' => 'files-o',
         ],
 
