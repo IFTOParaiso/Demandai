@@ -69,7 +69,7 @@ class UsersController extends Controller
         if ($tipo_usuario == 'pesquisador'){
             return view('vendor.adminlte.users.pesquisador.listar-pesquisador', compact('users', 'tipo_usuario'));
         }elseif ($tipo_usuario == 'propi'){
-            return view('vendor.adminlte.users.propi.listar-propi', compact('users', 'tipo_usuario'));
+            return view('vendor.adminlte.users.listar-users', compact('users', 'tipo_usuario'));
         }
     }
 
@@ -171,11 +171,16 @@ class UsersController extends Controller
         $institutions = $institutions->all();
         $bigAreas = $bigAreas->all();
 
+        $tipo = $user->tipoUsuario()->get()->all();
+        foreach ($tipo as $t){
+            $tipouser = $t->id;
+        }
+
         foreach ($user as $u){
             $areas = $user->areasUsuario;
         }
 
-        return view('vendor.adminlte.users.pesquisador.edit-pesquisador', compact('user', 'institutions', 'bigAreas', 'areas'));
+        return view('vendor.adminlte.users.pesquisador.edit-pesquisador', compact('user', 'institutions', 'bigAreas', 'areas', 'tipouser'));
     }
 
     /**

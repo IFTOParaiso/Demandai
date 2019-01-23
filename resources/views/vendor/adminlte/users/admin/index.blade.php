@@ -57,7 +57,7 @@
                     </div>
                 </a>
                 <!-- /.col -->
-                <a href="{{route('listar-edital')}}" style="color: inherit">
+                <a href="{{route('areas-pesquisa')}}" style="color: inherit">
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         <div class="info-box">
                             <span class="info-box-icon bg-aqua"><i class="fa fa-search"></i></span>
@@ -78,12 +78,7 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <i class="ion ion-clipboard"></i> Editais abertos
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                    class="fa fa-minus"></i>
-                        </button>
-                    </div>
-                </div>
+                                   </div>
                 <!-- /.box-header -->
                 <div class="publishes-box-body">
 
@@ -122,11 +117,6 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <i class="ion ion-clipboard"></i> Área com maior frequência nos editais
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                    class="fa fa-minus"></i>
-                        </button>
-                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="areas-publish-box-body">
@@ -200,11 +190,6 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <i class="ion ion-clipboard"></i> Pesquisadores com maior recebimento de notificações
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                    class="fa fa-minus"></i>
-                        </button>
-                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="user-box-body">

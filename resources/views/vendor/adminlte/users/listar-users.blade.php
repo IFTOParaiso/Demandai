@@ -16,7 +16,7 @@
                     <div class="col-xs-12">
                         <div class="box">
                             <div class="box-header">
-                                <h3 class="box-title">Usuários do Tipo PROPI</h3>
+                                <h3 class="box-title">Lista de Usuários do Sistema</h3>
                             </div>
                             <div class="box-body">
                                 <table id="usuarios-propi" class="table table-striped table-bordered" style="width:100%">
@@ -24,6 +24,7 @@
                                     <tr>
                                         <th>Nome</th>
                                         <th>Email</th>
+                                        <th>Tipo</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -31,6 +32,7 @@
                                     <tr>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
+                                        <td>{{$user->lattes}}</td>
                                     </tr>
                                     @empty
                                         Não há usuários
@@ -40,6 +42,7 @@
                                     <tr>
                                         <th>Nome</th>
                                         <th>Email</th>
+                                        <th>Tipo</th>
                                     </tr>
                                     </tfoot>
                                 </table>

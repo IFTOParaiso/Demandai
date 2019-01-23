@@ -67,7 +67,7 @@
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <i class="fa fa-user-circle-o"></i>
+                                    <i class="fa fa-user-circle-o fa-3x"></i>
 
                                     <p>
                                         {{Auth::user()->name}}
@@ -155,7 +155,7 @@
             <div class="pull-right hidden-xs">
                 <b>Versão</b> 1.0.0
             </div>
-            <div class="shadow-sm" style="text-align: center">Copyright &copy; Fábrica de Software 2018. <a href="http://portal.ifto.edu.br/paraiso" target="_blank"> IFTO - CAMPUS PARAÍSO DO TOCANTINS</a>. Todos os direitos reservados.</div>
+            <div class="shadow-sm" style="text-align: center">Copyright &copy; Fábrica de Software 2019. <a href="http://portal.ifto.edu.br/paraiso" target="_blank"> IFTO - CAMPUS PARAÍSO DO TOCANTINS</a>. Todos os direitos reservados.</div>
         </footer>
     </div>
     <!-- ./wrapper -->

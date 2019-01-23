@@ -3,22 +3,13 @@
 @section('title', 'Demandaí')
 
 @section('content_header')
-    <section class="content-header">
-        <div>
-            {{--@if($tipouser == 1 || $tipouser == 2)--}}
-            <a class="btn btn-success"
-               href="{{url('cadastrar-usuario',$tipo_usuario)}}"> Cadastrar novo Pesquisador</a>
-            {{--@endif--}}
-        </div>
-
-    </section>
 @stop
 
 @section('content')
     <section class="content">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3><i class="fa fa-file"></i> Pesquisadores</h3>
+                <h3><i class="fa fa-search"></i> Áreas de Pesquisa</h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
@@ -28,17 +19,20 @@
             <!-- /.box-header -->
             <div class="box-body">
 
-                <table id="tabela-editais" class="table table-hover">
+                <table id="usuarios-propi" class="table table-hover">
                     <thead>
-                    <th>Nome</th>
+                    <th>Área</th>
+                    <th>Grande Área</th>
                     </thead>
                     <tbody>
-                    @forelse($users as $user)
+                    @forelse($areas as $area)
                         <tr>
-                            <td>
-                                <a href="{{url('detalhe-pesquisador/show',$user->id)}}" class="col-sm-12"><span
-                                            class="text">{{$user->name}}</span></a>
-                            </td>
+                            <td>  <a class="card" href="#">{{$area->name}}</a></td>
+                            @foreach($bigAreas as $bigArea)
+                                @if($area->big_area_id == $bigArea->id)
+                                    <td>{{$bigArea->name}}</td>
+                                @endif
+                            @endforeach
                         </tr>
                     @empty
                         Não há registros
@@ -55,8 +49,8 @@
 
     <style>
         .table-overflow {
-            max-height: 400px;
-            overflow-x: auto;
+            max-height:400px;
+            overflow-x:auto;
         }
     </style>
 @stop

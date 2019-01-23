@@ -22,7 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 //=====================ROTAS_PESQUISADOR================================================================================
 
 Route::get('cadastrar-usuario/{tipo_usuario}', 'UsersController@cadastrarUsuario')->name('cadastrar-usuario');
-Route::get('listar-usuario/{tipo_usuario}', 'UsersController@index')->middleware('auth')->name('listar-usuario');
+Route::get('listar-usuario', 'UsersController@index')->middleware('auth')->name('listar-usuario');
+Route::get('listar-usuario/{tipo_usuario}', 'UsersController@index')->middleware('auth')->name('listar-usuario-pesquisador');
 //Route::get('editar-usuario/{tipo_usuario}/edit/{id}', 'UsersController@edit')->middleware('auth')->name('editar-usuario');
 Route::get('editar-usuario/edit/{id}', 'UsersController@edit')->middleware('auth')->name('editar-usuario');
 //Route::put('editar-usuario/{tipo_usuario}/update/{id}', 'UsersController@update')->middleware('auth')->name('editar-usuario');
@@ -31,6 +32,8 @@ Route::get('detalhe-pesquisador/show/{id}', 'UsersController@show')->name('detal
 Route::post('pesquisador/registrar', 'UsersController@store')->name('registrar-pesquisador');
 Route::get('login/{tipo_usuario}', 'UsersController@showFormLogin')->name('login-usuario');
 Route::get('meu-perfil', 'UsersController@meuPerfil')->name('perfil-usuario');
+
+Route::get('areas-pesquisa', 'AreasController@index')->name('areas-pesquisa');
 
 Route::get('list-instituicoes', 'InstitutionsController@index');
 Route::get('detalhes-instituicoes/show/{id}', 'InstitutionsController@show');
