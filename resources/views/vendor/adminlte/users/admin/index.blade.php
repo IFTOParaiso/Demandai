@@ -78,11 +78,6 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <i class="ion ion-clipboard"></i> Editais abertos
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                    class="fa fa-minus"></i>
-                        </button>
-                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="publishes-box-body">
@@ -122,11 +117,6 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <i class="ion ion-clipboard"></i> Área com maior frequência nos editais
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                    class="fa fa-minus"></i>
-                        </button>
-                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="areas-publish-box-body">
@@ -163,11 +153,6 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <i class="ion ion-clipboard"></i> Áreas de interesse com maior número de pesquisadores(Fazer Função)
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                    class="fa fa-minus"></i>
-                        </button>
-                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="user-box-body">
@@ -200,11 +185,6 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <i class="ion ion-clipboard"></i> Pesquisadores com maior recebimento de notificações
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                    class="fa fa-minus"></i>
-                        </button>
-                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="user-box-body">
@@ -249,7 +229,7 @@
         }
 
         .user-box-body {
-            height: 250px;
+            max-height: 250px;
             overflow-x: auto;
         }
     </style>

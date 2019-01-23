@@ -171,11 +171,16 @@ class UsersController extends Controller
         $institutions = $institutions->all();
         $bigAreas = $bigAreas->all();
 
+        $tipo = $user->tipoUsuario()->get()->all();
+        foreach ($tipo as $t){
+            $tipouser = $t->id;
+        }
+
         foreach ($user as $u){
             $areas = $user->areasUsuario;
         }
 
-        return view('vendor.adminlte.users.pesquisador.edit-pesquisador', compact('user', 'institutions', 'bigAreas', 'areas'));
+        return view('vendor.adminlte.users.pesquisador.edit-pesquisador', compact('user', 'institutions', 'bigAreas', 'areas', 'tipouser'));
     }
 
     /**
