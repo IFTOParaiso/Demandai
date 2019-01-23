@@ -37,6 +37,7 @@
 
 .skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
     background-color: #ffffff;
+    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.65);
 }
 
 .skin-blue .sidebar-menu>li>.treeview-menu {
@@ -77,4 +78,11 @@
     height: 120px;
     padding: 10px;
     text-align: center;
+}
+
+.main-footer {
+    background: #fff;
+    padding: 10px;
+    color: #444;
+
 }
