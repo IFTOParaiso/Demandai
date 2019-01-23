@@ -229,7 +229,7 @@
         }
 
         .user-box-body {
-            height: 250px;
+            max-height: 250px;
             overflow-x: auto;
         }
     </style>

@@ -119,6 +119,7 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        @if($tipouser == '1' || $tipouser == '2')
                                         <div class="form-group">
                                             <label for="">Status do Usuário</label>
                                             <div>
@@ -128,6 +129,7 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        @endif
                                         <a class="btn btn-success btnNext pull-right">Próximo Etapa</a>
                                         {{--@endif--}}
                                         {{--@if($tipo_usuario == 'propi')--}}

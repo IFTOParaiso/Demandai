@@ -64,14 +64,6 @@
                                         <dd><a href="{{$user->lattes}}" target="_blank">{{$user->lattes}}</a></dd>
                                         </dt>
                                     </dl>
-                                    <dl>
-                                        <dt>Status</dt>
-                                        @if($user->status == '1')
-                                            <dd class="text" style="color: green;">Ativado</dd>
-                                        @elseif($user->status == '0')
-                                            <dd class="text" style="color: gray;">Desativado</dd>
-                                        @endif
-                                    </dl>
                                 </div>
 
                                 <div class="col-lg-6 pull-right" style="margin-top: 60px">
