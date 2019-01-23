@@ -25,7 +25,7 @@
             <!-- /.box-header -->
             <div class="box-body">
 
-                <table id="tabela-editais" class="table table-hover">
+                <table class="table table-hover">
                     <thead>
                     <th>Nome</th>
                     <th>Descrição</th>
