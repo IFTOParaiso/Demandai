@@ -1,4 +1,4 @@
-const urlBase = "http://localhost:8000/";
+const urlBase = "http://localhost/";
 
 $(document).on('click', '#big-area', function () {
     var id = event.target.id;
@@ -113,12 +113,31 @@ function paginacao(id) {
 
 $('.btnNext').click(function () {
 
-    $('p').remove();
-    if($('#title').val()==""){
-        $('#error-title').append("<p>O campo título é obrigatório.</p>");
+
+
+
+    if($("#title").val().length <=0){
+        $('.enviar').trigger('click');
+    }
+    else if($("#description").val().length <=0){
+        $('.enviar').trigger('click');
+    }
+    else if($("#date_closure").val().length <=0){
+        $('.enviar').trigger('click');
+    }
+    else if($("#link").val().length <=0){
+        $('.enviar').trigger('click');
     }
 
-    if($('#description').val()==""){
+    else{
+        $('.nav-tabs > .active').next('li').find('a').trigger('click');
+    }
+
+
+
+
+
+    /*if($('#description').val()==""){
         $('#error-description').append("<p>O campo descrição é obrigatório.</p>");
     }
 
@@ -132,7 +151,7 @@ $('.btnNext').click(function () {
 
     else{
         $('.nav-tabs > .active').next('li').find('a').trigger('click');
-    }
+    }*/
 
 });
 
@@ -192,10 +211,6 @@ $(document).ready(function() {
 
 } );
 
-
-
-function validateFieldsPublish() {
-  if($('#title').val()==""){
-      $('#erro-title').append('O campo título é obrigatório.');
-  }
+function oi() {
+    console.log('oi');
 }

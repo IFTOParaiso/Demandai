@@ -3,11 +3,6 @@
 @section('title', 'Demandaí')
 
 @section('content_header')
-    <section class="content-header">
-        <h1>
-            Detalhes do Edital
-        </h1>
-    </section>
 @stop
 
 @section('content')
@@ -16,6 +11,10 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-body">
+                        <div class="box-header with-border">
+                            <h3><i class="fa fa-info-circle"></i> Detalhes do Edital</h3>
+                        </div>
+
 
                         <div class="col-md-12">
                             <div class="box box-solid">

@@ -9,9 +9,9 @@
     <div class="container-fluid">
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs" id="myTab">
-                <li class="active"><a href="#tab_1" data-toggle="tab">Edital</a></li>
-                <li><a href="#tab_2" data-toggle="tab">Áreas</a></li>
-                <li><a href="#tab_3" data-toggle="tab" onclick="pesquisadoresIteressados()">Lista de Trasmissão</a></li>
+                <li class="active"><a href="#tab_1" data-toggle="tab" style="pointer-events: none">Edital</a></li>
+                <li><a href="#tab_2" data-toggle="tab" style="pointer-events: none">Áreas</a></li>
+                <li><a href="#tab_3" data-toggle="tab" onclick="pesquisadoresIteressados()" style="pointer-events: none">Lista de Trasmissão</a></li>
                 <li class="pull-right header"><i class="fa fa-file-o"></i> Editar Dados do Edital</li>
             </ul>
             <form action="{{route('atualizar-edital', $publish->id)}}" method="post">
@@ -21,7 +21,7 @@
                         <div class="container-fluid">
 
                             <div class="form-group has-feedback {{ $errors->has('title') ? 'has-error' : '' }}">
-                                <input type="text" name="title" class="form-control"
+                                <input type="text" name="title" id="title" class="form-control"
                                        value="{{$publish->title}}"
                                        placeholder="Título" required>
                                 <span class="fa fa-file form-control-feedback"></span>
@@ -32,7 +32,7 @@
                                 @endif
                             </div>
                             <div class="form-group has-feedback {{ $errors->has('description') ? 'has-error' : '' }}">
-                        <textarea type="text" name="description" class="form-control"
+                        <textarea type="text" name="description" id="description" class="form-control"
                                   placeholder="Descrição" style="height: 100px"
                                   required>{{$publish->description}}</textarea>
                                 <span class="fa fa-file-text form-control-feedback"></span>
@@ -45,7 +45,7 @@
                             <div class="form-group has-feedback {{ $errors->has('date_closure') ? 'has-error' : '' }}">
                                 <div class="input-group prefix">
                                 <span class="input-group-addon">Data de Encerramento</span>
-                                <input type="text" name="date_closure" class="form-control textbox-n"
+                                <input type="text" name="date_closure" id="date_closure" class="form-control textbox-n"
                                        placeholder="Data de Encerramento"
                                        value="{{$publish->date_closure}}"
                                        onfocus="(this.type='date', this.value='{{$publish->date_closure}}')"
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                             <div class="form-group has-feedback {{ $errors->has('link') ? 'has-error' : '' }}">
-                                <input type="text" name="link" class="form-control"
+                                <input type="text" name="link" id="link" class="form-control"
                                        placeholder="Link de Acesso" value="{{$publish->link}}" required>
                                 <span class="fa fa-link form-control-feedback"></span>
                                 @if ($errors->has('link'))
@@ -141,7 +141,7 @@
                             <div id="pesquisadores-interessados"></div>
 
                             <a class="btn btn-danger btnPrevious">Anterior</a>
-                            <button type="submit" class="btn btn-success pull-right">Enviar</button>
+                            <button type="submit" class="btn btn-success enviar pull-right">Enviar</button>
                         </div>
                     </div>
                 </div>
