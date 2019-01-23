@@ -203,7 +203,7 @@ class PopulacaoSeeder extends Seeder
             'email' => 'admin@demandai.com',
             'password' => bcrypt('123456'),
             'formation' => '1',
-            'lattes' => 'http://lattes.cnpq.br/52059612430341',
+            'lattes' => 'www.google.com',
             'status' => '1',
             'remember_token' => str_random(10),
             'institution_id' => '1',
@@ -470,7 +470,7 @@ class PopulacaoSeeder extends Seeder
         // USUÁRIO TIPO USUÁRIO (ADMINISTRADOR)
         \App\Entities\UserTypeUser::create([
             'user_id' => '2',
-            'type_user_id' => '2',
+            'type_user_id' => '1',
 
         ]);
         // USUÁRIO TIPO USUÁRIO (PESQUISADOR)
