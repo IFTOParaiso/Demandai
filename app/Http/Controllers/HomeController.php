@@ -45,7 +45,19 @@ class HomeController extends Controller
         $areasFpublishs = $areaPublish->areasFrequencyPublish();
         $userRpublishes = $publishUser->userRelatedPublish();
 
+        $user = new User();
+        $user->id = Auth::user()->id;
+        $tipouser = 0;
+        $tipo = $user->tipoUsuario()->get()->all();
+        foreach ($tipo as $t) {
+            $tipouser = $t->id;
+        }
+        if($tipouser == 3){
+            return redirect('listar-edital');
+        }
+        else{
+            return view('vendor.adminlte.users.admin.index', compact('publishes','researchers','institutions','areas','areasFpublishs','userRpublishes'));
+        }
 
-        return view('vendor.adminlte.users.admin.index', compact('publishes','researchers','institutions','areas','areasFpublishs','userRpublishes'));
     }
 }
