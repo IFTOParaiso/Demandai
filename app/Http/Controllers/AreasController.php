@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Area;
+use App\Entities\BigArea;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -47,10 +48,12 @@ class AreasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(BigArea $bigAreas)
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
         $areas = $this->repository->all();
+
+        $bigAreas = $bigAreas->all();
 
         if (request()->wantsJson()) {
 
@@ -59,7 +62,7 @@ class AreasController extends Controller
             ]);
         }
 
-        return view('areas.index', compact('areas'));
+        return view('vendor.adminlte.areas-de-pesquisa.areas-pesquisa', compact('areas', 'bigAreas'));
     }
 
     /**

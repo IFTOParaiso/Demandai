@@ -140,7 +140,7 @@ return [
 
         [
             'text' => 'Áreas de pesquisa',
-            'url' => '#',
+            'url' => 'areas-pesquisa',
             'icon' => 'search',
         ],
         [
