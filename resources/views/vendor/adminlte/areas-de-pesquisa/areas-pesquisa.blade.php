@@ -9,7 +9,7 @@
     <section class="content">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3><i class="fa fa-search"></i> Instituições</h3>
+                <h3><i class="fa fa-search"></i> Áreas de Pesquisa</h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
@@ -21,8 +21,8 @@
 
                 <table id="usuarios-propi" class="table table-hover">
                     <thead>
-                    <th>Áreas</th>
-                    <th>Big Áreas</th>
+                    <th>Área</th>
+                    <th>Grande Área</th>
                     </thead>
                     <tbody>
                     @forelse($areas as $area)
