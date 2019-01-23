@@ -22,7 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 //=====================ROTAS_PESQUISADOR================================================================================
 
 Route::get('cadastrar-usuario/{tipo_usuario}', 'UsersController@cadastrarUsuario')->name('cadastrar-usuario');
-Route::get('listar-usuario/{tipo_usuario}', 'UsersController@index')->middleware('auth')->name('listar-usuario');
+Route::get('listar-usuario', 'UsersController@index')->middleware('auth')->name('listar-usuario');
+Route::get('listar-usuario/{tipo_usuario}', 'UsersController@index')->middleware('auth')->name('listar-usuario-pesquisador');
 //Route::get('editar-usuario/{tipo_usuario}/edit/{id}', 'UsersController@edit')->middleware('auth')->name('editar-usuario');
 Route::get('editar-usuario/edit/{id}', 'UsersController@edit')->middleware('auth')->name('editar-usuario');
 //Route::put('editar-usuario/{tipo_usuario}/update/{id}', 'UsersController@update')->middleware('auth')->name('editar-usuario');

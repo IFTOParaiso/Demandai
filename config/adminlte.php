@@ -128,7 +128,7 @@ return [
 
         [
             'text' => 'Pesquisadores',
-            'url' => 'meu-perfil',
+            'url' => 'listar-usuario/pesquisador',
             'icon' => 'users',
         ],
 
@@ -145,7 +145,7 @@ return [
         ],
         [
             'text' => 'Usuários',
-            'url' => 'listar-usuario/pesquisador',
+            'url' => 'listar-usuario/propi',
             'icon' => 'user',
         ],
         [
