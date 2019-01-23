@@ -54,7 +54,7 @@
                                     </div>
 
                                     <div class="col-lg-6">
-                                        @if ($tipouser == 3)
+                                        @if (($tipouser) == 3 and ($publish->date_closure >=  Carbon\Carbon::today()))
                                             @if($userInteress==1)
                                                 <a href="{{url('interesse/1/publish/'.$publish->id.'/0')}}" >
                                                     <button class="btn btn-sm fa fa-thumbs-o-up pull-right" style="color: green"> Interessado
