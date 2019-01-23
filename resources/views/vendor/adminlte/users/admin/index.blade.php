@@ -162,7 +162,7 @@
         <div class="col-md-6">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <i class="ion ion-clipboard"></i> Áreas de interesse com maior número de pesquisadores(Fazer Função)
+                    <i class="ion ion-clipboard"></i> Áreas de interesse com maior número de pesquisadores
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
                                     class="fa fa-minus"></i>
@@ -176,14 +176,14 @@
                         <thead>
                         <th>COD</th>
                         <th>Nome</th>
-                        <th>Frequência</th>
+                        <th>Quant. Pesquisadores</th>
                         </thead>
                         <tbody>
-                        @forelse($userRpublishes as $userRpublishe)
+                        @forelse($areasUserFrequency as $auf)
                             <tr>
-                                <td>{{$userRpublishe->user_id}}</td>
-                                <td>{{$userRpublishe->name}}</td>
-                                <td>{{$userRpublishe->qtd}}</td>
+                                <td>{{$auf->area_id}}</td>
+                                <td>{{$auf->name}}</td>
+                                <td>{{$auf->qtd}}</td>
                             </tr>
                         @empty
                             Não há registros

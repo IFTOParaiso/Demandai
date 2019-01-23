@@ -35,7 +35,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(AreaPublish $areaPublish, PublishUser $publishUser)
+    public function index(AreaPublish $areaPublish, PublishUser $publishUser, AreaUser $areaUser)
     {
 
         $publishes = $this->publish->all();
@@ -44,8 +44,9 @@ class HomeController extends Controller
         $areas = Area::all();
         $areasFpublishs = $areaPublish->areasFrequencyPublish();
         $userRpublishes = $publishUser->userRelatedPublish();
+        $areasUserFrequency = $areaUser->areaUserFrequency();
 
 
-        return view('vendor.adminlte.users.admin.index', compact('publishes','researchers','institutions','areas','areasFpublishs','userRpublishes'));
+        return view('vendor.adminlte.users.admin.index', compact('publishes','researchers','institutions','areas','areasFpublishs','userRpublishes','areasUserFrequency'));
     }
 }
