@@ -67,7 +67,7 @@
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <i class="fa fa-user-circle-o"></i>
+                                    <i class="fa fa-user-circle-o fa-3x"></i>
 
                                     <p>
                                         {{Auth::user()->name}}
