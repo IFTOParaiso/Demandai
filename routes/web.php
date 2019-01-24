@@ -34,6 +34,7 @@ Route::get('login/{tipo_usuario}', 'UsersController@showFormLogin')->name('login
 Route::get('meu-perfil', 'UsersController@meuPerfil')->name('perfil-usuario');
 
 Route::get('areas-pesquisa', 'AreasController@index')->name('areas-pesquisa');
+Route::get('detalhes-areas-pesquisa/show/{id}', 'AreasController@show')->name('detalhes-areas-pesquisa');
 
 Route::get('list-instituicoes', 'InstitutionsController@index');
 Route::get('detalhes-instituicoes/show/{id}', 'InstitutionsController@show');

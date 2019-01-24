@@ -27,7 +27,7 @@
                     <tbody>
                     @forelse($areas as $area)
                         <tr>
-                            <td>  <a class="card" href="#">{{$area->name}}</a></td>
+                            <td>  <a class="card" href="{{route('detalhes-areas-pesquisa',$area->id)}}">{{$area->name}}</a></td>
                             @foreach($bigAreas as $bigArea)
                                 @if($area->big_area_id == $bigArea->id)
                                     <td>{{$bigArea->name}}</td>

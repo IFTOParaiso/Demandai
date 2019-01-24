@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Entities\Area;
 use App\Entities\BigArea;
+use App\Entities\TypeUser;
+use App\Entities\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -112,9 +114,17 @@ class AreasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, BigArea $bigAreas)
     {
+        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+
         $area = $this->repository->find($id);
+        $bigAreas = $bigAreas->all();
+        $users = User::all();;
+
+        $researchers = TypeUser::find(3);
+        $researchers = $researchers->usuario;
 
         if (request()->wantsJson()) {
 
@@ -123,7 +133,7 @@ class AreasController extends Controller
             ]);
         }
 
-        return view('areas.show', compact('area'));
+        return view('vendor.adminlte.areas-de-pesquisa.details-area-pesquisa', compact('researchers', 'area', 'bigAreas', 'users'));
     }
 
     /**
