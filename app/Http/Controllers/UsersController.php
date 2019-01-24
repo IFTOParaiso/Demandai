@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Entities\BigArea;
 use App\Entities\Institution;
+use App\Entities\TypeUser;
 use App\Mail\CadastradoComSucesso;
 use Illuminate\Http\Request;
 
@@ -55,22 +56,12 @@ class UsersController extends Controller
     public function index($tipo_usuario)
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $users = User::all();
-        foreach ($users as $valor) {
-            $valor->tipoUsuario;
-        }
+        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
 
-        if (request()->wantsJson()) {
+        $researchers = TypeUser::find(3);
+        $researchers = $researchers->usuario;
 
-            return response()->json([
-                'data' => $users,
-            ]);
-        }
-        if ($tipo_usuario == 'pesquisador'){
-            return view('vendor.adminlte.users.pesquisador.listar-pesquisador', compact('users', 'tipo_usuario'));
-        }elseif ($tipo_usuario == 'propi'){
-            return view('vendor.adminlte.users.listar-users', compact('users', 'tipo_usuario'));
-        }
+        return view('vendor.adminlte.users.pesquisador.listar-pesquisador',compact('researchers'));
     }
 
     /**

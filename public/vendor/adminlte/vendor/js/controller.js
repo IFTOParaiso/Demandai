@@ -83,7 +83,7 @@ $(document).on('click', '#big-area-research', function () {
 
 function paginacao(id) {
     $('#' + id).DataTable({
-        "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "Todos"]],
+        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
             "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -113,9 +113,6 @@ function paginacao(id) {
 
 $('.btnNext').click(function () {
 
-
-
-
     if($("#title").val().length <=0){
         $('.enviar').trigger('click');
     }
@@ -133,25 +130,17 @@ $('.btnNext').click(function () {
         $('.nav-tabs > .active').next('li').find('a').trigger('click');
     }
 
+});
 
+$('.btnNext-researcher').click(function () {
 
-
-
-    /*if($('#description').val()==""){
-        $('#error-description').append("<p>O campo descrição é obrigatório.</p>");
+    if($("#name").val().length <=0){
+        $('.enviar').trigger('click');
     }
-
-    if($('#date_closure').val()==""){
-        $('#error-date_closure').append("<p>O campo data de fechamento é obrigatório.</p>");
-    }
-    if($('#link').val()==""){
-        $('#error-link').append("<p>O campo link é obrigatório.</p>");
-    }
-
 
     else{
         $('.nav-tabs > .active').next('li').find('a').trigger('click');
-    }*/
+    }
 
 });
 
@@ -205,12 +194,7 @@ function updateAreas() {
 }
 
 $(document).ready(function() {
-    $('#usuarios-propi').DataTable();
-    $('#usuarios-pesquisador').DataTable();
+    paginacao('usuarios-propi');
+    paginacao('usuarios-pesquisador');
     paginacao('tabela-editais');
-
 } );
-
-function oi() {
-    console.log('oi');
-}

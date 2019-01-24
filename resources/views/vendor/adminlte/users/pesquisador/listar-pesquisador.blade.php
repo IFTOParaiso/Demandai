@@ -5,10 +5,8 @@
 @section('content_header')
     <section class="content-header">
         <div>
-            {{--@if($tipouser == 1 || $tipouser == 2)--}}
             <a class="btn btn-success"
-               href="{{url('cadastrar-usuario',$tipo_usuario)}}"> Cadastrar novo Pesquisador</a>
-            {{--@endif--}}
+               href="{{url('cadastrar-usuario','pesquisador')}}"> Cadastrar novo Pesquisador</a>
         </div>
 
     </section>
@@ -33,11 +31,11 @@
                     <th>Nome</th>
                     </thead>
                     <tbody>
-                    @forelse($users as $user)
+                    @forelse($researchers as $researcher)
                         <tr>
                             <td>
-                                <a href="{{url('detalhe-pesquisador/show',$user->id)}}" class="col-sm-12"><span
-                                            class="text">{{$user->name}}</span></a>
+                                <a href="{{url('detalhe-pesquisador/show',$researcher->id)}}" class="col-sm-12"><span
+                                            class="text">{{$researcher->name}}</span></a>
                             </td>
                         </tr>
                     @empty

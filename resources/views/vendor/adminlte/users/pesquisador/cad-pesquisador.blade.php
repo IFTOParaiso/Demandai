@@ -22,9 +22,9 @@
             <div class="container-fluid">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs" id="myTab">
-                        <li class="active"><a href="#tab_1" data-toggle="tab">Dados do Usuário</a></li>
+                        <li class="active"><a href="#tab_1" data-toggle="tab" style="pointer-events: none">Dados do Usuário</a></li>
                         @if($tipo_usuario <> 'propi')
-                            <li><a href="#tab_2" data-toggle="tab">Áreas de Interesse</a></li>
+                            <li><a href="#tab_2" data-toggle="tab" style="pointer-events: none">Áreas de Interesse</a></li>
                         @endif
                         <li class="pull-right header"><i class="fa fa-file-o"></i> Cadastro de Usuário</li>
                     </ul>
@@ -43,9 +43,9 @@
                                                 <input type="hidden" name="status" value="1">
                                                 <div
                                                     class="form-group has-feedback {{ $errors->has('name') ? 'has-error' : '' }}">
-                                                    <input type="text" name="name" class="form-control"
+                                                    <input type="text" name="name" id="name" class="form-control"
                                                            value="{{ old('name') }}"
-                                                           placeholder="{{ trans('adminlte::adminlte.full_name') }}">
+                                                           placeholder="{{ trans('adminlte::adminlte.full_name') }}" required>
                                                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                                                     @if ($errors->has('name'))
                                                         <span class="help-block">
@@ -139,7 +139,7 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <a class="btn btn-success btnNext pull-right">Próximo Etapa</a>
+                                                    <a class="btn btn-success btnNext-researcher pull-right">Próximo Etapa</a>
                                                 @endif
                                                 @if($tipo_usuario == 'propi')
                                                     <input type="hidden" id="tipousuario" name="tipousuario[]"
@@ -172,7 +172,7 @@
                                                 </div>
                                                 <div id="tabela-areas"></div>
                                                 <a class="btn btn-danger btnPrevious">Anterior</a>
-                                                <button type="submit" class="btn btn-success pull-right">Enviar</button>
+                                                <button type="submit" class="btn btn-success enviar pull-right">Enviar</button>
                                             </div>
                                         </div>
                                     </div>
