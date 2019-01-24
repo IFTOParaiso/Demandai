@@ -28,7 +28,7 @@
                 <li class="list-group-item">
                     @foreach($institutions as $institution)
                         @if($institution->id == Auth::user()->institution_id)
-                            <b><i class="fa fa-university"></i> Instituição</b> <a class="pull-right">{{$institution->name}}</a>
+                            <b><i class="fa fa-university"></i> Instituição</b> <a class="pull-right" href="{{url('detalhes-instituicoes/show',$institution->id)}}">{{$institution->name}}</a>
                         @endif
                     @endforeach
                 </li>

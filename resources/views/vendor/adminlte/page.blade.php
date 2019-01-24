@@ -75,7 +75,7 @@
                                     </p>
                                 </li>
                                 <li class="user-footer">
-                                        <a href="{{url('meu-perfil')}}" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="{{url('meu-perfil')}}" class="btn btn-default btn-flat">Perfil</a>
                                 </li>
                             </ul>
                         </li>

@@ -79,7 +79,7 @@
                 @if($tipo_usuario == 'pesquisador')
                     <a href="{{ route('cadastrar-usuario', 'pesquisador') }}"
                        class="text-center"
-                    >{{ trans('adminlte::adminlte.register_a_new_membership') }}</a>
+                    >Cadastre-se</a>
                 @elseif($tipo_usuario == 'propi' || $tipo_usuario == 'administrador')
 
                 @endif
