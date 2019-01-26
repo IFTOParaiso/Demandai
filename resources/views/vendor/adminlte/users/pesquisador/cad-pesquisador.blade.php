@@ -55,9 +55,9 @@
                                                 </div>
                                                 <div
                                                     class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
-                                                    <input type="email" name="email" class="form-control"
+                                                    <input type="email" name="email" id="email" class="form-control"
                                                            value="{{ old('email') }}"
-                                                           placeholder="{{ trans('adminlte::adminlte.email') }}">
+                                                           placeholder="{{ trans('adminlte::adminlte.email') }}" required>
                                                     <span
                                                         class="glyphicon glyphicon-envelope form-control-feedback"></span>
                                                     @if ($errors->has('email'))
@@ -68,8 +68,8 @@
                                                 </div>
                                                 <div
                                                     class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
-                                                    <input type="password" name="password" class="form-control"
-                                                           placeholder="{{ trans('adminlte::adminlte.password') }}">
+                                                    <input type="password" name="password" id="password" class="form-control"
+                                                           placeholder="{{ trans('adminlte::adminlte.password') }}" required>
                                                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                                                     @if ($errors->has('password'))
                                                         <span class="help-block">
@@ -79,9 +79,9 @@
                                                 </div>
                                                 <div
                                                     class="form-group has-feedback {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
-                                                    <input type="password" name="password_confirmation"
+                                                    <input type="password" name="password_confirmation" id="password_confirmation"
                                                            class="form-control"
-                                                           placeholder="{{ trans('adminlte::adminlte.retype_password') }}">
+                                                           placeholder="{{ trans('adminlte::adminlte.retype_password') }}" required>
                                                     <span
                                                         class="glyphicon glyphicon-log-in form-control-feedback"></span>
                                                     @if ($errors->has('password_confirmation'))
@@ -94,9 +94,9 @@
                                                 @if($tipo_usuario <> 'propi')
                                                     <div
                                                         class="form-group has-feedback {{ $errors->has('lattes') ? 'has-error' : '' }}">
-                                                        <input type="text" name="lattes" class="form-control"
+                                                        <input type="text" name="lattes" id="lattes" class="form-control"
                                                                value="{{ old('lattes') }}"
-                                                               placeholder="Lattes" >
+                                                               placeholder="Lattes" required>
                                                         <span
                                                             class="glyphicon glyphicon-user form-control-feedback"></span>
                                                         @if ($errors->has('lattes'))
@@ -108,7 +108,7 @@
                                                     <div class="form-group">
                                                         <label for="">Formação</label>
                                                         <div>
-                                                            <select id="formation" name="formation"
+                                                            <select id="formation" name="formation" required
                                                                     class="form-control">
                                                                 <option value="1">Graduado</option>
                                                                 <option value="2">Mestre</option>
@@ -119,7 +119,7 @@
                                                     <div class="form-group">
                                                         <label for="">Instituição</label>
                                                         <div>
-                                                            <select id="institution_id" name="institution_id"
+                                                            <select id="institution_id" name="institution_id" required
                                                                     class="form-control">
                                                                 @forelse($institutions as $institution)
                                                                     <option
@@ -130,15 +130,7 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="">Status do Usuário</label>
-                                                        <div>
-                                                            <select id="status" name="status" class="form-control">
-                                                                <option value="1">Ativado</option>
-                                                                <option value="0">Desativado</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
+
                                                     <a class="btn btn-success btnNext-researcher pull-right">Próximo Etapa</a>
                                                 @endif
                                                 @if($tipo_usuario == 'propi')

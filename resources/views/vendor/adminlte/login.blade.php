@@ -17,10 +17,12 @@
             <div class="login-logo">
                 <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
             </div>
-            @if(!empty($errors->first()))
-
+            @if(session('message'))
                 <div class="alert alert-success">
-                    <span>{{ $errors->first() }}</span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p>{{session('message')}}</p>
                 </div>
             @endif
             <p class="login-box-msg">{{ trans('adminlte::adminlte.login_message') }}</p>

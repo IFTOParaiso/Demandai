@@ -52,8 +52,8 @@
                                     <div class="col-lg-6">
                                         <dt><i class="fa fa-address-book"></i> Pesquisadores</dt>
                                         <dl class="text">
-                                            @forelse($researchers as $researcher)
-                                            <dd>{{$researcher->name}}</dd>
+                                            @forelse($researchersAreas as $researchersArea)
+                                            <dd>{{$researchersArea->name}}</dd>
                                             {{--<dd>{{$user->number}}</dd>--}}
                                             {{--<dd>{{$user->sector}}</dd>--}}
                                             {{--<dd>{{$user->city}}</dd>--}}

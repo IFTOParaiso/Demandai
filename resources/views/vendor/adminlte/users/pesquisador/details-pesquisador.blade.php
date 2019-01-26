@@ -31,6 +31,8 @@
                                 <div class="box-header with-border">
                                     <i class="fa fa-user-circle-o"></i>
                                     <h3 class="box-title">{{$user->name}}</h3>
+                                    <a class="btn btn-sm fa fa-lock pull-right" role="button" style="color: blue"
+                                       href="{{route('edit-password', $user->id)}}"> Alterar senha</a>
                                     <a class="btn btn-sm fa fa-edit pull-right" role="button" style="color: blue"
                                        href="{{url('editar-usuario/edit',$user->id)}}"> Editar</a>
                                 </div>

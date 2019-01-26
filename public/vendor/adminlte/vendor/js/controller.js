@@ -134,10 +134,25 @@ $('.btnNext').click(function () {
 
 $('.btnNext-researcher').click(function () {
 
-    if($("#name").val().length <=0){
+
+    if($('#name').val().length <=0){
         $('.enviar').trigger('click');
     }
-
+    else if($('#email').val().length <=0){
+        $('.enviar').trigger('click');
+    }
+    else if($('#password').val().length <=0){
+        $('.enviar').trigger('click');
+    }
+    else if($('#lattes').val().length <=0){
+        $('.enviar').trigger('click');
+    }
+    else if($('#formation').val().length <=0){
+        $('.enviar').trigger('click');
+    }
+    else if($('#institution_id').val().length <=0){
+        $('.enviar').trigger('click');
+    }
     else{
         $('.nav-tabs > .active').next('li').find('a').trigger('click');
     }

@@ -22,9 +22,9 @@
             <div class="container-fluid">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs" id="myTab">
-                        <li class="active"><a href="#tab_1" data-toggle="tab">Dados do Usuário</a></li>
+                        <li class="active"><a href="#tab_1" data-toggle="tab" style="pointer-events: none">Dados do Usuário</a></li>
                         {{--@if($tipo_usuario <> 'propi')--}}
-                        <li><a href="#tab_2" data-toggle="tab">Áreas de Interesse</a></li>
+                        <li><a href="#tab_2" data-toggle="tab" style="pointer-events: none">Áreas de Interesse</a></li>
                         {{--@endif--}}
                         <li class="pull-right header"><i class="fa fa-file-o"></i> Cadastro de Usuário</li>
                     </ul>
@@ -40,7 +40,7 @@
 
                                         <input type="hidden" name="status" value="1">
                                         <div class="form-group has-feedback {{ $errors->has('name') ? 'has-error' : '' }}">
-                                            <input type="text" name="name" class="form-control"
+                                            <input type="text" name="name" id="name" class="form-control"
                                                    value="{{ $user->name }}"
                                                    placeholder="{{ trans('adminlte::adminlte.full_name') }}" required>
                                             <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -51,9 +51,9 @@
                                             @endif
                                         </div>
                                         <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
-                                            <input type="email" name="email" class="form-control"
+                                            <input type="email" name="email" id="email" class="form-control"
                                                    value="{{ $user->email }}"
-                                                   placeholder="{{ trans('adminlte::adminlte.email') }}">
+                                                   placeholder="{{ trans('adminlte::adminlte.email') }}" required>
                                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                                             @if ($errors->has('email'))
                                                 <span class="help-block">
@@ -62,33 +62,37 @@
                                             @endif
                                         </div>
                                         <div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
-                                            <input type="password" name="password" class="form-control"
+                                            <input type="password" name="password" id="password" class="form-control"
                                                    value="{{ $user->password }}"
-                                                   placeholder="{{ trans('adminlte::adminlte.password') }}">
+                                                   placeholder="{{ trans('adminlte::adminlte.password') }}" required disabled
+                                            >
                                             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                                             @if ($errors->has('password'))
                                                 <span class="help-block">
                                                             <strong>{{ $errors->first('password') }}</strong>
                                                         </span>
                                             @endif
+                                            <a class="btn btn-sm fa fa-lock pull-right" role="button" style="color: blue"
+                                               href="{{route('edit-password', $user->id)}}"> Alterar senha</a>
                                         </div>
-                                        <div class="form-group has-feedback {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
-                                            <input type="password" name="password_confirmation"
+
+                                        {{--<div class="form-group has-feedback {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
+                                            <input type="password" name="password_confirmation" id="password_confirmation"
                                                    class="form-control"
-                                                   value="{{ $user->password }}" placeholder="{{ trans('adminlte::adminlte.retype_password') }}">
+                                                   value="{{ $user->password }}" placeholder="{{ trans('adminlte::adminlte.retype_password') }}" required>
                                             <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                                             @if ($errors->has('password_confirmation'))
                                                 <span class="help-block">
                                                             <strong>{{ $errors->first('password_confirmation') }}</strong>
                                                         </span>
                                             @endif
-                                        </div>
+                                        </div>--}}
 
                                         {{--@if($tipo_usuario <> 'propi')--}}
                                         <div class="form-group has-feedback {{ $errors->has('lattes') ? 'has-error' : '' }}">
-                                            <input type="text" name="lattes" class="form-control"
+                                            <input type="text" name="lattes" id="lattes" class="form-control"
                                                    value="{{ $user->lattes }}"
-                                                   placeholder="Lattes">
+                                                   placeholder="Lattes" required>
                                             <span class="glyphicon glyphicon-user form-control-feedback"></span>
                                             @if ($errors->has('lattes'))
                                                 <span class="help-block">
@@ -99,7 +103,7 @@
                                         <div class="form-group">
                                             <label for="">Formação</label>
                                             <div>
-                                                <select id="formation" name="formation" class="form-control">
+                                                <select id="formation" name="formation" class="form-control" required>
                                                     <option value="1">Graduado</option>
                                                     <option value="2">Mestre</option>
                                                     <option value="3">Doutor</option>
@@ -109,7 +113,7 @@
                                         <div class="form-group">
                                             <label for="">Instituição</label>
                                             <div>
-                                                <select id="institution_id" name="institution_id"
+                                                <select id="institution_id" name="institution_id" required
                                                         class="form-control">
                                                     @forelse($institutions as $institution)
                                                         <option value="{{$institution->id}}">{{$institution->name}}</option>
@@ -130,7 +134,7 @@
                                             </div>
                                         </div>
                                         @endif
-                                        <a class="btn btn-success btnNext pull-right">Próximo Etapa</a>
+                                        <a class="btn btn-success btnNext-researcher pull-right">Próximo Etapa</a>
                                         {{--@endif--}}
                                         {{--@if($tipo_usuario == 'propi')--}}
                                         {{--<input type="hidden" id="tipousuario" name="tipousuario[]" value="2">--}}
@@ -147,7 +151,6 @@
                                     <div class="container-fluid">
                                         <div class="form-group" id="areas-usuario">
                                             <div>
-                                                <hr>
                                                 <table id="tabela-areas-usuario" class="table table-bordered table-hover">
                                                     <thead>
                                                     <tr>
@@ -197,7 +200,7 @@
                                         </div>
 
                                         <a class="btn btn-danger btnPrevious">Anterior</a>
-                                        <button type="submit" class="btn btn-success pull-right">Enviar</button>
+                                        <button type="submit" class="btn btn-success enviar pull-right">Enviar</button>
                                     </div>
                                 </div>
                             </div>

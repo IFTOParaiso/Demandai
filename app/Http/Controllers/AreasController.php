@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Area;
+use App\Entities\AreaUser;
 use App\Entities\BigArea;
 use App\Entities\TypeUser;
 use App\Entities\User;
@@ -126,6 +127,9 @@ class AreasController extends Controller
         $researchers = TypeUser::find(3);
         $researchers = $researchers->usuario;
 
+        $area = Area::find($id);
+        $researchersAreas = $area->researchersAreas;
+
         if (request()->wantsJson()) {
 
             return response()->json([
@@ -133,7 +137,10 @@ class AreasController extends Controller
             ]);
         }
 
-        return view('vendor.adminlte.areas-de-pesquisa.details-area-pesquisa', compact('researchers', 'area', 'bigAreas', 'users'));
+        return view('vendor.adminlte.areas-de-pesquisa.details-area-pesquisa', compact('researchersAreas', 'area', 'bigAreas', 'users'));
+
+
+
     }
 
     /**

@@ -54,3 +54,5 @@ Route::get('areas/{idBigArea}', 'AreasController@listarAreas')->name('listar-are
 Route::get('listar-interessados-edital/{areas}', 'PublishesController@listarInteressadosEdital')->name('listar-interessados');
 
 Route::get('areas-edital/{id}', 'PublishesController@areasEdital')->name('listar-areas');
+Route::get('editar-senha/{id}', 'UsersController@showFormEditPassword')->name('edit-password');
+Route::post('atualizar-senha/{id}', 'UsersController@updatePassword')->name('update-password');

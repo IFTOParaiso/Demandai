@@ -22,4 +22,8 @@ class Area extends Model implements Transformable
      */
     protected $fillable = [];
 
+    public function researchersAreas(){
+        return $this->belongsToMany(User::class,'area_users','area_id','user_id');
+    }
+
 }

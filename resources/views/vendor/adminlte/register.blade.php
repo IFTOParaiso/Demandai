@@ -28,9 +28,11 @@
             <div class="container-fluid">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs" id="myTab">
-                        <li class="active"><a href="#tab_1" data-toggle="tab">Dados do Usuário</a></li>
+                        <li class="active"><a href="#tab_1" data-toggle="tab" style="pointer-events: none">Dados do
+                                Usuário</a></li>
                         @if($tipo_usuario <> 'propi')
-                        <li><a href="#tab_2" data-toggle="tab">Áreas de Interesse</a></li>
+                            <li><a href="#tab_2" data-toggle="tab" style="pointer-events: none">Áreas de Interesse</a>
+                            </li>
                         @endif
                         <li class="pull-right header"><i class="fa fa-file-o"></i> Cadastro de Usuário</li>
                     </ul>
@@ -47,9 +49,10 @@
                                             <div class="container-fluid">
 
                                                 <div class="form-group has-feedback {{ $errors->has('name') ? 'has-error' : '' }}">
-                                                    <input type="text" name="name" class="form-control"
+                                                    <input type="text" name="name" id="name" class="form-control"
                                                            value="{{ old('name') }}"
-                                                           placeholder="{{ trans('adminlte::adminlte.full_name') }}" required>
+                                                           placeholder="{{ trans('adminlte::adminlte.full_name') }}"
+                                                           required>
                                                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                                                     @if ($errors->has('name'))
                                                         <span class="help-block">
@@ -58,9 +61,10 @@
                                                     @endif
                                                 </div>
                                                 <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
-                                                    <input type="email" name="email" id="email" onblur="validacaoEmail()"
+                                                    <input type="email" name="email" id="email"
+                                                           onblur="validacaoEmail()"
                                                            class="form-control" value="{{ old('email') }}"
-                                                           placeholder="{{ trans('adminlte::adminlte.email') }}">
+                                                           placeholder="{{ trans('adminlte::adminlte.email') }}" required>
                                                     <div id="msgemail"></div>
                                                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                                                     @if ($errors->has('email'))
@@ -70,8 +74,9 @@
                                                     @endif
                                                 </div>
                                                 <div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
-                                                    <input type="password" name="password" id="password" class="form-control" onblur="validarsenha6()"
-                                                           placeholder="{{ trans('adminlte::adminlte.password') }}">
+                                                    <input type="password" name="password" id="password"
+                                                           class="form-control" onblur="validarsenha6()"
+                                                           placeholder="{{ trans('adminlte::adminlte.password') }}" required>
                                                     <div id="msgsenha6"></div>
                                                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                                                     @if ($errors->has('password'))
@@ -81,7 +86,8 @@
                                                     @endif
                                                 </div>
                                                 <div class="form-group has-feedback {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
-                                                    <input type="password" name="password_confirmation" id="password_confirmation" onblur="validarsenha()"
+                                                    <input type="password" name="password_confirmation"
+                                                           id="password_confirmation" onblur="validarsenha()"
                                                            class="form-control"
                                                            placeholder="{{ trans('adminlte::adminlte.retype_password') }}">
                                                     <div id="msgsenha"></div>
@@ -96,9 +102,10 @@
                                                 @if($tipo_usuario <> 'propi')
 
                                                     <div class="form-group has-feedback {{ $errors->has('lattes') ? 'has-error' : '' }}">
-                                                        <input type="text" name="lattes" id="lattes" class="form-control" onblur="validarlattes();"
+                                                        <input type="text" name="lattes" id="lattes"
+                                                               class="form-control" onblur="validarlattes();"
                                                                value="{{ old('lattes') }}"
-                                                               placeholder="Lattes">
+                                                               placeholder="Lattes" required>
                                                         <div id="msglattes"></div>
                                                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                                                         @if ($errors->has('lattes'))
@@ -113,7 +120,7 @@
                                                         <label for="">Formação</label>
                                                         <div>
                                                             <select id="formation" name="formation"
-                                                                    class="form-control">
+                                                                    class="form-control" required>
                                                                 <option value="1">Graduado</option>
                                                                 <option value="2">Mestre</option>
                                                                 <option value="3">Doutor</option>
@@ -126,7 +133,7 @@
                                                         <label for="">Instituição</label>
                                                         <div>
                                                             <select id="institution_id" name="institution_id"
-                                                                    class="form-control">
+                                                                    class="form-control" required>
                                                                 @forelse($institutions as $institution)
                                                                     <option value="{{$institution->id}}">{{$institution->name}}</option>
                                                                 @empty
@@ -137,17 +144,22 @@
                                                     </div>
 
                                                     {{--<div class="form-group">--}}
-                                                        {{--<label for="">Status do Usuário</label>--}}
-                                                        {{--<div>--}}
-                                                            {{--<select id="status" name="status" class="form-control">--}}
-                                                                {{--<option value="1">Ativado</option>--}}
-                                                                {{--<option value="0">Desativado</option>--}}
-                                                            {{--</select>--}}
-                                                        {{--</div>--}}
+                                                    {{--<label for="">Status do Usuário</label>--}}
+                                                    {{--<div>--}}
+                                                    {{--<select id="status" name="status" class="form-control">--}}
+                                                    {{--<option value="1">Ativado</option>--}}
+                                                    {{--<option value="0">Desativado</option>--}}
+                                                    {{--</select>--}}
                                                     {{--</div>--}}
-                                                <input type="hidden" name="status" id="status" value="1">
+                                                    {{--</div>--}}
+                                                    <input type="hidden" name="status" id="status" value="1">
 
-                                                    <a class="btn btn-success btnNext pull-right">Próximo Etapa</a>
+                                                    @if($tipo_usuario <> 'pesquisador')
+                                                        <a class="btn btn-success btnNext pull-right">Próxima Etapa</a>
+                                                    @else
+                                                        <a class="btn btn-success btnNext-researcher pull-right">Próxima
+                                                            Etapa</a>
+                                                    @endif
                                                 @endif
 
                                                 @if($tipo_usuario == 'propi')
@@ -160,7 +172,8 @@
                                                            value="3">
                                                 @endif
                                                 @if($tipo_usuario <> 'pesquisador')
-                                                    <button type="submit" class="btn btn-success pull-right">Enviar</button>
+                                                    <button type="submit" class="btn btn-success pull-right">Enviar
+                                                    </button>
                                                 @endif
                                             </div>
                                         </div>
@@ -187,7 +200,7 @@
                                                 </div>
 
                                                 <a class="btn btn-danger btnPrevious">Anterior</a>
-                                                <button type="submit" class="btn btn-success pull-right">Enviar</button>
+                                                <button type="submit" class="btn btn-success enviar pull-right">Enviar</button>
 
                                             </div>
                                         </div>
@@ -197,103 +210,103 @@
             </div>
 
             {{--<form action="{{route('registrar-pesquisador')}}" method="post">--}}
-                {{--{!! csrf_field() !!}--}}
+            {{--{!! csrf_field() !!}--}}
 
-                {{--<div class="form-group has-feedback {{ $errors->has('name') ? 'has-error' : '' }}">--}}
-                    {{--<input type="text" name="name" class="form-control" value="{{ old('name') }}"--}}
-                           {{--placeholder="{{ trans('adminlte::adminlte.full_name') }}">--}}
-                    {{--<span class="glyphicon glyphicon-user form-control-feedback"></span>--}}
-                    {{--@if ($errors->has('name'))--}}
-                        {{--<span class="help-block">--}}
-                            {{--<strong>{{ $errors->first('name') }}</strong>--}}
-                        {{--</span>--}}
-                    {{--@endif--}}
-                {{--</div>--}}
-                {{--<div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">--}}
-                    {{--<input type="email" name="email" class="form-control" value="{{ old('email') }}"--}}
-                           {{--placeholder="{{ trans('adminlte::adminlte.email') }}">--}}
-                    {{--<span class="glyphicon glyphicon-envelope form-control-feedback"></span>--}}
-                    {{--@if ($errors->has('email'))--}}
-                        {{--<span class="help-block">--}}
-                            {{--<strong>{{ $errors->first('email') }}</strong>--}}
-                        {{--</span>--}}
-                    {{--@endif--}}
-                {{--</div>--}}
-                {{--<div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">--}}
-                    {{--<input type="password" name="password" class="form-control"--}}
-                           {{--placeholder="{{ trans('adminlte::adminlte.password') }}">--}}
-                    {{--<span class="glyphicon glyphicon-lock form-control-feedback"></span>--}}
-                    {{--@if ($errors->has('password'))--}}
-                        {{--<span class="help-block">--}}
-                            {{--<strong>{{ $errors->first('password') }}</strong>--}}
-                        {{--</span>--}}
-                    {{--@endif--}}
-                {{--</div>--}}
-                {{--<div class="form-group has-feedback {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">--}}
-                    {{--<input type="password" name="password_confirmation" class="form-control"--}}
-                           {{--placeholder="{{ trans('adminlte::adminlte.retype_password') }}">--}}
-                    {{--<span class="glyphicon glyphicon-log-in form-control-feedback"></span>--}}
-                    {{--@if ($errors->has('password_confirmation'))--}}
-                        {{--<span class="help-block">--}}
-                            {{--<strong>{{ $errors->first('password_confirmation') }}</strong>--}}
-                        {{--</span>--}}
-                    {{--@endif--}}
-                {{--</div>--}}
+            {{--<div class="form-group has-feedback {{ $errors->has('name') ? 'has-error' : '' }}">--}}
+            {{--<input type="text" name="name" class="form-control" value="{{ old('name') }}"--}}
+            {{--placeholder="{{ trans('adminlte::adminlte.full_name') }}">--}}
+            {{--<span class="glyphicon glyphicon-user form-control-feedback"></span>--}}
+            {{--@if ($errors->has('name'))--}}
+            {{--<span class="help-block">--}}
+            {{--<strong>{{ $errors->first('name') }}</strong>--}}
+            {{--</span>--}}
+            {{--@endif--}}
+            {{--</div>--}}
+            {{--<div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">--}}
+            {{--<input type="email" name="email" class="form-control" value="{{ old('email') }}"--}}
+            {{--placeholder="{{ trans('adminlte::adminlte.email') }}">--}}
+            {{--<span class="glyphicon glyphicon-envelope form-control-feedback"></span>--}}
+            {{--@if ($errors->has('email'))--}}
+            {{--<span class="help-block">--}}
+            {{--<strong>{{ $errors->first('email') }}</strong>--}}
+            {{--</span>--}}
+            {{--@endif--}}
+            {{--</div>--}}
+            {{--<div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">--}}
+            {{--<input type="password" name="password" class="form-control"--}}
+            {{--placeholder="{{ trans('adminlte::adminlte.password') }}">--}}
+            {{--<span class="glyphicon glyphicon-lock form-control-feedback"></span>--}}
+            {{--@if ($errors->has('password'))--}}
+            {{--<span class="help-block">--}}
+            {{--<strong>{{ $errors->first('password') }}</strong>--}}
+            {{--</span>--}}
+            {{--@endif--}}
+            {{--</div>--}}
+            {{--<div class="form-group has-feedback {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">--}}
+            {{--<input type="password" name="password_confirmation" class="form-control"--}}
+            {{--placeholder="{{ trans('adminlte::adminlte.retype_password') }}">--}}
+            {{--<span class="glyphicon glyphicon-log-in form-control-feedback"></span>--}}
+            {{--@if ($errors->has('password_confirmation'))--}}
+            {{--<span class="help-block">--}}
+            {{--<strong>{{ $errors->first('password_confirmation') }}</strong>--}}
+            {{--</span>--}}
+            {{--@endif--}}
+            {{--</div>--}}
 
-                {{--@if($tipo_usuario <> 'propi')--}}
+            {{--@if($tipo_usuario <> 'propi')--}}
 
-                    {{--<div class="form-group has-feedback {{ $errors->has('lattes') ? 'has-error' : '' }}">--}}
-                        {{--<input type="text" name="lattes" class="form-control" value="{{ old('lattes') }}"--}}
-                               {{--placeholder="Lattes">--}}
-                        {{--<span class="glyphicon glyphicon-user form-control-feedback"></span>--}}
-                        {{--@if ($errors->has('lattes'))--}}
-                            {{--<span class="help-block">--}}
-                            {{--<strong>{{ $errors->first('lattes') }}</strong>--}}
-                        {{--</span>--}}
-                        {{--@endif--}}
-                    {{--</div>--}}
+            {{--<div class="form-group has-feedback {{ $errors->has('lattes') ? 'has-error' : '' }}">--}}
+            {{--<input type="text" name="lattes" class="form-control" value="{{ old('lattes') }}"--}}
+            {{--placeholder="Lattes">--}}
+            {{--<span class="glyphicon glyphicon-user form-control-feedback"></span>--}}
+            {{--@if ($errors->has('lattes'))--}}
+            {{--<span class="help-block">--}}
+            {{--<strong>{{ $errors->first('lattes') }}</strong>--}}
+            {{--</span>--}}
+            {{--@endif--}}
+            {{--</div>--}}
 
-                    {{--<!-- Select Basic -->--}}
-                    {{--<div class="form-group">--}}
-                        {{--<label for="">Formação</label>--}}
-                        {{--<div>--}}
-                            {{--<select id="formation" name="formation" class="form-control">--}}
-                                {{--<option value="1">Graduado</option>--}}
-                                {{--<option value="2">Mestre</option>--}}
-                                {{--<option value="3">Doutor</option>--}}
-                            {{--</select>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
+            {{--<!-- Select Basic -->--}}
+            {{--<div class="form-group">--}}
+            {{--<label for="">Formação</label>--}}
+            {{--<div>--}}
+            {{--<select id="formation" name="formation" class="form-control">--}}
+            {{--<option value="1">Graduado</option>--}}
+            {{--<option value="2">Mestre</option>--}}
+            {{--<option value="3">Doutor</option>--}}
+            {{--</select>--}}
+            {{--</div>--}}
+            {{--</div>--}}
 
-                    {{--<!-- Select Basic -->--}}
-                    {{--<div class="form-group">--}}
-                        {{--<label for="">Instituição</label>--}}
-                        {{--<div>--}}
-                            {{--<select id="institution_id" name="institution_id" class="form-control">--}}
-                                {{--@forelse($institutions as $institution)--}}
-                                    {{--<option value="{{$institution->id}}">{{$institution->name}}</option>--}}
-                                {{--@empty--}}
-                                    {{--Não há instituições--}}
-                                {{--@endforelse--}}
-                            {{--</select>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--@endif--}}
+            {{--<!-- Select Basic -->--}}
+            {{--<div class="form-group">--}}
+            {{--<label for="">Instituição</label>--}}
+            {{--<div>--}}
+            {{--<select id="institution_id" name="institution_id" class="form-control">--}}
+            {{--@forelse($institutions as $institution)--}}
+            {{--<option value="{{$institution->id}}">{{$institution->name}}</option>--}}
+            {{--@empty--}}
+            {{--Não há instituições--}}
+            {{--@endforelse--}}
+            {{--</select>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--@endif--}}
 
-                {{--@if($tipo_usuario == 'propi')--}}
-                    {{--<input type="hidden" id="tipousuario" name="tipousuario[]" value="2">--}}
-                {{--@endif--}}
+            {{--@if($tipo_usuario == 'propi')--}}
+            {{--<input type="hidden" id="tipousuario" name="tipousuario[]" value="2">--}}
+            {{--@endif--}}
 
-                {{--@if($tipo_usuario == 'pesquisador')--}}
-                    {{--<input type="hidden" id="tipousuario" name="tipousuario[]" value="3">--}}
-                {{--@endif--}}
+            {{--@if($tipo_usuario == 'pesquisador')--}}
+            {{--<input type="hidden" id="tipousuario" name="tipousuario[]" value="3">--}}
+            {{--@endif--}}
 
-                {{--<input type="hidden" id="status" name="status" value="1">--}}
+            {{--<input type="hidden" id="status" name="status" value="1">--}}
 
 
-                {{--<button type="submit"--}}
-                        {{--class="btn btn-primary btn-block btn-flat"--}}
-                {{-->{{ trans('adminlte::adminlte.register') }}</button>--}}
+            {{--<button type="submit"--}}
+            {{--class="btn btn-primary btn-block btn-flat"--}}
+            {{-->{{ trans('adminlte::adminlte.register') }}</button>--}}
             {{--</form>--}}
 
 
@@ -309,53 +322,56 @@
         function validacaoEmail() {
             var field = document.getElementById("email");
             usuario = field.value.substring(0, field.value.indexOf("@"));
-            dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
-            if ((usuario.length >=1) &&
-                (dominio.length >=3) &&
-                (usuario.search("@")==-1) &&
-                (dominio.search("@")==-1) &&
-                (usuario.search(" ")==-1) &&
-                (dominio.search(" ")==-1) &&
-                (dominio.search(".")!=-1) &&
-                (dominio.indexOf(".") >=1)&&
+            dominio = field.value.substring(field.value.indexOf("@") + 1, field.value.length);
+            if ((usuario.length >= 1) &&
+                (dominio.length >= 3) &&
+                (usuario.search("@") == -1) &&
+                (dominio.search("@") == -1) &&
+                (usuario.search(" ") == -1) &&
+                (dominio.search(" ") == -1) &&
+                (dominio.search(".") != -1) &&
+                (dominio.indexOf(".") >= 1) &&
                 (dominio.lastIndexOf(".") < dominio.length - 1)) {
-                document.getElementById("msgemail").innerHTML="";
+                document.getElementById("msgemail").innerHTML = "";
             }
-            else{
-                document.getElementById("msgemail").innerHTML="<font color='red'>Email inválido </font>";
+            else {
+                document.getElementById("msgemail").innerHTML = "<font color='red'>Email inválido </font>";
             }
         }
+
         function validarsenha6() {
             var senha1 = document.getElementById("password").value;
             var senhanum = senha1.length;
-            if (senhanum >= 6){
-                document.getElementById("msgsenha6").innerHTML="";
+            if (senhanum >= 6) {
+                document.getElementById("msgsenha6").innerHTML = "";
             }
             else {
-                document.getElementById("msgsenha6").innerHTML="<font color='red'>A senha deve conter 6 carácteres</font>";
+                document.getElementById("msgsenha6").innerHTML = "<font color='red'>A senha deve conter 6 carácteres</font>";
             }
         }
+
         function validarsenha() {
             var senha1 = document.getElementById("password");
             var senha2 = document.getElementById("password_confirmation");
-            if (senha1.value != senha2.value){
-                document.getElementById("msgsenha").innerHTML="<font color='red'>Senha não são iguais</font>";
+            if (senha1.value != senha2.value) {
+                document.getElementById("msgsenha").innerHTML = "<font color='red'>Senha não são iguais</font>";
             }
             else {
-                document.getElementById("msgsenha").innerHTML="";
+                document.getElementById("msgsenha").innerHTML = "";
             }
         }
+
         function validarlattes() {
             var lates = document.getElementById("lattes").value;
             var query = "lattes.cnpq.br";
             var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
-            if(!regex.test(lates)){
-                document.getElementById("msglattes").innerHTML="<font color='red'>Link Inválido</font>";
+            if (!regex.test(lates)) {
+                document.getElementById("msglattes").innerHTML = "<font color='red'>Link Inválido</font>";
             } else {
-                if (lates.toLowerCase().indexOf(query.toLowerCase()) != -1){
-                    document.getElementById("msglattes").innerHTML="";
-                }else {
-                    document.getElementById("msglattes").innerHTML="<font color='red'>Link parace não pertencer ao Lattes, deve ser no formato: http://lattes.cnpq.br/0000000000000000</font>";
+                if (lates.toLowerCase().indexOf(query.toLowerCase()) != -1) {
+                    document.getElementById("msglattes").innerHTML = "";
+                } else {
+                    document.getElementById("msglattes").innerHTML = "<font color='red'>Link parace não pertencer ao Lattes, deve ser no formato: http://lattes.cnpq.br/0000000000000000</font>";
                 }
             }
         }
