@@ -29,7 +29,7 @@
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <dl>
                                             <dt><i class="fa fa-info"></i> Área</dt>
                                             <dd>{{$area->name}}</dd>
@@ -49,19 +49,30 @@
 
                                     </div>
 
-                                    <div class="col-lg-6">
-                                        <dt><i class="fa fa-address-book"></i> Pesquisadores</dt>
-                                        <dl class="text">
-                                            @forelse($researchers as $researcher)
-                                            <dd>{{$researcher->name}}</dd>
-                                            {{--<dd>{{$user->number}}</dd>--}}
-                                            {{--<dd>{{$user->sector}}</dd>--}}
-                                            {{--<dd>{{$user->city}}</dd>--}}
-                                            @empty
-                                                Não há registros
+                                    <div class="col-lg-8">
 
-                                            @endforelse
-                                        </dl>
+                                        <div class="box-body">
+
+                                            <table id="tabela-pesquisadores" class="table-pesquisadores table-hover">
+                                                <thead>
+                                                <th><i class="fa fa-address-book"></i> Pesquisadores</th>
+                                                </thead>
+                                                <tbody>
+                                                @forelse($researchers as $researcher)
+                                                    <tr>
+                                                        <td>
+                                                            <a href="{{url('detalhe-pesquisador/show',$researcher->id)}}" class="col-sm-12"><span
+                                                                        class="text">{{$researcher->name}}</span></a>
+                                                        </td>
+                                                    </tr>
+                                                @empty
+                                                    Não há registros
+
+                                                @endforelse
+                                                </tbody>
+                                            </table>
+                                            <!-- /.table-responsive -->
+                                        </div>
                                     </div>
 
                                     <div id="pesquisadores-interessados"></div>
@@ -77,6 +88,10 @@
 
     <style>
         .text {
+            max-height:250px;
+            overflow-x:auto;
+        }
+        .table-pesquisadores {
             max-height:250px;
             overflow-x:auto;
         }
