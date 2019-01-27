@@ -212,4 +212,5 @@ $(document).ready(function() {
     paginacao('usuarios-propi');
     paginacao('usuarios-pesquisador');
     paginacao('tabela-editais');
+    paginacao('tabela-pesquisadores');
 } );
