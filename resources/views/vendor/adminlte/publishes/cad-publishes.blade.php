@@ -23,9 +23,10 @@
                                     <div class="container-fluid">
 
                                         <div class="form-group has-feedback {{ $errors->has('title') ? 'has-error' : '' }}">
-                                            <input type="text" name="title" id="title" class="form-control"
+                                            <input type="text" name="title" id="title" class="form-control" onblur="validartitulo();"
                                                    value="{{ old('title') }}"
                                                    placeholder="Título" required>
+                                            <div id="divtitulo"></div>
                                             <span class="fa fa-file form-control-feedback"></span>
                                             @if ($errors->has('title'))
                                                 <span class="help-block">
@@ -34,9 +35,10 @@
                                             @endif
                                         </div>
                                         <div class="form-group has-feedback {{ $errors->has('description') ? 'has-error' : '' }}">
-                        <textarea type="text" name="description" id="description" class="form-control"
+                        <textarea type="text" name="description" id="description" class="form-control" onblur="validardescricao()"
                                   placeholder="Descrição" style="height: 100px" required>{{old('description')}}</textarea>
                                             <span class="fa fa-file-text form-control-feedback"></span>
+                                            <div id="iddescicao"></div>
                                             @if ($errors->has('description'))
                                                 <span class="help-block">
                             <strong>{{ $errors->first('description') }}</strong>
@@ -56,8 +58,9 @@
                                             @endif
                                         </div>
                                         <div class="form-group has-feedback {{ $errors->has('link') ? 'has-error' : '' }}">
-                                            <input type="text" name="link" id="link" class="form-control"
+                                            <input type="text" name="link" id="link" class="form-control" onblur="validarurl()"
                                                    placeholder="Link de Acesso" value="{{old('link')}}" required>
+                                            <div id="urlink"></div>
                                             <span class="fa fa-link form-control-feedback"></span>
                                             @if ($errors->has('link'))
                                                 <span class="help-block">
@@ -113,8 +116,7 @@
         </div>
     </div>
     <script language="Javascript">
-        function compare()
-        {
+        function compare() {
             var d1 = new Date();
             var endDt = document.getElementById("date_closure").value;
 
@@ -124,6 +126,38 @@
             }
             else{
                 document.getElementById("msdata").innerHTML="<font color='red'></font>";
+            }
+        }
+
+        function validartitulo(){
+            var senha1 = document.getElementById("title").value;
+            var senhanum = senha1.length;
+            if (senhanum >= 5){
+                document.getElementById("divtitulo").innerHTML="";
+            }
+            else {
+                document.getElementById("divtitulo").innerHTML="<font color='red'>O campo título deve conter no mínimo 5 caracteres.</font>";
+            }
+        }
+
+        function validardescricao(){
+            var senha1 = document.getElementById("description").value;
+            var senhanum = senha1.length;
+            if (senhanum >= 5){
+                document.getElementById("iddescicao").innerHTML="";
+            }
+            else {
+                document.getElementById("iddescicao").innerHTML="<font color='red'>O campo descrição deve conter no mínimo 5 caracteres.</font>";
+            }
+        }
+
+        function validarurl() {
+            var url = document.getElementById("link").value;
+            var regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+            if(!regex.test(url)){
+                document.getElementById("urlink").innerHTML="<font color='red'>O formato da URL informada para o campo link é inválido.</font>";
+            } else {
+                document.getElementById("urlink").innerHTML="";
             }
         }
     </script>
