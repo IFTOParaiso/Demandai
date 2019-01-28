@@ -29,6 +29,8 @@
                 <table id="tabela-editais" class="table table-hover">
                     <thead>
                     <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Lattes</th>
                     </thead>
                     <tbody>
                     @forelse($researchers as $researcher)
@@ -36,6 +38,12 @@
                             <td>
                                 <a href="{{url('detalhe-pesquisador/show',$researcher->id)}}" class="col-sm-12"><span
                                             class="text">{{$researcher->name}}</span></a>
+                            </td>
+                            <td>
+                                <span class="text">{{$researcher->email}}</span>
+                            </td>
+                            <td>
+                               <a href="{{$researcher->lattes}}" target="_blank"><span class="text">{{$researcher->lattes}}</span></a>
                             </td>
                         </tr>
                     @empty
