@@ -49,7 +49,7 @@
 
                                     </div>
 
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-12">
 
                                         <div class="box-body">
 
@@ -61,7 +61,7 @@
                                                 @forelse($researchersAreas as $researchersArea)
                                                     <tr>
                                                         <td>
-                                                            <a href="{{url('detalhe-pesquisador/show',$researcher->id)}}" class="col-sm-12"><span
+                                                            <a href="{{url('detalhe-pesquisador/show',$researchersArea->id)}}" class="col-sm-12"><span
                                                                         class="text">{{$researchersArea->name}}</span></a>
                                                         </td>
                                                     </tr>
