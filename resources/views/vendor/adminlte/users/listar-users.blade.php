@@ -4,51 +4,56 @@
 
 @section('content_header')
     <section class="content-header">
-        <h1>
-            Lista de Usuários
-        </h1>
+        <div>
+            <a class="btn btn-success"
+               href="{{url('cadastrar-usuario','propi')}}"> Cadastrar novo Usuário Propi</a>
+        </div>
+
     </section>
 @stop
 
 @section('content')
             <section class="content">
                 <div class="row">
-                    <div class="col-xs-12">
-                        <div class="box">
-                            <div class="box-header">
-                                <h3 class="box-title">Lista de Usuários do Sistema</h3>
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
+                                <h3><i class="fa fa-users"></i> Usuários</h3>
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
                             </div>
+
                             <div class="box-body">
                                 <table id="usuarios-propi" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
-                                    <tr>
-                                        <th>Nome</th>
-                                        <th>Email</th>
-                                        <th>Tipo</th>
-                                    </tr>
+                                    <th>Nome</th>
+                                    <th>E-mail</th>
+                                    <th>Lattes</th>
                                     </thead>
                                     <tbody>
                                     @forelse($users as $user)
-                                    <tr>
-                                        <td>{{$user->name}}</td>
-                                        <td>{{$user->email}}</td>
-                                        <td>{{$user->lattes}}</td>
-                                    </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="{{url('detalhe-pesquisador/show',$user->id)}}" class="col-sm-12"><span
+                                                            class="text">{{$user->name}}</span></a>
+                                            </td>
+                                            <td>
+                                                <span class="text">{{$user->email}}</span>
+                                            </td>
+                                            <td>
+                                                <a href="{{$user->lattes}}" target="_blank"><span class="text">{{$user->lattes}}</span></a>
+                                            </td>
+                                        </tr>
                                     @empty
-                                        Não há usuários
+                                        Não há registros
+
                                     @endforelse
                                     </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <th>Nome</th>
-                                        <th>Email</th>
-                                        <th>Tipo</th>
-                                    </tr>
-                                    </tfoot>
                                 </table>
                             </div>
+
                         </div>
-                    </div>
                 </div>
             </section>
 @stop

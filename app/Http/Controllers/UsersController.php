@@ -58,12 +58,24 @@ class UsersController extends Controller
     public function index($tipo_usuario)
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+        $users = $this->repository->all();
 
-        $researchers = TypeUser::find(3);
-        $researchers = $researchers->usuario;
+        if (request()->wantsJson()) {
 
-        return view('vendor.adminlte.users.pesquisador.listar-pesquisador', compact('researchers'));
+            return response()->json([
+                'data' => $users,
+            ]);
+        }
+
+         if ($tipo_usuario == 'pesquisador'){
+             $researchers = TypeUser::find(3);
+             $researchers = $researchers->usuario;
+
+             return view('vendor.adminlte.users.pesquisador.listar-pesquisador', compact('researchers'));
+
+         }elseif ($tipo_usuario == 'admin' || $tipo_usuario == 'propi'){
+             return view('vendor.adminlte.users.listar-users', compact('users'));
+         }
     }
 
     /**
