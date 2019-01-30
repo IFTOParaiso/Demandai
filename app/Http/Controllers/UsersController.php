@@ -55,7 +55,7 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($tipo_usuario)
+    public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
         $users = $this->repository->all();
@@ -66,16 +66,24 @@ class UsersController extends Controller
                 'data' => $users,
             ]);
         }
+        return view('vendor.adminlte.users.listar-users', compact('users'));
 
-         if ($tipo_usuario == 'pesquisador'){
-             $researchers = TypeUser::find(3);
-             $researchers = $researchers->usuario;
+    }
+    public function pesquisador(){
+        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+        $users = $this->repository->all();
 
-             return view('vendor.adminlte.users.pesquisador.listar-pesquisador', compact('researchers'));
+        if (request()->wantsJson()) {
 
-         }elseif ($tipo_usuario == 'admin' || $tipo_usuario == 'propi'){
-             return view('vendor.adminlte.users.listar-users', compact('users'));
-         }
+            return response()->json([
+                'data' => $users,
+            ]);
+        }
+
+        $researchers = TypeUser::find(3);
+        $researchers = $researchers->usuario;
+
+        return view('vendor.adminlte.users.pesquisador.listar-pesquisador', compact('researchers'));
     }
 
     /**

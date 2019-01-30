@@ -14,7 +14,7 @@ class PropiAuthenticate
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next, $guard = null){
     if (Auth::guard($guard)->check()) {
         $user = new User();
         $user->id = Auth::user()->id;
