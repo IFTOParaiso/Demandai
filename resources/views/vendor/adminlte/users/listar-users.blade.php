@@ -29,7 +29,7 @@
                                     <thead>
                                     <th>Nome</th>
                                     <th>E-mail</th>
-                                    <th>Lattes</th>
+                                    <th>Tipo de Usuário</th>
                                     </thead>
                                     <tbody>
                                     @forelse($users as $user)
