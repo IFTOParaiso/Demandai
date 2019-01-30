@@ -89,11 +89,32 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+
         try {
 
-            $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
+            if($request['tipousuario'][0] == 2){
+                $user = User::create([
+                    'name' => $request['name'],
+                    'email' => $request['email'],
+                    'password' => Hash::make($request['password']),
+                    'password_confirmation' => Hash::make($request['password_confirmation']),
+                    'formation' => 4,
+                    'lattes' => $request['email'],
+                    'status' => 1,
+                    'institution_id' => 1,]);
+                $dataform = $request['tipousuario'];
+                $user->tipoUsuario()->sync($dataform);
 
-            $user = User::create([
+                if ($request['tipousuario'][0] == 3) {
+
+                    $dataform = $request['areas'];
+                    $user->areasUsuario()->sync($dataform);
+                }
+                return redirect('cadastrar-usuario/propi')->with('message','Usuário cadastrado!');
+            }else{
+                $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
+
+                $user = User::create([
                 'name' => $request['name'],
                 'email' => $request['email'],
                 'password' => Hash::make($request['password']),
@@ -102,6 +123,7 @@ class UsersController extends Controller
                 'lattes' => $request['lattes'],
                 'status' => $request['status'],
                 'institution_id' => $request['institution_id'],]);
+
             $dataform = $request['tipousuario'];
             $user->tipoUsuario()->sync($dataform);
 
@@ -121,7 +143,7 @@ class UsersController extends Controller
                 return response()->json($messagem);
             }
             return redirect('login/pesquisador')->with('message','Usuário cadastrado!');
-
+            }
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([

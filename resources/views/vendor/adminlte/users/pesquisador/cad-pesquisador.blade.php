@@ -144,7 +144,7 @@
                                                 @if($tipo_usuario <> 'pesquisador')
                                                     <button type="submit" class="btn btn-success pull-right">Enviar
                                                     </button>
-                                                @endif
+                                                @else
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="tab_2">
@@ -165,6 +165,7 @@
                                                 <div id="tabela-areas"></div>
                                                 <a class="btn btn-danger btnPrevious">Anterior</a>
                                                 <button type="submit" class="btn btn-success enviar pull-right">Enviar</button>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
