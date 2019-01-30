@@ -4,10 +4,10 @@
 
 @section('content_header')
     <section class="content-header">
-        <div>
-            <a class="btn btn-success"
-               href="{{url('cadastrar-usuario','pesquisador')}}"> Cadastrar novo Pesquisador</a>
-        </div>
+        {{--<div>--}}
+            {{--<a class="btn btn-success"--}}
+               {{--href="{{url('cadastrar-usuario','pesquisador')}}"> Cadastrar novo Pesquisador</a>--}}
+        {{--</div>--}}
 
     </section>
 @stop
