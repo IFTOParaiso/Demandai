@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Entities\BigArea;
 use App\Entities\Institution;
 use App\Entities\TypeUser;
+use App\Entities\UserTypeUser;
 use App\Mail\CadastradoComSucesso;
 use Illuminate\Http\Request;
 
@@ -60,13 +61,16 @@ class UsersController extends Controller
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
         $users = $this->repository->all();
 
+        $tipouser = UserTypeUser::all();
+
         if (request()->wantsJson()) {
 
             return response()->json([
                 'data' => $users,
             ]);
         }
-        return view('vendor.adminlte.users.listar-users', compact('users'));
+
+        return view('vendor.adminlte.users.listar-users', compact('users', 'tipouser'));
 
     }
     public function pesquisador(){
@@ -189,8 +193,11 @@ class UsersController extends Controller
         }
         $areas = $user->areasUsuario;
 //            return $areas;
-
-        return view('vendor.adminlte.users.pesquisador.details-pesquisador', compact('user', 'institutions', 'areas', 'tipouser'));
+        if ($tipouser == 3){
+            return view('vendor.adminlte.users.pesquisador.details-pesquisador', compact('user', 'institutions', 'areas', 'tipouser'));
+        }elseif ($tipouser == 1 || $tipouser == 2){
+            return view('vendor.adminlte.users.details-user', compact('user', 'tipouser'));
+        }
     }
 
     /**

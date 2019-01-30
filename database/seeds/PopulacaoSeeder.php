@@ -141,7 +141,7 @@ class PopulacaoSeeder extends Seeder
             'street' => 'Rua do Açude/Lago Municipal',
             'number' => 'sn',
             'sector' => 'Centro',
-            'city' => 'ZZ - TO',
+            'city' => 'Formoso do Araguaia - TO',
             'complement' => 'IFTO',
         ]);
 
@@ -578,6 +578,12 @@ class PopulacaoSeeder extends Seeder
 
         \App\Entities\UserTypeUser::create([
             'user_id' => '20',
+            'type_user_id' => '3',
+
+        ]);
+
+        \App\Entities\UserTypeUser::create([
+            'user_id' => '21',
             'type_user_id' => '3',
 
         ]);

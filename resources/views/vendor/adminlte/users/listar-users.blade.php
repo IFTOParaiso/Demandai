@@ -42,7 +42,17 @@
                                                 <span class="text">{{$user->email}}</span>
                                             </td>
                                             <td>
-                                                <a href="{{$user->lattes}}" target="_blank"><span class="text">{{$user->lattes}}</span></a>
+                                                @foreach($tipouser as $t)
+                                                    @if( $t->user_id == $user->id)
+                                                        @if($t->type_user_id == '1')
+                                                            <span class="text">Usuário Administrador</span>
+                                                        @elseif($t->type_user_id == '2')
+                                                            <span class="text">Usuário Propi</span>
+                                                        @elseif($t->type_user_id == '3')
+                                                            <span class="text">Usuário Pesquisador</span>
+                                                        @endif
+                                                    @endif
+                                                @endforeach
                                             </td>
                                         </tr>
                                     @empty
