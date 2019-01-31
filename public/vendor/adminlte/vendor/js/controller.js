@@ -203,7 +203,7 @@ function pesquisadoresIteressados() {
         listaInteressados = '<table id="tabela-pesquisadores" class="table table-bordered table-hover"><thead><tr><th>Pesquisadores interessados</th></tr></thead>';
         listaInteressados += '<tbody>';
         for (var i in checkeds) {
-            listaInteressados += '<tr><td><input type="checkbox" name="pesquisadores[]" id="pesquisadores" value="' + checkeds[i].id + '" checked> ' + checkeds[i].name + '</td></tr>';
+            listaInteressados += '<tr><td><input type="checkbox" name="pesquisadores[]" id="pesquisadores" style="display: none" value="' + checkeds[i].id + '" checked> ' + checkeds[i].name + '</td></tr>';
         }
         listaInteressados += '<tbody>';
 
