@@ -148,11 +148,7 @@ return [
             'url' => 'listar-usuario/propi',
             'icon' => 'user',
         ],
-        [
-            'text' => 'Relatórios',
-            'url' => '#',
-            'icon' => 'files-o',
-        ],
+
 
 
 
