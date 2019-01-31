@@ -42,7 +42,7 @@ Route::put('deletar-edital/delete/{id}', 'PublishesController@destroy')->middlew
 Route::get('detalhe-edital/show/{id}', 'PublishesController@show')->middleware('auth')->name('detalhe-edital');
 Route::get('interesse/{interesse}/publish/{publish_id}/{url}', 'PublishesController@interesse')->middleware('auth')->name('detalhe-edital');
 Route::get('listar-edital', 'PublishesController@index')->middleware('auth')->name('listar-edital');
-Route::get('areas/{idBigArea}', 'AreasController@listarAreas')->middleware('auth')->name('listar-areas');
+Route::get('areas/{idBigArea}', 'AreasController@listarAreas')->name('listar-areas');
 Route::get('listar-interessados-edital/{areas}', 'PublishesController@listarInteressadosEdital')->middleware('auth')->name('listar-interessados');
 Route::get('areas-edital/{id}', 'PublishesController@areasEdital')->middleware('auth')->name('listar-areas');
 Route::get('editar-senha/{id}', 'UsersController@showFormEditPassword')->name('edit-password');

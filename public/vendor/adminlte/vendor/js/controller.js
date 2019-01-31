@@ -1,5 +1,22 @@
 const urlBase = "http://localhost/";
+$(document).ready(function(){
+    url = window.location.href;
 
+    console.log(url);
+    console.log(urlBase);
+    if (url == urlBase+'listar-edital') {
+        $('#editais').addClass('active');
+    }
+    else if (url == urlBase+'listar-usuario/pesquisador') {
+        $('#pesquisadores').addClass('active');
+    }
+    else if (url == urlBase+'list-instituicoes') {
+        $('#instituicao').addClass('active');
+    }
+    else if (url == urlBase+'areas-pesquisa') {
+        $('#areas-pesquisa').addClass('active');
+    }
+});
 $(document).on('click', '#big-area', function () {
     var id = event.target.id;
     var idBigArea = $("#" + id).val();
