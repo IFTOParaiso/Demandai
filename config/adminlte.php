@@ -109,11 +109,6 @@ return [
 
     'menu' => [
 
-        /*   [
-               'text' => 'Cadastrar Editais',
-               'url'  => 'cadastrar-edital',
-               'icon'    => 'file',
-           ],*/
         [
             'text' => 'Início',
             'url' => 'home',
@@ -148,21 +143,6 @@ return [
             'url' => 'listar-usuario/propi',
             'icon' => 'user',
         ],
-
-
-
-
-      /*  [
-            'text' => 'Perfil',
-//            'url'  => 'meu-perfil/'.Auth::user()->id,
-            'url' => 'meu-perfil/1',
-            'icon' => 'user',
-        ],
-        [
-            'text' => 'Change Password',
-            'url' => 'password/reset',
-            'icon' => 'lock',
-        ],*/
     ],
 
     /*

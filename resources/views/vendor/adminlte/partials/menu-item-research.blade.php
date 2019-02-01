@@ -4,28 +4,28 @@
     <ul class="sidebar-menu" data-widget="tree">
 
         <li id="editais">
-            <a href="http://localhost/listar-edital"
+            <a href="{{route('listar-edital')}}"
             >
                 <i class="fa fa-fw fa-file "></i>
                 <span>Editais</span>
             </a>
         </li>
         <li id="pesquisadores">
-            <a href="http://localhost/listar-usuario/pesquisador"
+            <a href="{{route('listar-usuario-pesquisador')}}"
             >
                 <i class="fa fa-fw fa-users "></i>
                 <span>Pesquisadores</span>
             </a>
         </li>
         <li id="instituicao">
-            <a href="http://localhost/list-instituicoes"
+            <a href="{{route('listar-instituicoes')}}"
             >
                 <i class="fa fa-fw fa-university "></i>
                 <span>Instituições</span>
             </a>
         </li>
         <li id="areas-pesquisa">
-            <a href="http://localhost/areas-pesquisa"
+            <a href="{{route('areas-pesquisa')}}"
             >
                 <i class="fa fa-fw fa-search "></i>
                 <span>Áreas de pesquisa</span>

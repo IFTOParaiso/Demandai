@@ -20,7 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('cadastrar-usuario/{tipo_usuario}', 'UsersController@cadastrarUsuario')->name('cadastrar-usuario');
-//Route::get('listar-usuario', 'UsersController@index')->middleware('auth')->name('listar-usuario');
 Route::get('listar-usuario/propi', 'UsersController@index')->middleware('propi')->name('listar-usuario-pesquisador');
 Route::get('listar-usuario/pesquisador', 'UsersController@pesquisador')->middleware('auth')->name('listar-usuario-pesquisador');
 
@@ -32,7 +31,7 @@ Route::get('login/{tipo_usuario}', 'UsersController@showFormLogin')->name('login
 Route::get('meu-perfil', 'UsersController@meuPerfil')->middleware('auth')->name('perfil-usuario');
 Route::get('areas-pesquisa', 'AreasController@index')->middleware('auth')->name('areas-pesquisa');
 Route::get('detalhes-areas-pesquisa/show/{id}', 'AreasController@show')->middleware('auth')->name('detalhes-areas-pesquisa');
-Route::get('list-instituicoes', 'InstitutionsController@index')->middleware('auth');
+Route::get('list-instituicoes', 'InstitutionsController@index')->middleware('auth')->name('listar-instituicoes');
 Route::get('detalhes-instituicoes/show/{id}', 'InstitutionsController@show')->middleware('auth');
 Route::get('cadastrar-edital', 'PublishesController@cadastrarEdital')->middleware('propi')->name('cadastrar-edital');
 Route::post('cadastrar-edital/store', 'PublishesController@store')->middleware('propi')->name('cadastrar-edital');
