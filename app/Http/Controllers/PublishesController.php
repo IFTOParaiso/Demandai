@@ -7,6 +7,7 @@ use App\Entities\BigArea;
 use App\Entities\PublishUser;
 use App\Entities\User;
 use App\Mail\NovoEditalDisponivel;
+use App\Mail\RetificaçãoDeEdital;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -259,7 +260,7 @@ class PublishesController extends Controller
                 $listapesquisadores = User::whereIn('id', $interessados)->get();
                 //$teste=$listapesquisadores['email'];
                 foreach ($listapesquisadores as $index => $value) {
-                    Mail::to($value['email'], $value['name'])->send(new NovoEditalDisponivel($request, $value));
+                    Mail::to($value['email'], $value['name'])->send(new RetificaçãoDeEdital($request, $value));
                     //dd($value);
                 }
 
