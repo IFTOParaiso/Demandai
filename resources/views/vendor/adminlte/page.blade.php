@@ -127,7 +127,7 @@
                     <ul class="sidebar-menu" data-widget="tree">
 
                         @foreach(auth()->user()->tipoUsuario as $t)
-                            @if($t->pivot->type_user_id == 2)
+                            @if($t->pivot->type_user_id == 1 || $t->pivot->type_user_id == 2)
                                 @each('adminlte::partials.menu-item', $adminlte->menu(), 'item')
                             @elseif($t->pivot->type_user_id == 3)
                                 @include('vendor.adminlte.partials.menu-item-research')
