@@ -209,6 +209,7 @@ class PublishesController extends Controller
             $areas = $publish->areasEdital;
         }
 
+
         return view('vendor.adminlte.publishes.edit-publishes', compact('publish', 'bigAreas', 'areas'));
     }
 
@@ -245,7 +246,25 @@ class PublishesController extends Controller
 
                 return response()->json($response);
             }
+            $pesquisador = AreaUser::whereIn('area_id', $request['areas'])->get();
 
+            if (count($pesquisador) < 1) {
+
+            } else {
+                foreach ($pesquisador as $p) {
+                    $interessados[] = $p->user_id;
+                }
+                $interessados = array_unique($interessados);
+
+                $listapesquisadores = User::whereIn('id', $interessados)->get();
+                //$teste=$listapesquisadores['email'];
+                foreach ($listapesquisadores as $index => $value) {
+                    Mail::to($value['email'], $value['name'])->send(new NovoEditalDisponivel($request, $value));
+                    //dd($value);
+                }
+
+
+            }
 //            return redirect()->back()->with('message', $response['message']);
             return redirect(url('detalhe-edital/show', compact('id')));
         } catch (ValidatorException $e) {
